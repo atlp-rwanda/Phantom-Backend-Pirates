@@ -14,7 +14,7 @@ describe('Login API', () => {
         .get('/users/login')
         .end((err, res) => {
           res.should.have.status(200)
-          
+
           done()
         })
     })
