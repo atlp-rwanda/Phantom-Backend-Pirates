@@ -2,6 +2,7 @@ import express from 'express'
 import logger from 'morgan'
 import swaggerJsDoc from 'swagger-jsdoc'
 import swaggerUI from 'swagger-ui-express'
+import config from '../config/config.js'
 
 // Required Routes
 import welcomeRoute from './routes/welcomeRoute'
@@ -37,7 +38,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 app.use(welcomeRoute)
 
 // PORT
-const port = process.env.PORT || 3000
+const port = config.app.port
 
 // Listening to requests
 app.listen(port, () => {
