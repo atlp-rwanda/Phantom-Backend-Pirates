@@ -2,7 +2,10 @@ import express from 'express'
 import logger from 'morgan'
 import swaggerJsDoc from 'swagger-jsdoc'
 import swaggerUI from 'swagger-ui-express'
+<<<<<<< HEAD
 import config from '../config/config.js'
+=======
+>>>>>>> configure CI/CD using Github Actions and Heroku
 
 // Required Routes
 import welcomeRoute from './routes/welcomeRoute'
@@ -38,7 +41,11 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 app.use(welcomeRoute)
 
 // PORT
+<<<<<<< HEAD
 const port = config.app.port
+=======
+const port = process.env.PORT || 3000
+>>>>>>> configure CI/CD using Github Actions and Heroku
 
 // Listening to requests
 app.listen(port, () => {
