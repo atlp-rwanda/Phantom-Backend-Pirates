@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate (models) {
       // define association here
+      Bus.belongsTo(models.Employee, {
+        foreignKey: 'employeeId',
+        onDelete: 'CASCADE'
+      })
       Bus.belongsTo(models.Company, {
         foreignKey: 'cid',
         onDelete: 'CASCADE'
@@ -59,12 +63,18 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       cid: DataTypes.INTEGER,
-      rout_id: DataTypes.INTEGER
-    },
-    {
+      rout_id: DataTypes.INTEGER,
+      employeeId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'Employee',
+          key: 'id',
+          as: 'employeeId'
+        }
+      }
+    }, {
       sequelize,
       modelName: 'Bus'
-    }
-  )
+    })
   return Bus
 }

@@ -35,6 +35,54 @@ module.exports = {
           roleId: 2,
           createdAt: '2022-03-14T09:01:38.932Z',
           updatedAt: '2022-03-14T09:01:38.932Z'
+        },
+        {
+          id: 4,
+          firstname: 'Richard',
+          lastname: 'Munyemana',
+          email: 'richmunye@gmail.com',
+          password: bcrypt.hashSync('123456', Number.parseInt(process.env.AUTH_ROUNDS)),
+          roleId: 2,
+          createdAt: '2022-03-14T09:01:38.932Z',
+          updatedAt: '2022-03-14T09:01:38.932Z'
+
+        }, {
+          id: 5,
+          firstname: 'Thiery',
+          lastname: 'Twahirwa',
+          email: 'ttwahirwa@gmail.com',
+          password: bcrypt.hashSync('123456', Number.parseInt(process.env.AUTH_ROUNDS)),
+          roleId: 2,
+          createdAt: '2022-03-14T09:01:38.932Z',
+          updatedAt: '2022-03-14T09:01:38.932Z'
+        },
+        {
+          id: 6,
+          firstname: 'Cyusa',
+          lastname: 'Gedeon',
+          email: 'cyusagedeon@gmail.com',
+          password: bcrypt.hashSync('123456', Number.parseInt(process.env.AUTH_ROUNDS)),
+          roleId: 2,
+          createdAt: '2022-03-14T09:01:38.932Z',
+          updatedAt: '2022-03-14T09:01:38.932Z'
+        }, {
+          id: 7,
+          firstname: 'Inkindi',
+          lastname: 'Sabine',
+          email: 'inkindisabine@gmail.com',
+          password: bcrypt.hashSync('123456', Number.parseInt(process.env.AUTH_ROUNDS)),
+          roleId: 2,
+          createdAt: '2022-03-14T09:01:38.932Z',
+          updatedAt: '2022-03-14T09:01:38.932Z'
+        }, {
+          id: 8,
+          firstname: 'Jules',
+          lastname: 'Bienvenue',
+          email: 'himbazajules10@gmail.com',
+          password: bcrypt.hashSync('123456', Number.parseInt(process.env.AUTH_ROUNDS)),
+          roleId: 2,
+          createdAt: '2022-03-14T09:01:38.932Z',
+          updatedAt: '2022-03-14T09:01:38.932Z'
         }
 
       ]

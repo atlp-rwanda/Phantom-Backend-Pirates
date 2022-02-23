@@ -17,6 +17,8 @@ import busRouter from './routes/bus'
 import companyRouter from './routes/company'
 import viewBus from './routes/viewbus'
 import userRoute from './routes/route'
+import assignDriver from './routes/assignDriversToBuses'
+import unassignDriver from './routes/unassignBusFromDriver'
 import registerEmployeesRoute from './routes/registerEmployeesRoute'
 import forgotpassword from './routes/forgotpassword'
 import resetPassword from './routes/resetPassword'
@@ -86,6 +88,9 @@ app.use(forgotpassword)
 app.use(resetPassword)
 app.use(assignBusRoute)
 app.use(logout)
+app.use(unassignDriver)
+app.use(assignDriver)
+// Use routes
 
 // port & hostname
 const port = process.env.APP_PORT || 3000
