@@ -69,44 +69,7 @@
     "missingBusstop": "There is a missing Bus stop",
     "duplicateBusstop": "There are duplicates Bus stops"
   },
-  "field_error_message": {
-    "first_name_message": {
-      "invalid_first_name": "Invalid Firstname",
-      "empty_first_name": "Firstname cannot be empty"
-    },
-    "last_name_message": {
-      "invalid_last_name": "Invalid lastname",
-      "empty_last_name": "Lastname cannot be empty"
-    },
-    "gender_message": {
-      "invalid_gender": "Gender must be Male or Female",
-      "empty_gemder": "Gender cannot be empty"
-    },
-    "email_message": {
-      "invalid_email": "Invalid email",
-      "empty_email": "Email cannot be empty"
-    },
-    "address_message": {
-      "invalid_address": "Invalid address",
-      "empty_address": "Address canot be empty"
-    },
-
-    "invalid_age": "Age must be between 18 and 65",
-
-    "all_fields_message": "All fields required"
-  },
-  "registration_message": {
-    "success": "Employee added successfully",
-    "failure": "Employee registration failed"
-  },
-  "update_messages": {
-    "success": "Employee updated successfully",
-    "failure": "Employee update failed"
-  },
-  "delete_employee_messages": {
-    "success": "Employee deleted successfuly",
-    "failure":"Employé introuvable"
-}, 
+ 
     "forgot_password":{
       "success":"Check your email for the reset link",
       "failure":"The user with the email does not exist"
@@ -127,5 +90,46 @@
     "assign_exist": "Bus already assigned to a route",
     "no_bus_assigned": "no bus assigned to this route",
     "no_route": "route not found"
-  }
+  },
+   
+    "field_error_message": {
+        "first_name_message":{
+            "invalid_first_name":"Invalid Firstname",
+            "empty_first_name": "Firstname cannot be empty"
+    }, 
+    "last_name_message":{
+        "invalid_last_name":"Invalid lastname",
+        "empty_last_name": "Lastname cannot be empty"
+    },
+    "gender_message": {
+        "invalid_gender": "Gender must be Male or Female",
+        "empty_gemder":"Gender cannot be empty"
+    },
+    "email_message":{
+        "invalid_email":"Invalid email",
+        "empty_email":"Email cannot be empty"
+    },
+    "address_message":{
+        "invalid_address": "Invalid address",
+        "empty_address":"Address canot be empty"
+    },
+
+    "invalid_age":"Age must be between 18 and 65",
+
+
+    "all_fields_message": "All fields required"
+},
+"registration_message":{
+    "success":"Employee added successfully",
+    "failure":"Employee registration failed"
+},
+ "update_messages" :{
+    "success": "Employee updated successfully",
+    "failure":"Employee update failed"
+},
+"delete_employee_messages": {
+    "success": "Employee deleted successfuly",
+    "failure":"Employé introuvable"
+}
+  
 }
