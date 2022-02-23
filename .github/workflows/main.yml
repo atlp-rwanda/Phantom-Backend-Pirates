@@ -35,6 +35,7 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
 <<<<<<< HEAD
+<<<<<<< HEAD
           heroku_api_key: ${{secrets.HEROKU_KEY}}
           heroku_app_name: HEROKU_APP_NAME
           heroku_email: HEROKU_EMAIL
@@ -43,6 +44,11 @@ jobs:
           heroku_app_name: 'phantom-api-pirates'
           heroku_email: 'habchris15@gmail.com'
 >>>>>>> d6e25fa (configure CI/CD using Github Actions and Heroku)
+=======
+          heroku_api_key: ${{secrets.HEROKU_KEY}}
+          heroku_app_name: HEROKU_APP_NAME
+          heroku_email: HEROKU_EMAIL
+>>>>>>> d25f07f (github action secret keys added)
 
   code-quality:
     name: Code Climate Standalone
