@@ -16,10 +16,13 @@ import busRouter from './routes/bus'
 import companyRouter from './routes/company'
 import viewBus from './routes/viewbus'
 import userRoute from './routes/route'
+import registerEmployeesRoute from './routes/registerEmployeesRoute'
 
 dotenv.config()
 // Initialize express app
 const app = express()
+
+app.use(i18nextMiddleware.handle(i18next))
 
 app.use(i18nextMiddleware.handle(i18next))
 // Morgan for the logger in the console
@@ -80,6 +83,8 @@ if (app.get('env') === 'development') {
   app.use(roleRouter)
   app.use(viewBus)
   app.use(userRoute)
+  app.use('/api/role', roleRouter)
+  app.use(registerEmployeesRoute)
 
   // port & hostname
   const port = process.env.APP_PORT || 3000

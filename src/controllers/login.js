@@ -1,4 +1,4 @@
-import { User, Role } from '../../models'
+import { Employee, Role } from '../../models'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
@@ -18,7 +18,7 @@ const login =
     const responseUnsuccessWrongPass = req.t(
       'login_message.onFailure.wrongpassword'
     )
-    User.findOne({
+    Employee.findOne({
       where: {
         email: email
       },

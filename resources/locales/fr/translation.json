@@ -68,5 +68,45 @@
          "emptybusstop":"L'arrêt de bus ne doit pas être vide",
          "duplicateBusstop":"Il y a des arrêts de bus en double",
          "missingBusstop":"Il manque un arrêt de bus"
+        },
+   
+  "field_error_message": {
+      "first_name_message": {
+          "invalid_first_name": "Prénom invalide",
+          "empty_first_name": "Le prénom ne peut pas être vide"
+    },
+    "last_name_message": {
+        "invalid_last_name":"Nom de famille invalide",
+        "empty_last_name": "Le nom de famille ne peut pas être vide"
+    },
+    "gender_message": {
+        "invalid_gender": "Le sexe doit être Masculin ou Féminin",
+        "empty_gemder":"Le sexe ne peut pas être vide"
+    },
+    "email_message":{
+        "invalid_email": "Email invalide",
+        "empty_email":"Le Email ne peut pas être vide"
+    },
+    "address_message":{
+        "invalid_address": "Adresse invalide",
+        "empty_address":"L'adresse ne peut pas être vide"
+    },
+
+    "invalid_age":"L'âge doit être compris entre 18 et 65 ans",
+
+
+    "all_fields_message": "Tous les champs sont requis"
+},
+"registration_message":{
+    "success":"Employé ajouté avec succès",
+    "failure":"L'enregistrement des employés a échoué"
+  },
+"update_messages" :{
+    "success": "Employé mis à jour avec succès",
+    "failure":"La mise à jour des employés a échoué"
+},
+"delete_employee_messages": {
+    "success": "Employé supprimé avec succès",
+    "failure":"Échec de la suppression de l'employé"
 }
 }
