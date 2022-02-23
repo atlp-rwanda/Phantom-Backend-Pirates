@@ -3,9 +3,8 @@ import logger from 'morgan'
 import swaggerJsDoc from 'swagger-jsdoc'
 import swaggerUI from 'swagger-ui-express'
 import bodyParser from 'body-parser'
+
 import loginrouter from '../src/authorization/auth'
-
-
 // Required Routes
 import welcomeRoute from './routes/welcomeRoute'
 import userRoute from './routes/route'

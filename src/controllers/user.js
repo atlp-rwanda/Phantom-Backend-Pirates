@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* import model from '../../server/models';
+=======
+import model from '../../server/models';
+>>>>>>> a0086c9 (setup postgres PR review)
 
 const { User } = model;
 
@@ -16,6 +20,10 @@ class Users {
               message: 'User successfully created',
               userData
             }))
+<<<<<<< HEAD
+=======
+            .catch(error => res.status(400).send("already exist"));
+>>>>>>> a0086c9 (setup postgres PR review)
         }
 
     //list all user
@@ -95,4 +103,8 @@ class Users {
       }
 }
 
+<<<<<<< HEAD
 //export default Users; */
+=======
+export default Users;
+>>>>>>> a0086c9 (setup postgres PR review)
