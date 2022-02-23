@@ -96,18 +96,7 @@
 
     "all_fields_message": "Tous les champs sont requis"
   },
-  "registration_message": {
-    "success": "Employé ajouté avec succès",
-    "failure": "L'enregistrement des employés a échoué"
-  },
-  "update_messages": {
-    "success": "Employé mis à jour avec succès",
-    "failure": "La mise à jour des employés a échoué"
-  },
-  "delete_employee_messages": {
-    "success": "Employé supprimé avec succès",
-    "failure":"Échec de la suppression de l'employé"
-},
+ 
       "forgot_password":{
         "success":"Vérifiez votre e-mail pour le lien de réinitialisation",
         "failure":"L'utilisateur avec l'email n'existe pas"
@@ -147,5 +136,18 @@
       "wrongPsw": "Le mot de passe ou l'e-mail sont incorrects"
 
     }
-  }
+  },
+  
+"registration_message":{
+    "success":"Employé ajouté avec succès",
+    "failure":"L'enregistrement des employés a échoué"
+  },
+"update_messages" :{
+    "success": "Employé mis à jour avec succès",
+    "failure":"La mise à jour des employés a échoué"
+},
+"delete_employee_messages": {
+    "success": "Employé supprimé avec succès",
+    "failure":"Échec de la suppression de l'employé"
+}
 }

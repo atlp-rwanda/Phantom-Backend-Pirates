@@ -26,9 +26,12 @@ import logout from './routes/logout'
 import assignBusRoute from './routes/assignBusToRoute'
 import changePassword from './routes/changePassword'
 
+
 dotenv.config()
 // Initialize express app
 const app = express()
+
+app.use(i18nextMiddleware.handle(i18next))
 
 app.use(i18nextMiddleware.handle(i18next))
 // Morgan for the logger in the console
@@ -76,6 +79,13 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
 app.use(cookieParser())
+  // Use routes
+  app.use(welcomeRoute)
+  app.use(busRouter)
+  app.use(companyRouter)
+  app.use(login)
+  app.use('/api/role', roleRouter)
+  app.use(registerEmployeesRoute)
 
 // Use routes
 app.use(welcomeRoute)

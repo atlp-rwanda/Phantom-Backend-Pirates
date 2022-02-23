@@ -101,6 +101,14 @@ class Roles {
       })
       .then(roles => res.status(200).send(roles))
   }
+
+  static listEmployeesInRole (req, res) {
+    return Role
+      .findAll({
+        include: Employee
+      })
+      .then(roles => res.status(200).send(roles))
+  }
 }
 
 export default Roles
