@@ -22,8 +22,6 @@ DB_URL = postgres://<username>:<your_password>@localhost:5432/<your_database>?ss
 
 - npx sequelize-cli  db:migrate
 
-```
-
 - `npm run dev`
 
 ## Todo
