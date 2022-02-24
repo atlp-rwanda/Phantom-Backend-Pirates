@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 const chai = require('chai')
 const chaiHTTP = require('chai-http')
 const { app } = require('../src/app')
+=======
+const chai = require('chai');
+const chaiHTTP = require('chai-http');
+const app = require('../src/app');
+>>>>>>> 9c0fd79 (chai-http package added)
 
 chai.should()
 chai.use(chaiHTTP)
@@ -12,10 +18,17 @@ describe('server connection', () => {
         .request(app)
         .get('/')
         .end((err, res) => {
+<<<<<<< HEAD
           res.should.have.status(200)
           done()
         })
     })
+=======
+          res.should.have.status(200);
+          done();
+        });
+    });
+>>>>>>> 9c0fd79 (chai-http package added)
     it('Home page should have Welcome text', (done) => {
       chai
         .request(app)
