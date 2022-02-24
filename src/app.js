@@ -1,22 +1,19 @@
-import express from 'express'
-import logger from 'morgan'
-import swaggerJsDoc from 'swagger-jsdoc'
-import swaggerUI from 'swagger-ui-express'
-<<<<<<< HEAD
-import config from '../config/config.js'
-=======
->>>>>>> configure CI/CD using Github Actions and Heroku
+import express from 'express';
+import logger from 'morgan';
+import swaggerJsDoc from 'swagger-jsdoc';
+import swaggerUI from 'swagger-ui-express';
+import config from '../config/config.js';
 
 // Required Routes
-import welcomeRoute from './routes/welcomeRoute'
+import welcomeRoute from './routes/welcomeRoute';
 
 // Initialize express app
-const app = express()
+const app = express();
 
 // Morgan for the logger in the console
 if (app.get('env') === 'development') {
-  app.use(logger('dev'))
-  console.log('Morgan logger is enabled...')
+  app.use(logger('dev'));
+  console.log('Morgan logger is enabled...');
 }
 
 // Swagger Info Object
@@ -26,30 +23,26 @@ const swaggerOptions = {
       title: 'Phantom API Documentation',
       description: 'Phantom API Documentation',
       contact: {
-        name: 'Callback-Pirates'
+        name: 'Callback-Pirates',
       },
-      server: 'http://localhost:3000'
-    }
+      server: 'http://localhost:3000',
+    },
   },
-  apis: ['./src/routes/*.js']
-}
+  apis: ['./src/routes/*.js'],
+};
 
-const swaggerDocs = swaggerJsDoc(swaggerOptions)
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 // Custom Middleware
-app.use(welcomeRoute)
+app.use(welcomeRoute);
 
 // PORT
-<<<<<<< HEAD
-const port = config.app.port
-=======
-const port = process.env.PORT || 3000
->>>>>>> configure CI/CD using Github Actions and Heroku
+const port = config.app.port || 3000;
 
 // Listening to requests
-app.listen(port, () => {
-  console.log(`Server running on port ${port}..... `)
-})
+const server = app.listen(port, () => {
+  console.log(`Server running on port ${port}..... `);
+});
 
-export default app
+export default server;

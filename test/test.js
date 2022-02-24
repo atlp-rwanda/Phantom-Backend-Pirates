@@ -1,6 +1,6 @@
-import chai from 'chai';
-import chaiHTTP from 'chai-http';
-import app from '../src/app';
+const chai = require('chai');
+const chaiHTTP = require('chai-http');
+const app = require('../src/app');
 
 chai.should();
 chai.use(chaiHTTP);
@@ -13,7 +13,6 @@ describe('server connection', () => {
         .get('/')
         .end((err, res) => {
           res.should.have.status(200);
-          res.should.to.be.html;
           done();
         });
     });
