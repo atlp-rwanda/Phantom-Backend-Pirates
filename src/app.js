@@ -41,8 +41,8 @@ app.use(welcomeRoute);
 const port = config.app.port || 3000;
 
 // Listening to requests
-const server = app.listen(port, () => {
+app.listen(port, () => {
   console.log(`Server running on port ${port}..... `);
 });
 
-export default server;
+export default app;
