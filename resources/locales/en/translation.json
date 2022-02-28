@@ -1,5 +1,22 @@
 {
-    "welcome_message": "Welcome to Phantom Web"
-    
+  "welcome_message": "Welcome to Phantom Web",
+  "login_message": {
+    "onSuccess": {
+      "admin": "You have successfully logged in as an Admin",
+      "operator": "You have successfully logged in as an Operator",
+      "driver": "You have successfully logged in as an Driver"
+    },
+    "onFailure": {
+      "nonregistered": "The email is not registered! Please first register",
+      "wrongpassword": "The email or passwords entered is wrong"
+    }
+  },
+  "role_message": {
+    "created_success": "Role successfully created",
+    "role_exist": "Role exist",
+    "creation_failed": "Invalid input, input should be operator, driver or admin",
+    "id_not_found": "Role with specified id not found",
+    "role_updated": "Role successfully updated",
+    "role_deleted": "Role successfully deleted"
+  }
 }
-  

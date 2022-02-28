@@ -1,29 +1,24 @@
-# This is a basic workflow to help you get started with Actions
+name: test
 
-name: CI
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the develop branch
   push:
     branches: [develop]
+  pull_request:
+    branches: [develop]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    strategy:
+      matrix:
+        node: ['12', '14', '16']
+    name: Node ${{ matrix.node }} sample
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: ${{ matrix.node }}
       - run: npm install
       - run: npm test
 
@@ -37,22 +32,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_KEY}}
           heroku_app_name: HEROKU_APP_NAME
           heroku_email: HEROKU_EMAIL
-
-  code-quality:
-    name: Code Climate Standalone
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Run Code Climate
-        uses: erzz/codeclimate-standalone@v0
-        with:
-          html_report: true
-
-      - name: Upload Report
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: Code Climate Report
-          path: codeclimate-report.html

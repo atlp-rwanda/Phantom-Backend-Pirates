@@ -1,3 +1,22 @@
 {
-    "welcome_message": "Bienvenue sur le Web de Phantom"
+  "welcome_message": "Bienvenue sur le Web fantôme",
+  "login_message": {
+    "onSuccess": {
+      "admin": "Vous vous êtes connecté avec succès en tant qu'administrateur",
+      "operator": "Vous vous êtes connecté avec succès en tant qu'opérateur",
+      "driver": "Vous vous êtes connecté avec succès en tant que conducteur"
+    },
+    "onFailure": {
+      "nonregistered": "L'e-mail n'est pas enregistré ! Veuillez d'abord vous inscrire",
+      "wrongpassword": "L'e-mail ou les mots de passe saisis sont incorrects"
+    }
+  },
+  "role_message": {
+    "created_success": "Rôle créé avec succès",
+    "role_exist": "Le rôle existe",
+    "creation_failed": "Entrée non valide, l'entrée doit être, driver, operator or admin",
+    "id_not_found": "Rôle avec l'identifiant spécifié introuvable",
+    "role_updated": "Rôle mis à jour avec succès",
+    "role_deleted": "Rôle supprimé avec succès"
+  }
 }
