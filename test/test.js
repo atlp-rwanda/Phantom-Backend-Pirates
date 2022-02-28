@@ -1,7 +1,10 @@
 const chai = require('chai')
 const chaiHTTP = require('chai-http')
 const { app } = require('../src/app')
+<<<<<<< HEAD
 const expect = chai.expect()
+=======
+>>>>>>> husky trial 3
 
 chai.should()
 chai.use(chaiHTTP)
@@ -14,6 +17,7 @@ describe('server connection', () => {
         .request(app)
         .get('/')
         .end((err, res) => {
+<<<<<<< HEAD
           res.should.have.status(200);
           res.body.message.should.be.equal('Welcome to Phantom Web');
           res.body.error.should.be.equal(false);
@@ -22,10 +26,18 @@ describe('server connection', () => {
     });
 
     it('welcomes user to the api in french', (done) => {
+=======
+          res.should.have.status(200)
+          done()
+        })
+    })
+    it('Home page should have Welcome text', (done) => {
+>>>>>>> husky trial 3
       chai
         .request(app)
         .get('/?lng=fr')
         .end((err, res) => {
+<<<<<<< HEAD
           res.should.have.status(200);
           res.body.message.should.be.equal('Bienvenue sur le Web de Phantom');
           res.body.error.should.be.equal(false);
@@ -63,3 +75,11 @@ describe('server connection', () => {
 
   });
 });
+=======
+          res.text.should.be.equal('<h1>Welcome to Phantom Web App!!!!!</h1>')
+          done()
+        })
+    })
+  })
+})
+>>>>>>> husky trial 3
