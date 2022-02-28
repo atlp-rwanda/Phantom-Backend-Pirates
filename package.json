@@ -12,12 +12,14 @@
     "migrate": "sequelize db:migrate",
     "undomigrate": "sequelize db:migrate:undo",
     "seed": "sequelize db:seed:all",
-    "undoseed": "sequelize db:seed:undo"
+    "undoseed": "sequelize db:seed:undo",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
       "pre-commit": "eslint . --fix --ext .js && git add -A ."
     }
+    
   },
   "repository": {
     "type": "git",
