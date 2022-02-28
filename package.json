@@ -8,7 +8,13 @@
     "start": "node dist/app.js",
     "dev": "nodemon --exec ./node_modules/.bin/babel-node src/app.js",
     "test": "mocha --require @babel/register",
+<<<<<<< HEAD
     "lint": "eslint . --fix --ext .js",
+=======
+    "coverage": "nyc npm run test",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint --fix . --ext .js",
+>>>>>>> 4302aad (The following changes were made:)
     "migrate": "sequelize db:migrate",
     "undomigrate": "sequelize db:migrate:undo",
     "seed": "sequelize db:seed:all",
@@ -73,6 +79,11 @@
     "eslint-plugin-promise": "^5.2.0",
     "mocha": "^9.2.1",
     "nodemon": "^2.0.15",
+<<<<<<< HEAD
     "nyc": "^15.1.0"
+=======
+    "nyc": "^15.1.0",
+    "sinon": "^13.0.1"
+>>>>>>> 4302aad (The following changes were made:)
   }
 }
