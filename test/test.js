@@ -47,9 +47,9 @@ describe('server connection', () => {
         .request(app)
         .get('/random')
         .end((err, res) => {
-          res.should.have.status(404);
-          done();
-        });
-    });
-  });
-});
+          res.text.should.be.equal('<h1>Welcome to Phantom Web App!!!!!</h1>')
+          done()
+        })
+    })
+  })
+})
