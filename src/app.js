@@ -2,11 +2,14 @@ import express from 'express'
 import logger from 'morgan'
 import swaggerJsDoc from 'swagger-jsdoc'
 import swaggerUI from 'swagger-ui-express'
-import config from '../config/config.js'
 import bodyParser from 'body-parser'
+import loginrouter from '../src/authorization/auth'
+
 
 // Required Routes
 import welcomeRoute from './routes/welcomeRoute'
+import userRoute from './routes/route'
+/* import userRoute from './routes/detail' */
 
 import i18next from 'i18next'
 import i18nextMiddleware from 'i18next-express-middleware'
@@ -32,6 +35,7 @@ app.all('*', function(req, res, next) {
 app.use(bodyParser.json({limit: '100mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb','extended': 'true'}));
 app.use(bodyParser.json({type: 'application/vnd.api+json'}));
+app.use("/api",loginrouter);
 
 // Swagger Info Object
 const swaggerOptions = {
@@ -53,6 +57,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
 // Custom Middleware
 app.use(welcomeRoute)
+app.use(userRoute)
 
 // PORT
 const port = process.env.APP_PORT || 3000
