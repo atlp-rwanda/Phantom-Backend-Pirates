@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the develop branch
   push:
-    branches: [ develop ]
+    branches: [develop]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,3 +26,33 @@ jobs:
           node-version: '14'
       - run: npm install
       - run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_KEY}}
+          heroku_app_name: HEROKU_APP_NAME
+          heroku_email: HEROKU_EMAIL
+
+  code-quality:
+    name: Code Climate Standalone
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run Code Climate
+        uses: erzz/codeclimate-standalone@v0
+        with:
+          html_report: true
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Code Climate Report
+          path: codeclimate-report.html
