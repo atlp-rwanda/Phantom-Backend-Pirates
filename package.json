@@ -8,7 +8,11 @@
     "start": "node dist/app.js",
     "dev": "nodemon --exec ./node_modules/.bin/babel-node src/app.js",
     "test": "mocha --require @babel/register",
-    "lint": "eslint . --fix --ext .js"
+    "lint": "eslint . --fix --ext .js",
+    "migrate": "sequelize db:migrate",
+    "undomigrate": "sequelize db:migrate:undo",
+    "seed": "sequelize db:seed:all",
+    "undoseed": "sequelize db:seed:undo"
   },
   "repository": {
     "type": "git",
@@ -46,6 +50,8 @@
     "@babel/core": "^7.17.4",
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-standard": "^16.0.3",
