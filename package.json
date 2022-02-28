@@ -13,7 +13,7 @@
 
   "husky":{
     "hooks":{
-      "pre-commit": "eslint . --fix --ext .js && git add -A ."
+      "pre-commit": "npm run && git add -A ."
     }
   },
   "repository": {
