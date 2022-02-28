@@ -2,11 +2,14 @@ const chai = require('chai')
 const chaiHTTP = require('chai-http')
 const { app } = require('../src/app')
 <<<<<<< HEAD
+<<<<<<< HEAD
 const chai = require('chai');
 const chaiHTTP = require('chai-http');
 const { app } = require('../src/app');
 =======
 >>>>>>> 44a261d (cheking if husky works)
+=======
+>>>>>>> afe8fbb (setup project postgres)
 
 chai.should()
 chai.use(chaiHTTP)
@@ -27,6 +30,7 @@ describe('server connection', () => {
         .request(app)
         .get('/?lng=fr')
         .end((err, res) => {
+<<<<<<< HEAD
           res.should.have.status(200)
           res.body.message.should.be.equal('Bienvenue sur le Web de Phantom')
           res.body.error.should.be.equal(false)
@@ -53,6 +57,8 @@ describe('server connection', () => {
         .get('/random')
         .end((err, res) => {
           res.should.have.status(404)
+=======
+>>>>>>> afe8fbb (setup project postgres)
           res.text.should.be.equal('<h1>Welcome to Phantom Web App!!!!!</h1>')
           done()
         })

@@ -2,15 +2,21 @@ const path = require('path');
 
     module.exports = {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> afe8fbb (setup project postgres)
         "config": path.resolve('config', 'config.js'),
         "models-path": path.resolve('models'),
         "seeders-path": path.resolve('seeders'),
         "migrations-path": path.resolve('migrations')
+<<<<<<< HEAD
 =======
         "config": path.resolve('./server/config', 'config.js'),
         "models-path": path.resolve('./server/models'),
         "seeders-path": path.resolve('./server/seeders'),
         "migrations-path": path.resolve('./server/migrations')
 >>>>>>> a0086c9 (setup postgres PR review)
+=======
+>>>>>>> afe8fbb (setup project postgres)
     };
     

@@ -21,6 +21,11 @@ DB_URL = postgres://<username>:<your_password>@localhost:5432/<your_database>?ss
 - run migration to create database
 
 - npx sequelize-cli  db:migrate
+<<<<<<< HEAD
+=======
+- npx sequelize-cli db:seed:all
+```
+>>>>>>> afe8fbb (setup project postgres)
 
 - `npm run dev`
 
@@ -28,6 +33,7 @@ DB_URL = postgres://<username>:<your_password>@localhost:5432/<your_database>?ss
 get welcome page
 `http://localhost:your post/`
 
+<<<<<<< HEAD
 get all user
 
 `http://localhost:your post/api/user`
@@ -57,3 +63,5 @@ Setting up continuous integration using github actions and heroku pipeline for c
 - run `npm run test` you should see test passing
 
 ![runtest](https://user-images.githubusercontent.com/50244289/155469886-bff4a8d6-4af9-47dc-8bec-efa0a48a1500.png)
+=======
+>>>>>>> afe8fbb (setup project postgres)

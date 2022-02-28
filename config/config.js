@@ -2,10 +2,14 @@ require('dotenv').config()
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> afe8fbb (setup project postgres)
 module.exports = {
   development: {
     url: process.env.DB_URL,
     dialect: 'postgres'
+<<<<<<< HEAD
   },
   test: {
     url: process.env.DB_URL,
@@ -59,3 +63,16 @@ module.exports = config[env];
 =======
 module.exports = config[env]
 >>>>>>> 44a261d (cheking if husky works)
+=======
+  },
+  test: {
+    url: process.env.DB_URL,
+    dialect: 'postgres'
+  },
+  production: {
+    url: process.env.DB_URL,
+    dialect: 'postgres'
+  }
+}
+
+>>>>>>> afe8fbb (setup project postgres)
