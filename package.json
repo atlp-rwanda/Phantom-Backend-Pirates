@@ -8,13 +8,8 @@
     "start": "node dist/app.js",
     "dev": "nodemon --exec ./node_modules/.bin/babel-node src/app.js",
     "test": "mocha --require @babel/register",
-    "lint": "eslint . --fix --ext .js"
-  },
-
-  "husky":{
-    "hooks":{
-      "pre-commit": "npm run lint && git add -A ."
-    }
+    "lint": "eslint . --fix --ext .js",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
