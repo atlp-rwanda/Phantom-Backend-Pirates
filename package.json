@@ -14,10 +14,9 @@
     "seed": "sequelize db:seed:all",
     "undoseed": "sequelize db:seed:undo"
   },
-
-  "husky":{
-    "hooks":{
-      "pre-commit": "npm run lint && git add -A ."
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint . --fix --ext .js && git add -A ."
     }
   },
   "repository": {
