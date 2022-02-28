@@ -2,6 +2,7 @@ import express from 'express'
 import logger from 'morgan'
 import swaggerJsDoc from 'swagger-jsdoc'
 import swaggerUI from 'swagger-ui-express'
+import config from '../config/config.js'
 import bodyParser from 'body-parser'
 
 // Required Routes

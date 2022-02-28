@@ -22,7 +22,7 @@ DB_URL = postgres://<username>:<your_password>@localhost:5432/<your_database>?ss
 - run migration to create database
 
 - npx sequelize-cli  db:migrate
-
+- npx sequelize-cli db:seed:all
 ```
 
 - `npm run dev`
@@ -31,16 +31,3 @@ DB_URL = postgres://<username>:<your_password>@localhost:5432/<your_database>?ss
 get welcome page
 `http://localhost:your post/`
 
-get all user
-
-`http://localhost:your post/api/user`
-
-create user
-
-with POST
-
-`http://localhost:your post/api/user`
-
-with DELETE
-
-`http://localhost:your post/api/user/id`
