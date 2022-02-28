@@ -1,12 +1,16 @@
 import express from 'express'
 import logger from 'morgan'
+import { sequelize } from '../server/models/index'
 import swaggerJsDoc from 'swagger-jsdoc'
 import swaggerUI from 'swagger-ui-express'
 import config from '../config/config.js'
 import bodyParser from 'body-parser'
 
 // Required Routes
+
 import welcomeRoute from './routes/welcomeRoute'
+import user from './routes/user'
+import login from './routes/login'
 
 import i18next from 'i18next'
 import i18nextMiddleware from 'i18next-express-middleware'
@@ -51,15 +55,19 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
-// Custom Middleware
+// Use routes
 app.use(welcomeRoute)
-
-// PORT
+app.use(user)
+app.use(login)
+// port & hostname
 const port = process.env.APP_PORT || 3000
+const hostname = 'localhost'
 
 // Listening to requests
-app.listen(port, () => {
-  console.log(`Server running on port ${port}..... `)
+app.listen(port, async () => {
+  console.log(`Server running at http://${hostname}:${port}/..`)
+  await sequelize.authenticate()
+  console.log('Databse connected successfully')
 })
 
 export { app }
