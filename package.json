@@ -16,15 +16,16 @@
     "seed": "sequelize db:seed:all",
     "undoseed": "sequelize db:seed:undo",
     "prepare": "husky install"
-<<<<<<< HEAD
   },
   "husky": {
     "hooks": {
       "pre-commit": "eslint . --fix --ext .js && git add -A ."
-    }
-    
-=======
->>>>>>> e3db9b0 (Made changes)
+    },
+    "lint": "eslint . --fix --ext .js",
+    "migrate": "sequelize db:migrate",
+    "undomigrate": "sequelize db:migrate:undo",
+    "seed": "sequelize db:seed:all",
+    "undoseed": "sequelize db:seed:undo"
   },
   "repository": {
     "type": "git",
@@ -42,17 +43,7 @@
     "@babel/runtime": "^7.17.2",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.2",
-<<<<<<< HEAD
     "chai-http": "^4.3.0",
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "chai-http": "^4.3.0",
-=======
->>>>>>> 44a261d (cheking if husky works)
-=======
->>>>>>> a0086c9 (setup postgres PR review)
->>>>>>> 2715df7 (setup postgres PR review)
     "debug": "^4.3.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
@@ -69,9 +60,6 @@
     "swagger": "^0.0.1",
     "mocha": "^9.2.0",
     "morgan": "^1.10.0",
-    "pg": "^8.7.3",
-    "pg-hstore": "^2.3.4",
-    "sequelize": "^6.16.2",
     "smws": "^1.0.2",
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.3.0"
