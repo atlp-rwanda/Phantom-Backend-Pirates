@@ -14,7 +14,8 @@
     "migrate": "sequelize db:migrate",
     "undomigrate": "sequelize db:migrate:undo",
     "seed": "sequelize db:seed:all",
-    "undoseed": "sequelize db:seed:undo"
+    "undoseed": "sequelize db:seed:undo",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -85,16 +86,6 @@
     "nyc": "^15.1.0",
     "prettier": "^2.5.1",
     "sinon": "^13.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*.{js,json,md}": [
-      "npm run lint:fix",
-      "git add"
-    ]
   }
+ 
 }
