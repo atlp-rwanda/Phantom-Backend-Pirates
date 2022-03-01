@@ -9,7 +9,8 @@
     "dev": "nodemon --exec ./node_modules/.bin/babel-node src/app.js",
     "test": "mocha --require @babel/register",
     "coverage": "nyc npm run test",
-    "lint": "eslint --fix . --ext .js",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint --fix . --ext .js",
     "migrate": "sequelize db:migrate",
     "undomigrate": "sequelize db:migrate:undo",
     "seed": "sequelize db:seed:all",
@@ -86,7 +87,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "npm run lint:fix",
+      "git add"
+    ]
   }
 }
