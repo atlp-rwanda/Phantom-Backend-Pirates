@@ -1,9 +1,12 @@
 const chai = require('chai')
 const chaiHTTP = require('chai-http')
 const { app } = require('../src/app')
+<<<<<<< HEAD
 const chai = require('chai');
 const chaiHTTP = require('chai-http');
 const { app } = require('../src/app');
+=======
+>>>>>>> 44a261d (cheking if husky works)
 
 chai.should()
 chai.use(chaiHTTP)
@@ -50,6 +53,7 @@ describe('server connection', () => {
         .get('/random')
         .end((err, res) => {
           res.should.have.status(404)
+          res.text.should.be.equal('<h1>Welcome to Phantom Web App!!!!!</h1>')
           done()
         })
     })
