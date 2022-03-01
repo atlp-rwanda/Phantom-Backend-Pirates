@@ -82,18 +82,5 @@
     "nodemon": "^2.0.15",
     "nyc": "^15.1.0",
     "sinon": "^13.0.1"
-<<<<<<< HEAD
-=======
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,json,md}": [
-      "git add"
-    ]
->>>>>>> 9476fe7 (cheking if husky works)
-  }
+  } 
 }
