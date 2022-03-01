@@ -1,7 +1,6 @@
 const chai = require('chai')
 const chaiHTTP = require('chai-http')
 const { app } = require('../src/app')
-const expect = chai.expect()
 
 chai.should()
 chai.use(chaiHTTP)
@@ -14,14 +13,11 @@ describe('server connection', () => {
         .request(app)
         .get('/')
         .end((err, res) => {
-          res.should.have.status(200);
-          res.body.message.should.be.equal('Welcome to Phantom Web');
-          res.body.error.should.be.equal(false);
-          done();
-        });
-    });
-
-    it('welcomes user to the api in french', (done) => {
+          res.should.have.status(200)
+          done()
+        })
+    })
+    it('Home page should have Welcome text', (done) => {
       chai
         .request(app)
         .get('/?lng=fr')
@@ -55,11 +51,5 @@ describe('server connection', () => {
           done();
         });
     });
-
-
-
-
-
-
   });
 });
