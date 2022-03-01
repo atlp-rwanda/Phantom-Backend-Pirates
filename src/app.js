@@ -7,7 +7,6 @@ import bodyParser from 'body-parser'
 
 // Required Routes
 import welcomeRoute from './routes/welcomeRoute'
-import userRoute from './routes/user'
 
 import i18next from 'i18next'
 import i18nextMiddleware from 'i18next-express-middleware'
@@ -54,7 +53,6 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
 // Custom Middleware
 app.use(welcomeRoute)
-app.use(userRoute)
 
 // PORT
 const port = process.env.APP_PORT || 3000
