@@ -1,14 +1,16 @@
 import model from '../../server/models'
 // import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
-import authConfig from '../../server/config/auth'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const { User } = model
 
 class Users {
   // Registering a User
   static signUp (req, res) {
-    const password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds))
+    const password = bcrypt.hashSync(req.body.password, Number.parseInt(process.env.AUTH_ROUNDS))
     const { name, telNumber, email } = req.body
     return User
       .create({
