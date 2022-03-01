@@ -3,13 +3,13 @@ import logger from 'morgan'
 import swaggerJsDoc from 'swagger-jsdoc'
 import swaggerUI from 'swagger-ui-express'
 import bodyParser from 'body-parser'
-import dotenv from "dotenv"
-
-dotenv.config();
+import dotenv from 'dotenv'
 
 // Required Routes
 import welcomeRoute from './routes/welcomeRoute'
+import allRoute from './routes/index'
 
+dotenv.config()
 // Initialize express app
 const app = express()
 
@@ -50,6 +50,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
 // Custom Middleware
 app.use(welcomeRoute)
+app.use(allRoute)
 
 // PORT
 const port = process.env.APP_PORT || 3000
