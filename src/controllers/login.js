@@ -1,7 +1,9 @@
 import { User } from '../../server/models'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
-import authConfig from '../../server/config/auth'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const login = ('/login', (req, res) => {
   const { email, password } = req.body
@@ -22,30 +24,30 @@ const login = ('/login', (req, res) => {
         isDriver: false
       }
       if ((bcrypt.compareSync(password, user.password)) && userRole.isAdmin) {
-        const adminToken = jwt.sign({ user: user }, authConfig.adminSecret, {
-          expiresIn: authConfig.expires
+        const adminToken = jwt.sign({ user: user }, process.env.ADMIN_SECRET, {
+          expiresIn: process.env.AUTH_EXPIRES
         })
-        res.cookie('jwt', adminToken, { httpOnly: true, expiresIn: authConfig.expires })
+        res.cookie('jwt', adminToken, { httpOnly: true, expiresIn: process.env.AUTH_EXPIRES })
         res.status(200).json({
           message: 'Admin successfully logged in',
           admin: [user.name, user.email],
           token: adminToken
         })
       } else if ((bcrypt.compareSync(password, user.password)) && userRole.isOperator) {
-        const operatorToken = jwt.sign({ user: user }, authConfig.operatorSecret, {
-          expiresIn: authConfig.expires
+        const operatorToken = jwt.sign({ user: user }, process.env.OPERATOR_SECRET, {
+          expiresIn: process.env.AUTH_EXPIRES
         })
-        res.cookie('jwt', operatorToken, { httpOnly: true, expiresIn: authConfig.expires })
+        res.cookie('jwt', operatorToken, { httpOnly: true, expiresIn: process.env.AUTH_EXPIRES })
         res.status(200).json({
           message: 'Operator successfully logged in',
           operator: [user.name, user.email],
           token: operatorToken
         })
       } else if ((bcrypt.compareSync(password, user.password)) && userRole.isDriver) {
-        const driverToken = jwt.sign({ user: user }, authConfig.driverSecret, {
-          expiresIn: authConfig.expires
+        const driverToken = jwt.sign({ user: user }, process.env.DRIVER_SECRET, {
+          expiresIn: process.env.AUTH_EXPIRES
         })
-        res.cookie('jwt', driverToken, { httpOnly: true, expiresIn: authConfig.expires })
+        res.cookie('jwt', driverToken, { httpOnly: true, expiresIn: process.env.AUTH_EXPIRES })
         res.status(200).json({
           message: 'Driver successfully logged in',
           driver: [user.name, user.email],
