@@ -1,5 +1,6 @@
 const welcomeController = (req, res) => {
-  res.status(200).send('<h1>Welcome to Phantom Web App!!!!!</h1>')
+  const response = req.t('welcome_message')
+  res.status(200).json({ error: false, message: `${response}` })
 }
 
 export default welcomeController
