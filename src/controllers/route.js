@@ -1,4 +1,4 @@
-import model from '../../server/models';
+import model from '../../models';
 
 const { Route } = model;
 

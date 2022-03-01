@@ -8,15 +8,11 @@
     "start": "node dist/app.js",
     "dev": "nodemon --exec ./node_modules/.bin/babel-node src/app.js",
     "test": "mocha --require @babel/register",
-<<<<<<< HEAD
-    "lint": "eslint . --fix --ext .js"
-=======
     "lint": "eslint . --fix --ext .js",
     "migrate": "sequelize db:migrate",
     "undomigrate": "sequelize db:migrate:undo",
     "seed": "sequelize db:seed:all",
     "undoseed": "sequelize db:seed:undo"
->>>>>>> 81625698e4f467372553b7ea3bdd3a9de4bcd733
   },
   "repository": {
     "type": "git",
