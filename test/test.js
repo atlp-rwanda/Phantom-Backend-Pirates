@@ -2,9 +2,12 @@ const chai = require('chai')
 const chaiHTTP = require('chai-http')
 const { app } = require('../src/app')
 <<<<<<< HEAD
+<<<<<<< HEAD
 const expect = chai.expect()
 =======
 >>>>>>> husky trial 3
+=======
+>>>>>>> 996f2a9754ca1ef0bfc0f4e001e44b19589da413
 
 chai.should()
 chai.use(chaiHTTP)
@@ -18,6 +21,7 @@ describe('server connection', () => {
         .get('/')
         .end((err, res) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
           res.should.have.status(200);
           res.body.message.should.be.equal('Welcome to Phantom Web');
           res.body.error.should.be.equal(false);
@@ -27,6 +31,8 @@ describe('server connection', () => {
 
     it('welcomes user to the api in french', (done) => {
 =======
+=======
+>>>>>>> 996f2a9754ca1ef0bfc0f4e001e44b19589da413
           res.should.have.status(200)
           done()
         })
@@ -37,6 +43,7 @@ describe('server connection', () => {
         .request(app)
         .get('/?lng=fr')
         .end((err, res) => {
+<<<<<<< HEAD
 <<<<<<< HEAD
           res.should.have.status(200);
           res.body.message.should.be.equal('Bienvenue sur le Web de Phantom');
@@ -76,10 +83,15 @@ describe('server connection', () => {
   });
 });
 =======
+=======
+>>>>>>> 996f2a9754ca1ef0bfc0f4e001e44b19589da413
           res.text.should.be.equal('<h1>Welcome to Phantom Web App!!!!!</h1>')
           done()
         })
     })
   })
 })
+<<<<<<< HEAD
 >>>>>>> husky trial 3
+=======
+>>>>>>> 996f2a9754ca1ef0bfc0f4e001e44b19589da413

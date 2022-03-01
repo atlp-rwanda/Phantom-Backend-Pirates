@@ -3,6 +3,7 @@ import logger from 'morgan'
 import swaggerJsDoc from 'swagger-jsdoc'
 import swaggerUI from 'swagger-ui-express'
 import config from '../config/config.js'
+
 // Required Routes
 import welcomeRoute from './routes/welcomeRoute'
 
