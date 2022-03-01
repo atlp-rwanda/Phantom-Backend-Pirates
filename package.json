@@ -9,7 +9,8 @@
     "dev": "nodemon --exec ./node_modules/.bin/babel-node src/app.js",
     "test": "mocha --require @babel/register",
     "coverage": "nyc npm run test",
-    "lint": "eslint . --fix --ext .js",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint --fix . --ext .js",
     "migrate": "sequelize db:migrate",
     "undomigrate": "sequelize db:migrate:undo",
     "seed": "sequelize db:seed:all",
@@ -31,7 +32,10 @@
     "@babel/runtime": "^7.17.2",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.2",
+<<<<<<< HEAD
     "chai-http": "^4.3.0",
+=======
+>>>>>>> 44a261d (cheking if husky works)
     "debug": "^4.3.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
@@ -41,15 +45,22 @@
     "i18next-http-middleware": "^3.2.0",
     "i18next-node-fs-backend": "^2.1.3",
     "jsonwebtoken": "^8.5.1",
+<<<<<<< HEAD
+=======
+    "morgan": "^1.10.0",
+>>>>>>> 44a261d (cheking if husky works)
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.16.2",
     "swagger": "^0.0.1",
+<<<<<<< HEAD
     "mocha": "^9.2.0",
     "morgan": "^1.10.0",
     "sinon": "^13.0.1",
     "sinon-chai": "^3.7.0",
     "smws": "^1.0.2",
+=======
+>>>>>>> 44a261d (cheking if husky works)
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.3.0"
   },
@@ -67,9 +78,21 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
     "mocha": "^9.2.1",
     "nodemon": "^2.0.15",
     "nyc": "^15.1.0",
     "sinon": "^13.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-comit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*(js,json,md)": [
+      "git add"
+    ]
   }
 }

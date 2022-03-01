@@ -14,15 +14,15 @@ import login from './routes/login'
 import i18next from 'i18next'
 import i18nextMiddleware from 'i18next-express-middleware'
 // Initialize express app
-const app = express();
+const app = express()
 
 // telling Express to use i18next's middleware
 app.use(i18nextMiddleware.handle(i18next))
 
 // Morgan for the logger in the console
 if (app.get('env') === 'development') {
-  app.use(logger('dev'));
-  console.log('Morgan logger is enabled...');
+  app.use(logger('dev'))
+  console.log('Morgan logger is enabled...')
 }
 app.all('*', function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -43,16 +43,16 @@ const swaggerOptions = {
       title: 'Phantom API Documentation',
       description: 'Phantom API Documentation',
       contact: {
-        name: 'Callback-Pirates',
+        name: 'Callback-Pirates'
       },
-      server: 'http://localhost:3000',
-    },
+      server: 'http://localhost:3000'
+    }
   },
-  apis: ['./src/routes/*.js'],
-};
+  apis: ['./src/routes/*.js']
+}
 
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+const swaggerDocs = swaggerJsDoc(swaggerOptions)
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
 // Use routes
 app.use(welcomeRoute)
