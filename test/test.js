@@ -7,7 +7,6 @@ chai.use(chaiHTTP)
 
 describe('server connection', () => {
   describe('server connected', () => {
-    
     it('welcomes user to the api in english/default', (done) => {
       chai
         .request(app)
@@ -22,25 +21,25 @@ describe('server connection', () => {
         .request(app)
         .get('/?lng=fr')
         .end((err, res) => {
-          res.should.have.status(200);
-          res.body.message.should.be.equal('Bienvenue sur le Web de Phantom');
-          res.body.error.should.be.equal(false);
+          res.should.have.status(200)
+          res.body.message.should.be.equal('Bienvenue sur le Web de Phantom')
+          res.body.error.should.be.equal(false)
 
-          done();
-        });
-    });
+          done()
+        })
+    })
 
     it('welcomes user to the api in Kinyarwanda', (done) => {
       chai
         .request(app)
         .get('/?lng=rw')
         .end((err, res) => {
-          res.should.have.status(200);
-          res.body.message.should.be.equal("Ikaze k'Urubuga rwa Phantom");
-          res.body.error.should.be.equal(false);
-          done();
-        });
-    });
+          res.should.have.status(200)
+          res.body.message.should.be.equal("Ikaze k'Urubuga rwa Phantom")
+          res.body.error.should.be.equal(false)
+          done()
+        })
+    })
 
     it('404 Error', (done) => {
       chai

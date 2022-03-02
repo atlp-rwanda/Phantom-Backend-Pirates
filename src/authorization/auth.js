@@ -1,43 +1,43 @@
-import jwt from 'jsonwebtoken';
-import express from 'express';
+import jwt from 'jsonwebtoken'
+import express from 'express'
 
-const router = express.Router();
+const router = express.Router()
 
 const user = {
   isAdmin: true,
   isOperator: false,
-  isDriver: false,
-};
+  isDriver: false
+}
 
 router.post('/login', (req, res) => {
   if (user.isAdmin) {
     const adminToken = jwt.sign(
       { _id: 1 },
       `${process.env.ADMIN_SECRET_TOKEN}`
-    );
+    )
     return res.header('authorization', adminToken).json({
       adminToken: adminToken,
-      user,
-    });
+      user
+    })
   } else if (user.isOperator) {
     const operatorToken = jwt.sign(
       { _id: 2 },
       `${process.env.OPERATOR_SECRET_TOKEN}`
-    );
+    )
     return res.header('authorization', operatorToken).json({
       operatorToken: operatorToken,
-      user,
-    });
+      user
+    })
   } else if (user.isDriver) {
     const driverToken = jwt.sign(
       { _id: 3 },
       `${process.env.DRIVER_SECRET_TOKEN}`
-    );
+    )
     return res.header('authorization', driverToken).json({
       driverToken: driverToken,
-      user,
-    });
+      user
+    })
   }
-});
+})
 
-export default router;
+export default router

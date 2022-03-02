@@ -1,6 +1,6 @@
 import express from 'express'
 import Routes from '../controllers/route'
-import verifyAdminOperator from '../authorization/verifyAdminOperator';
+import verifyAdminOperator from '../authorization/verifyAdminOperator'
 
 const route = express.Router()
 
@@ -15,10 +15,10 @@ const route = express.Router()
  *        description: The Welcome Page was displayed successfully
  */
 
-  route.post('/api/routes',verifyAdminOperator, Routes.create);
-  route.get('/api/routes', Routes.listAll);
-  route.get('/api/routes/:id', Routes.list);
-  route.put('/api/routes/:id', verifyAdminOperator,Routes.modify);
-  route.delete('/api/routes/:id', verifyAdminOperator,Routes.delete);
+route.post('/api/routes', verifyAdminOperator, Routes.create)
+route.get('/api/routes', Routes.listAll)
+route.get('/api/routes/:id', Routes.list)
+route.put('/api/routes/:id', verifyAdminOperator, Routes.modify)
+route.delete('/api/routes/:id', verifyAdminOperator, Routes.delete)
 
 export default route
