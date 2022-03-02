@@ -19,17 +19,17 @@
     "role_updated": "Rôle mis à jour avec succès",
     "role_deleted": "Rôle supprimé avec succès"
   },
-    "company_message": {
-      "created_success": "société créée avec succès",
-      "company_exist": "L'entreprise existe déjà",
-      "empty_field": "Tous les champs requis",
-      "id_not_found": "Entreprise introuvable",
-      "valid_email": "Entrez une adresse email valide",
-      "valid_name": "entrez un nom valide",
-      "no_record": "Aucun Enregistrement Trouvé",
-      "company_updated": "Entreprise mise à jour avec succès",
-      "company_deleted": "Entreprise supprimée avec succès"
-    },
+  "company_message": {
+    "created_success": "société créée avec succès",
+    "company_exist": "L'entreprise existe déjà",
+    "empty_field": "Tous les champs requis",
+    "id_not_found": "Entreprise introuvable",
+    "valid_email": "Entrez une adresse email valide",
+    "valid_name": "entrez un nom valide",
+    "no_record": "Aucun Enregistrement Trouvé",
+    "company_updated": "Entreprise mise à jour avec succès",
+    "company_deleted": "Entreprise supprimée avec succès"
+  },
     "bus_message": {
         "created_success": "Bus créé avec succès",
         "bus_exist": "Le bus existe déjà",
@@ -42,5 +42,8 @@
         "bus_updated": "Bus mis à jour avec succès",
         "bus_deleted": "Bus supprimé avec succès",
         "bus_empty": "Aucun Enregistrement Trouvé"
+      },
+      "view_bus": {
+        "view_message":"Itinéraire introuvable"
       }
   } 

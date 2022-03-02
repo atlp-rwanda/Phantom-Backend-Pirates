@@ -16,10 +16,9 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE'
       })
 
-      Bus.belongsToMany(models.Motion, {
-        through: models.BusMotion,
-        as: 'motions',
-        foreignKey: 'busId'
+      Bus.belongsTo(models.Route, {
+        foreignKey: 'rout_id',
+        onDelete: 'CASCADE'
       })
     }
   }

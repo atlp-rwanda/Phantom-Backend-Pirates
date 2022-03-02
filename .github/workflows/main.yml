@@ -80,3 +80,4 @@ jobs:
         with:
           name: Code Climate Report
           path: codeclimate-report.html
+          path: codeclimate-report.html
