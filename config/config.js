@@ -1,15 +1,9 @@
 require('dotenv').config()
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> afe8fbb (setup project postgres)
 module.exports = {
   development: {
     url: process.env.DB_URL,
     dialect: 'postgres'
-<<<<<<< HEAD
   },
   test: {
     url: process.env.DB_URL,
@@ -20,11 +14,7 @@ module.exports = {
     dialect: 'postgres'
   }
 }
-=======
 const env = process.env.NODE_ENV || 'dev';
-=======
-const env = process.env.NODE_ENV || 'dev'
->>>>>>> 44a261d (cheking if husky works)
 
 const dev = {
   app: {
@@ -57,13 +47,7 @@ const config = {
   test
 }
 
-<<<<<<< HEAD
 module.exports = config[env];
->>>>>>> 2e7b401 (running test errors solved)
-=======
-module.exports = config[env]
->>>>>>> 44a261d (cheking if husky works)
-=======
   },
   test: {
     url: process.env.DB_URL,
@@ -74,5 +58,3 @@ module.exports = config[env]
     dialect: 'postgres'
   }
 }
-
->>>>>>> afe8fbb (setup project postgres)
