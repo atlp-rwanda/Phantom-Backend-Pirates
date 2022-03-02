@@ -18,5 +18,27 @@
     "id_not_found": "Inshingano ihuye numubare bwite mwatanze ntago ibashije kuboneka",
     "role_updated": "Inshingano z'umukozi zahinduwe neza",
     "role_deleted": "Inshingano z'umukozi zasibwe"
+  },
+  "company_message": {
+    "created_success": "Soyiyeti yakozwe neza",
+    "company_exist": "Sosiyeti izazwe irimo",
+    "empty_field": "Uzuza Hose",
+    "id_not_found": "Sosiyeti mwahisemo ntibaho",
+    "valid_email": "andika imeri yemewe",
+    "valid_name": "andika izina ryemewe",
+    "company_updated": "Guhindura Sosiyeti byagenze neza",
+    "company_deleted": "Gukuramo Sosiyeti byagenze neza"
+  },
+  "bus_message": {
+    "created_success": "Bisi yakozwe neza",
+    "bus_exist": "Bisi izazwe irimo",
+    "invalid_plate": "Uzuza indaga modoka nyayo..(RAA000A)",
+    "empty_field": "Uzuza Hose",
+    "id_not_found": "Bisi mwahisemo ntibaho",
+    "category_valid": "andika ubwoko bwa bisi yemewe",
+    "seat_valid": "imyanya igomba kuba umubare",
+    "bus_updated": "Guhindura Bisi byagenze neza",
+    "bus_deleted": "Gukuramo Bisi byagenze neza",
+    "bus_empty": "harimo ubusa"
   }
-}
+} 

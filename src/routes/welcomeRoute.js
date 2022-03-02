@@ -31,4 +31,5 @@ const router = express.Router()
  *        description: The Welcome Page was displayed successfully
  */
 router.get('/', welcomeController)
+
 export default router
