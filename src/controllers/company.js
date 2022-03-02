@@ -45,6 +45,7 @@ class Companies {
 
   // list all Company
   static listAll (req, res) {
+<<<<<<< HEAD
     const companyNotFoundResponse = req.t('company_message.id_not_found')
     return Company
       .findAll()
@@ -54,6 +55,15 @@ class Companies {
         } else {
           return res.status(400).send({
             message: `${companyNotFoundResponse}`
+=======
+    const Norecord = req.t('company_message.no_record')
+    return Company
+      .findAll()
+      .then(companies => {
+        if (companies.length === 0) {
+          return res.status(400).send({
+            message: `${Norecord}`
+>>>>>>> view bus in route feature
           })
         }
       })
