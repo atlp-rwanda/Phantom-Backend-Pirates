@@ -1,9 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-<<<<<<< HEAD
 npm run lint
 git add .
-=======
-npx lint-staged
->>>>>>> e3db9b0 (Made changes)

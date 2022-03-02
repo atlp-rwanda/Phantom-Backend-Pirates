@@ -44,8 +44,9 @@ class Users {
 
   // Getting a single user by id
   static userById (req, res) {
-    return User.findByPk(req.params.id).then((name, telNumber, email, password) =>
+    return User.findByPk(req.params.id).then((name, telNumber, email, password) => {
       res.status(200).json(name, telNumber, email, password)
+    }
     )
   }
 
