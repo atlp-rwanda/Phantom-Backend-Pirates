@@ -12,7 +12,14 @@
     "migrate": "sequelize db:migrate",
     "undomigrate": "sequelize db:migrate:undo",
     "seed": "sequelize db:seed:all",
-    "undoseed": "sequelize db:seed:undo"
+    "undoseed": "sequelize db:seed:undo",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint . --fix --ext .js && git add -A ."
+    }
+    
   },
   "repository": {
     "type": "git",
@@ -38,6 +45,7 @@
     "i18next-express-middleware": "^1.8.0",
     "i18next-http-middleware": "^3.2.0",
     "i18next-node-fs-backend": "^2.1.3",
+    "husky": "^7.0.4",
     "jsonwebtoken": "^8.5.1",
     "mocha": "^9.2.0",
     "morgan": "^1.10.0",
