@@ -106,5 +106,11 @@
     "success": "Gusiba umukozi bigenze neza",
     "failure":"Umukozi ntabashije kuboneka"
 },
-"logout_success": "Ubashize gusohoka muri Konti yawe neza"
+"logout_success": "Ubashize gusohoka muri Konti yawe neza",
+  "assign_bus": {
+    "assign_success": "imodoka yashyizwe mumuhanda neza",
+    "assign_exist": "Imodoka isanzwe ifite umuhanda igenderamo",
+    "no_bus_assigned": "nta modoka igendera muruyu muhanda",
+    "no_route": "umuhanda ntago ubonetse"
+  }
 }

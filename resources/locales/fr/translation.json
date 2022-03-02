@@ -121,4 +121,11 @@
         }
       },
       "logout_success": "Déconnexion réussie de votre compte"
-  } 
+  ,
+  "assign_bus": {
+    "assign_success": "bus attribué à la route avec succès",
+    "assign_exist": "Bus déjà attribué à une route",
+    "no_bus_assigned": "aucun bus n'est attribué à ces route",
+    "no_route": "la route pas trouve"
+  }
+}

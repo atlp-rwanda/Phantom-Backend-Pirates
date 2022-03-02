@@ -23,7 +23,7 @@ class Routes {
         message: `${emptySource}`
       })
     }
-    if (!(/^[A-Za-z]+$/).test(source)) {
+    if (!/^[A-Za-z]+$/.test(source)) {
       return res.status(400).json({
         message: `${InvalidSource}`
       })
@@ -33,7 +33,7 @@ class Routes {
         message: `${emptyDestination}`
       })
     }
-    if (!(/^[A-Za-z]+$/).test(destination)) {
+    if (!/^[A-Za-z]+$/.test(destination)) {
       return res.status(400).json({
         message: `${InvalidDestination}`
       })
@@ -43,7 +43,7 @@ class Routes {
         message: `${emptyDistance}`
       })
     }
-    if (!(/^[+-]?\d+(\.\d+)?$/).test(distance)) {
+    if (!/^[+-]?\d+(\.\d+)?$/.test(distance)) {
       return res.status(400).json({
         message: `${InvalidDistance}`
       })
@@ -53,7 +53,12 @@ class Routes {
         message: `${empptyBusstop}`
       })
     }
-    if (source === '' || destination === '' || distance === '' || busStop === '') {
+    if (
+      source === '' ||
+      destination === '' ||
+      distance === '' ||
+      busStop === ''
+    ) {
       return res.status(400).send({
         message: `${Allrequired}`
       })
@@ -83,30 +88,32 @@ class Routes {
       }
     }
 
-    return Route
-      .create({
-        source,
-        destination,
-        distance,
-        busStop
-      })
-      .then(routeData => res.status(201).send({
-        success: true,
-        message: `${response}`,
-        routeData
-      }))
-      .catch(error => res.status(400).json({
-        message: `${uniqueBusstop}`,
-        error
-      }))
+    return Route.create({
+      source,
+      destination,
+      distance,
+      busStop
+    })
+      .then((routeData) =>
+        res.status(201).send({
+          success: true,
+          message: `${response}`,
+          routeData
+        })
+      )
+      .catch((error) =>
+        res.status(400).json({
+          message: `${uniqueBusstop}`,
+          error
+        })
+      )
   }
 
   // list all routes
   static listAll (req, res) {
     const Badresponse = req.t('route_message.Routes_notFound')
-    return Route
-      .findAll()
-      .then(routeobject => {
+    return Route.findAll()
+      .then((routeobject) => {
         if (!routeobject) {
           res.status(200).json({
             message: `${Badresponse}`
@@ -117,10 +124,11 @@ class Routes {
           })
         }
       })
-      .catch(error => res.status(404).json({
-        status: 404,
-        error
-      })
+      .catch((error) =>
+        res.status(404).json({
+          status: 404,
+          error
+        })
       )
   }
 
@@ -130,7 +138,7 @@ class Routes {
     const Badresponse = req.t('route_message.route_notFound')
     const id = req.params.id
     Route.findByPk(id)
-      .then(createdata => {
+      .then((createdata) => {
         if (createdata) {
           res.json({
             success: true,
@@ -144,9 +152,11 @@ class Routes {
           })
         }
       })
-      .catch(error => res.status(400).json({
-        error
-      }))
+      .catch((error) =>
+        res.status(400).json({
+          error
+        })
+      )
   }
 
   // update route
@@ -155,20 +165,25 @@ class Routes {
     const Routeexists = req.t('route_message.AlreadyexistsRoute')
     const Updatefails = req.t('route_message.update_fails')
     const { source, destination, distance, busStop } = req.body
-    if (source === '' || destination === '' || distance === '' || busStop === '') {
+    if (
+      source === '' ||
+      destination === '' ||
+      distance === '' ||
+      busStop === ''
+    ) {
       return res.status(400).send({
         message: `${Updatefails}`
       })
     }
-    return Route
-      .findByPk(req.params.id)
+    return Route.findByPk(req.params.id)
       .then((route) => {
-        route.update({
-          source: source || route.source,
-          destination: destination || route.destination,
-          distance: distance || route.distance,
-          busStop: busStop || route.busStop
-        })
+        route
+          .update({
+            source: source || route.source,
+            destination: destination || route.destination,
+            distance: distance || route.distance,
+            busStop: busStop || route.busStop
+          })
           .then((updatedRoute) => {
             res.status(200).json({
               message: `${response}`,
@@ -180,23 +195,25 @@ class Routes {
               }
             })
           })
-          .catch(error => res.status(400).json({
-            message: `${Routeexists}`,
-            error
-
-          }))
+          .catch((error) =>
+            res.status(400).json({
+              message: `${Routeexists}`,
+              error
+            })
+          )
       })
-      .catch(error => res.status(400).json({
-        error
-      }))
+      .catch((error) =>
+        res.status(400).json({
+          error
+        })
+      )
   }
 
   static delete (req, res) {
     const response = req.t('route_message.delete_successfully')
     const feedback = req.t('route_message.delete_impossible')
-    return Route
-      .findByPk(req.params.id)
-      .then(route => {
+    return Route.findByPk(req.params.id)
+      .then((route) => {
         if (!route) {
           return res.status(400).json({
             message: `${feedback}`
@@ -204,16 +221,22 @@ class Routes {
         }
         return route
           .destroy()
-          .then(() => res.status(200).json({
-            message: `${response}`
-          }))
-          .catch(error => res.status(400).json({
-            error
-          }))
+          .then(() =>
+            res.status(200).json({
+              message: `${response}`
+            })
+          )
+          .catch((error) =>
+            res.status(400).json({
+              error
+            })
+          )
       })
-      .catch(error => res.status(400).json({
-        error
-      }))
+      .catch((error) =>
+        res.status(400).json({
+          error
+        })
+      )
   }
 }
 

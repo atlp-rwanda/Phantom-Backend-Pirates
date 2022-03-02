@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  async up (queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -10,31 +10,6 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-<<<<<<< HEAD
-    */
-    await queryInterface.bulkInsert('Buses', [
-      {
-        plate: 'RAF122D',
-        category: 'yutong',
-        seat: '80',
-        bus_status: 'rest',
-        cid: 1,
-        rout_id: 1,
-        createdAt: '2022-02-28',
-        updatedAt: '2022-02-28'
-      },
-      {
-        plate: 'RAF222D',
-        category: 'yutong',
-        seat: '80',
-        bus_status: 'rest',
-        cid: 1,
-        rout_id: 1,
-        createdAt: '2022-02-28',
-        updatedAt: '2022-02-28'
-      }
-    ], {})
-=======
      */
     await queryInterface.bulkInsert(
       'Buses',
@@ -43,35 +18,34 @@ module.exports = {
           plate: 'RAF122D',
           category: 'yutong',
           seat: '80',
-          status: 'available',
+          bus_status: 'rest',
           cid: 1,
           rout_id: 1,
           createdAt: '2022-02-28',
-          updatedAt: '2022-02-28',
+          updatedAt: '2022-02-28'
         },
         {
           plate: 'RAF222D',
           category: 'yutong',
           seat: '80',
-          status: 'available',
+          bus_status: 'rest',
           cid: 1,
           rout_id: 1,
           createdAt: '2022-02-28',
-          updatedAt: '2022-02-28',
-        },
+          updatedAt: '2022-02-28'
+        }
       ],
       {}
-    );
->>>>>>> b408a94 (crud bus feature)
+    )
   },
 
-  async down(queryInterface, Sequelize) {
+  async down (queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('Buses', null, {});
-  },
-};
+    await queryInterface.bulkDelete('Buses', null, {})
+  }
+}

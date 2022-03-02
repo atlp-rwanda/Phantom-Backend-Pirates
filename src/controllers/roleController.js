@@ -48,18 +48,21 @@ class Roles {
           res.status(400).json({ message: `${roleNotFoundResponse}` })
         }
       })
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        res.status(400).json({ message: error })
+      })
   }
 
   static update (req, res) {
+    const roleNotFoundResponse = req.t('role_message.id_not_found')
     const roleUpdatedResponse = req.t('role_message.role_updated')
     const { role } = req.body
     return Role.findByPk(req.params.roleId)
       .then((Role) => {
-        Role.update({
-          role: role || Role.role
-        })
-          .then((updatedRole) => {
+        if (Role) {
+          Role.update({
+            role: role || Role.role
+          }).then((updatedRole) => {
             res.status(200).json({
               message: `${roleUpdatedResponse}`,
               data: {
@@ -67,9 +70,9 @@ class Roles {
               }
             })
           })
-          .catch((error) => res.status(400).json(error))
+        } else res.status(400).json({ message: `${roleNotFoundResponse}` })
       })
-      .catch((error) => res.status(400).json(error))
+      .catch((error) => res.status(400).json({ message: error }))
   }
 
   static delete (req, res) {
@@ -82,15 +85,13 @@ class Roles {
             message: `${roleNotFoundResponse}`
           })
         }
-        return Role.destroy()
-          .then(() =>
-            res.status(200).json({
-              message: `${roleDeletedResponse}`
-            })
-          )
-          .catch((error) => res.status(400).json(error))
+        return Role.destroy().then(() =>
+          res.status(200).json({
+            message: `${roleDeletedResponse}`
+          })
+        )
       })
-      .catch((error) => res.status(400).json(error))
+      .catch((error) => res.status(400).json({ message: error }))
   }
 
   static listEmployeesInRole (req, res) {

@@ -17,6 +17,31 @@ const router = express.Router()
 /**
  * @swagger
  * /api/role:
+ *   post:
+ *     tags:
+ *       - Role
+ *     summary: ccreate a role
+ *     description: Admin is able to create a role
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: authorization
+ *         in: header
+ *         required: true
+ *       - name: role
+ *         description: role name
+ *         in: body
+ *         required: true
+ *         schema:
+ *           $ref: '#/definitions/Role'
+ *     responses:
+ *       200:
+ *         description: Role created successfully
+ */
+
+/**
+ * @swagger
+ * /api/role:
  *   get:
  *     tags:
  *       - Role
@@ -63,6 +88,9 @@ const router = express.Router()
  *   produces:
  *    - application/json
  *   parameters:
+ *    - name: authorization
+ *      in: header
+ *      required: true
  *    - in: path
  *      name: id
  *      schema:
@@ -101,6 +129,9 @@ const router = express.Router()
  *     produces:
  *       - application/json
  *     parameters:
+ *       - name: authorization
+ *         in: header
+ *         required: true
  *       - name: id
  *         description: role's id
  *         in: path
@@ -111,10 +142,10 @@ const router = express.Router()
  *         description: Successfully deleted
  */
 
-router.post('/', verifyAdmin, Roles.createRole)
-router.get('/', verifyAdmin, Roles.allRoles)
-router.put('/:roleId', verifyAdmin, Roles.update)
-router.get('/:roleId', Roles.getSingleRole)
-router.delete('/:roleId', Roles.delete)
+router.post('/api/role/', verifyAdmin, Roles.createRole)
+router.get('/api/role/', Roles.allRoles)
+router.put('/api/role/:roleId', verifyAdmin, Roles.update)
+router.get('/api/role/:roleId', Roles.getSingleRole)
+router.delete('/api/role/:roleId', verifyAdmin, Roles.delete)
 
 export default router

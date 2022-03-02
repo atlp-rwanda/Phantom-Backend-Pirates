@@ -1,7 +1,5 @@
 'use strict'
-const {
-  Model
-} = require('sequelize')
+const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class Company extends Model {
     /**
@@ -16,35 +14,37 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   }
-  Company.init({
-    name: {
-      type: DataTypes.STRING,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Company name required'
-        }
-      },
-      unique: { msg: 'name already in use!' }
-    },
-    email: {
-      type: DataTypes.STRING,
-      validate: {
-        notEmpty: {
-          args: true,
-          msg: 'Email-id required'
+  Company.init(
+    {
+      name: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'Company name required'
+          }
         },
-        isEmail: {
-          args: true,
-          msg: 'Valid email-id required'
-        }
+        unique: { msg: 'name already in use!' }
       },
-      unique: { msg: 'Email address already in use!' }
-
+      email: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'Email-id required'
+          },
+          isEmail: {
+            args: true,
+            msg: 'Valid email-id required'
+          }
+        },
+        unique: { msg: 'Email address already in use!' }
+      }
+    },
+    {
+      sequelize,
+      modelName: 'Company'
     }
-  }, {
-    sequelize,
-    modelName: 'Company'
-  })
+  )
   return Company
 }

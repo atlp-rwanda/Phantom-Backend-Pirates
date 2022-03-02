@@ -121,4 +121,11 @@
     },
     "logout_success": "Successfully logged out of your Account"
   
+  ,
+  "assign_bus": {
+    "assign_success": "bus assigned to route successfully",
+    "assign_exist": "Bus already assigned to a route",
+    "no_bus_assigned": "no bus assigned to this route",
+    "no_route": "route not found"
+  }
 }

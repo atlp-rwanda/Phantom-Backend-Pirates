@@ -1,150 +1,158 @@
-import model from '../../models';
-const { Company } = model;
+import model from '../../models'
+const { Company } = model
 
 class Companies {
-  static create(req, res) {
-    const companySuccessResponse = req.t('company_message.created_success');
-    const companyExistResponse = req.t('company_message.company_exist');
-    const companyFieldResponse = req.t('company_message.empty_field');
-    const { name, email } = req.body;
+  // create company
+  static create (req, res) {
+    const companySuccessResponse = req.t('company_message.created_success')
+    const companyExistResponse = req.t('company_message.company_exist')
+    const companyFieldResponse = req.t('company_message.empty_field')
+    const companyValidName = req.t('company_message.valid_name')
+    const companyValidEmail = req.t('company_message.valid_email')
+    const { name, email } = req.body
     if (name === '' || email === '') {
       return res.status(400).send({
-        message: `${companyFieldResponse}`,
-      });
+        message: `${companyFieldResponse}`
+      })
+    }
+    if (!/^[A-Za-z]+$/.test(name)) {
+      return res.status(400).send({
+        message: `${companyValidName}`
+      })
+    }
+    if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) {
+      return res.status(400).send({
+        message: `${companyValidEmail}`
+      })
     }
     return Company.create({
       name,
-      email,
+      email
     })
       .then((userData) =>
         res.status(201).send({
           success: true,
           message: `${companySuccessResponse}`,
-          userData,
+          userData
         })
       )
       .catch((error) => {
-        res.status(400).send(`${companyExistResponse}`);
-        console.log(error);
-      });
+        res.status(400).send({
+          message: `${companyExistResponse}`
+        })
+        console.log(error)
+      })
   }
 
   // list all Company
-<<<<<<< HEAD
   static listAll (req, res) {
     const Norecord = req.t('company_message.no_record')
-    return Company
-      .findAll()
-      .then(companies => {
+    return Company.findAll()
+      .then((companies) => {
         if (companies.length === 0) {
           return res.status(400).send({
             message: `${Norecord}`
           })
-<<<<<<< HEAD
-=======
-        } else {
-          return res.status(200).send(companies)
-=======
-  static listAll(req, res) {
-    const companyNotFoundResponse = req.t('company_message.id_not_found');
-    return Company.findAll()
-      .then((users) => {
-        if (users === 0) {
-          return res.status(400).send({
-            message: `${companyNotFoundResponse}`,
-          });
->>>>>>> 12a507c (crud bus feature)
->>>>>>> 9a3fc3d (crud bus feature)
         }
-        return res.status(200).send(users);
       })
 
-      .catch((error) => res.status(400).send(error));
+      .catch((error) => res.status(400).send(error))
   }
 
-<<<<<<< HEAD
   // list one Company
   static list (req, res) {
     const companyNotFoundResponse = req.t('company_message.id_not_found')
     const id = req.params.id
-=======
-  // list one uCompany
-  static list(req, res) {
-    const companyNotFoundResponse = req.t('company_message.id_not_found');
-    const id = req.params.id;
->>>>>>> 12a507c (crud bus feature)
     Company.findByPk(id)
       .then((createdata) => {
         if (createdata) {
           res.json({
             success: true,
-            data: createdata,
-          });
+            data: createdata
+          })
         } else {
-          res.status(400).send(`${companyNotFoundResponse}`);
+          res.status(400).send({
+            message: `${companyNotFoundResponse}`
+          })
         }
       })
-      .catch((error) => res.status(400).send(error));
+      .catch((error) => res.status(400).send(error))
   }
 
   // update  Company
-  static modify(req, res) {
-    const companySuccessResponse = req.t('company_message.company_updated');
-    const companyExistResponse = req.t('company_message.company_exist');
-    const companyFieldResponse = req.t('company_message.empty_field');
-    const companyNotFoundResponse = req.t('company_message.id_not_found');
-    try {
-      const { name, email } = req.body;
-      if (name === '' || email === '') {
-        return res.status(400).send({
-          message: `${companyFieldResponse}`,
-        });
-      }
-      const id = req.params.id;
-      Company.update(req.body, {
-        where: { id: id },
-      }).then((finddata) => {
-        if (req.body === '') {
-          return res.status(400).send({
-            message: `${companyFieldResponse}`,
-          });
-        }
-        if (finddata === 1) {
-          res.send({
-            success: true,
-            message: `${companySuccessResponse}`,
-            data: finddata,
-          });
-        } else {
-          res.send({
-            message: `${companyNotFoundResponse}`,
-          });
-        }
-      });
-    } catch (err) {
-      res.status(500).json(`${companyExistResponse}`);
+  static modify (req, res) {
+    const companySuccessResponse = req.t('company_message.company_updated')
+    const companyExistResponse = req.t('company_message.company_exist')
+    const companyFieldResponse = req.t('company_message.empty_field')
+    const companyNotFoundResponse = req.t('company_message.id_not_found')
+    const companyValidName = req.t('company_message.valid_name')
+    const companyValidEmail = req.t('company_message.valid_email')
+    const { name, email } = req.body
+    if (name === '' || email === '') {
+      return res.status(400).send({
+        message: `${companyFieldResponse}`
+      })
     }
+    if (!/^[A-Za-z]+$/.test(name)) {
+      return res.status(400).send({
+        message: `${companyValidName}`
+      })
+    }
+    if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) {
+      return res.status(400).send({
+        message: `${companyValidEmail}`
+      })
+    }
+    return Company.findByPk(req.params.id)
+      .then((company) => {
+        company
+          .update({
+            name: name || company.name,
+            email: email || company.email
+          })
+          .then((updatedCompany) => {
+            res.status(200).send({
+              message: `${companySuccessResponse}`,
+              data: {
+                name: name || updatedCompany.name,
+                email: email || updatedCompany.email
+              }
+            })
+          })
+          .catch((error) => {
+            res.status(400).send({
+              message: `${companyExistResponse}`
+            })
+            console.log(error)
+          })
+      })
+      .catch((error) => {
+        res.status(400).send({
+          message: `${companyNotFoundResponse}`
+        })
+        console.log(error)
+      })
   }
 
   // delete
-  static delete(req, res) {
-    const companyNotFoundResponse = req.t('company_message.id_not_found');
-    const companyDeleteResponse = req.t('company_message.company_deleted');
+  static delete (req, res) {
+    const companyNotFoundResponse = req.t('company_message.id_not_found')
+    const companyDeleteResponse = req.t('company_message.company_deleted')
     return Company.findByPk(req.params.id)
       .then((company) => {
         if (!company) {
           return res.status(400).send({
-            message: `${companyNotFoundResponse}`,
-          });
+            message: `${companyNotFoundResponse}`
+          })
         }
         return company.destroy().then(() =>
           res.status(200).send({
-            message: `${companyDeleteResponse}`,
+            message: `${companyDeleteResponse}`
           })
-        );
+        )
       })
-      .catch((error) => res.status(400).send(error));
+      .catch((error) => res.status(400).send(error))
   }
 }
 
-export default Companies;
+export default Companies
