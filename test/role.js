@@ -32,7 +32,6 @@ describe('Testing role APIs', () => {
           res.body.should.be.a('object');
           res.body.should.have.property('id');
           res.body.should.have.property('role');
-          res.body.should.have.property('id').eq(1);
           done();
         });
     });
