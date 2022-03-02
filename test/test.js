@@ -24,9 +24,9 @@ describe('server connection', () => {
           res.should.have.status(200);
           res.body.message.should.be.equal('Bienvenue sur le Web fantôme');
           res.body.error.should.be.equal(false);
-          done()
-        })
-    })
+          done();
+        });
+    });
 
     it('welcomes user to the api in Kinyarwanda', (done) => {
       chai

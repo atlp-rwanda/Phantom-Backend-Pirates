@@ -44,76 +44,65 @@
     "bus_empty": "harimo ubusa"
   },
   "view_bus": {
-    "view_message":"Umuhanda ntiwabonetse"
+    "view_message": "Umuhanda ntiwabonetse"
   },
-  "route_message":{
-    "fields_required":"Reba neza ko hose wahujuje",
-    "created_successfully":"Umuhanda waremwe",
-    "validating_data":"Injizamo ibikenewe",
-    "Routes_notFound":"Nta mihanda irimo",
-    "getaRoute":"Umuhanda ushaka wabonetse",
-    "route_notFound":"Umuhanda ntubonetse",
-    "update_fails":"Reba ko hose wahujuje",
-    "updated_successfully":"Umuhanda wavuguruwe",
-    "AlreadyexistsRoute":"Uyu Muhanda usanzwe uhari",
-    "delete_successfully":"Murakoze umuhanda wasibwe",
-    "delete_impossible":"Umuhanda ntawuhari ngo usibwe",
-    "empty_source":"Ntabwo washyizemo aho umuhanda uhera",
-    "Invalid_source":"Ibyo mwujuje aho umuhanda uhera ntibibaho",
-    "empty_destination":"Ntabwo washyizemo aho umuhanda urangirira",
-    "Invalid_destination":"Ibyo mwujuje aho umuhanda usorezwa ntibibaho",
-    "empty_distance":"Intera hagati yaho umuhanda utangirira naho urangirira ntihaba ubusa",
-    "Invalid_distance":"Wahyizemo intera itemewe",
-    "uniqueBussto":"Reba neza ko ama arete washyizemo adahuye nundi muhanda",
-    "emptybusstop":"Nta kintu winjije muri za arete",
-    "missingBusstop":"Hari areti wasimbutse",
-    "duplicateBusstop":"Harimo areti nyinshi zisa"
-  },
-  "forgot_password":{
-    "success":"Reba muri imeri yawe kugirango uhindure ijambobanga ryawe",
-    "failure":"Umukoresha ufite iyo imeri ntabwo abaho"
-  },
-  "reset_password":{
-    "mismatchpasswords": "Ijambobanga ntirihuye",
-    "nouser": "Umukoresha winjijwe ntabwo abonetse",
-    "token": {
-      "success":"Guhindurirwa ijambo ryibanga byagenze neza",
-      "failure":"Umukoresha ufite iyo imeri ntabaho cyangwa Token ye yarangije igihe"
-    }
+  "route_message": {
+    "fields_required": "Reba neza ko hose wahujuje",
+    "created_successfully": "Umuhanda waremwe",
+    "validating_data": "Injizamo ibikenewe",
+    "Routes_notFound": "Nta mihanda irimo",
+    "getaRoute": "Umuhanda ushaka wabonetse",
+    "route_notFound": "Umuhanda ntubonetse",
+    "update_fails": "Reba ko hose wahujuje",
+    "updated_successfully": "Umuhanda wavuguruwe",
+    "AlreadyexistsRoute": "Uyu Muhanda usanzwe uhari",
+    "delete_successfully": "Murakoze umuhanda wasibwe",
+    "delete_impossible": "Umuhanda ntawuhari ngo usibwe",
+    "empty_source": "Ntabwo washyizemo aho umuhanda uhera",
+    "Invalid_source": "Ibyo mwujuje aho umuhanda uhera ntibibaho",
+    "empty_destination": "Ntabwo washyizemo aho umuhanda urangirira",
+    "Invalid_destination": "Ibyo mwujuje aho umuhanda usorezwa ntibibaho",
+    "empty_distance": "Intera hagati yaho umuhanda utangirira naho urangirira ntihaba ubusa",
+    "Invalid_distance": "Wahyizemo intera itemewe",
+    "uniqueBussto": "Reba neza ko ama arete washyizemo adahuye nundi muhanda",
+    "emptybusstop": "Nta kintu winjije muri za arete",
+    "missingBusstop": "Hari areti wasimbutse",
+    "duplicateBusstop": "Harimo areti nyinshi zisa"
   },
   "field_error_message": {
     "first_name_message": {
-      "invalid_first_name":"Izina ryambere mushizeho ntiribaho",
+      "invalid_first_name": "Izina ryambere mushizeho ntiribaho",
       "empty_first_name": "Izina ryambere rigomba kujyamo ikintu"
-  },
+    },
     "last_name_message": {
-      "invalid_last_name":"Izina ryakabiri mushizeho ntiribaho",
+      "invalid_last_name": "Izina ryakabiri mushizeho ntiribaho",
       "empty_last_name": "Izina ryakabiri rigomba kujyamo ikintu"
-  },
+    },
     "gender_message": {
-      "invalid_gender":"Igitsina kigomba kuba gabo cyangwa gore",
-      "empty_gemder":"Umuntu agomba kugira indanga gitsina"
-  },
+      "invalid_gender": "Igitsina kigomba kuba gabo cyangwa gore",
+      "empty_gemder": "Umuntu agomba kugira indanga gitsina"
+    },
     "email_message": {
-      "invalid_email":"imeri mushizeho ntibaho",
-      "empty_email":"Umuntu agomba kugira imeri"
+      "invalid_email": "imeri mushizeho ntibaho",
+      "empty_email": "Umuntu agomba kugira imeri"
+    },
+    "address_message": {
+      "invalid_address": "Andika aho utuye neza",
+      "empty_address": "Ugomba kwandikaho aho utuye"
+    },
+    "invalid_age": "Imyaka igomba kuba iri hagati ya cumi numi numunani na mirongo itandatu nitanu",
+
+    "all_fields_message": "Ugomba kuzuza imyanya yose yabugenewe"
   },
-  "address_message":{
-    "invalid_address": "Andika aho utuye neza",
-    "empty_address":"Ugomba kwandikaho aho utuye"
-},
-  "invalid_age":"Imyaka igomba kuba iri hagati ya cumi numi numunani na mirongo itandatu nitanu",
-  "all_fields_message": "Ugomba kuzuza imyanya yose yabugenewe"
-},
-"registration_message":{
-  "success":"Kubika imyirondoro bigenze neza",
-  "failure":"Kwandika imyirondoro ntibikunze"
-},
-"update_messages" :{
+  "registration_message": {
+    "success": "Kubika imyirondoro bigenze neza",
+    "failure": "Kwandika imyirondoro ntibikunze"
+  },
+  "update_messages": {
     "success": "Guhindura imyirondoro byagenze neza",
-    "failure":"Guhindura imyirondoro ntibyakunze"
-},
-"delete_employee_messages": {
+    "failure": "Guhindura imyirondoro ntibyakunze"
+  },
+  "delete_employee_messages": {
     "success": "Gusiba umukozi bigenze neza",
     "failure":"Umukozi ntabashije kuboneka"
 },
