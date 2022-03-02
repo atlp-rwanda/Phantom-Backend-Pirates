@@ -1,33 +1,24 @@
-# Phantom-Backend-Pirates
+# Crud operation for routes
 
+## Overview
+In this feature, I have completed CRUD operation for routes where an operator can be able
 
-# node-sequelize-postgres-crud
+ - to create
+ - update
+  - delete a route, and
+  - users are able to view the route's details 
+## Testing 
 
-Basic CRUD operation by using node.js and typeORM.
+To test this follow these steps 
 
-## Installation
+1. Pull this branch
+2. run `npm install` to install all dependencies in `package.json`
+3. run `touch .env` to create .env file on the root folder
+4. Based on database configuration enter your DB_URL
+5. run `npm run migrate` to create the database
+6. run `npm build` to build the app with babel
+7.  run `npm run dev` to start server 
+8. use postman to test API
 
-- You need to create database in `postgres` with `YOUR_DATABASE_NAME`
-- `git pull this branch`
-- `npm install`
-
-- Create .env file on root folder
-- `touch .env`
-
-- Enter line
-LOCAL_PORT = your port 
-- edit DB_URL basing on your database configuration
-DB_URL = postgres://<username>:<your_password>@localhost:5432/<your_database>?sslmode=disable
-
-- run migration to create database
-
-- npx sequelize-cli  db:migrate
-- npx sequelize-cli db:seed:all
-```
-
-- `npm run dev`
-
-## Todo
-get welcome page
-`http://localhost:your post/`
-
+## Relevant Pivotal tracker
+[CRUD operation for routes](https://trello.com/c/Rf7ECYx3/7-crud-operations-for-routes)
