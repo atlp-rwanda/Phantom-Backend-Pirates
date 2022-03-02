@@ -1,6 +1,5 @@
 let chai =require("chai");
 let chaiHttp= require("chai-http");
-let server= require("../src/app");
 const API = 'http://localhost:3001';
 
 
@@ -19,6 +18,7 @@ describe('Routes API', ()=>{
             .end((err,response)=>{
                 response.should.have.status(200)
                 response.body.should.be.a('array');
+                response.body.length.should.be.eq(6);
             done();
             })
         })

@@ -3,9 +3,11 @@ import logger from 'morgan'
 import swaggerJsDoc from 'swagger-jsdoc'
 import swaggerUI from 'swagger-ui-express'
 import bodyParser from 'body-parser'
+import loginrouter from '../src/authorization/auth'
 import dotenv from "dotenv"
 
 dotenv.config();
+
 
 import loginrouter from '../src/authorization/auth'
 // Required Routes
@@ -34,10 +36,11 @@ app.all('*', function (req, res, next) {
   next()
 })
 
+
 app.use(bodyParser.json({ limit: '100mb' }))
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: 'true' }))
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
-
+app.use("/api",loginrouter)
 // Swagger Info Object
 const swaggerOptions = {
   swaggerDefinition: {

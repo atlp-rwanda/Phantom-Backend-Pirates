@@ -41,7 +41,6 @@ class Routes {
                });
             }
             else{
-                // res.status(400).send("route id not found");
                 res.status(400).send({status:400, message:"route id not found"})
             }
         })
