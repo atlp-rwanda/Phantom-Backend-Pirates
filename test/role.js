@@ -23,7 +23,7 @@ describe('Testing role APIs', () => {
   // test GET route by id
   describe('GET /api/role/:id ', () => {
     it('It should get all the role by ID', (done) => {
-      const roleId = 4;
+      const roleId = 1;
       chai
         .request(app)
         .get('/api/role/' + roleId)
@@ -32,7 +32,6 @@ describe('Testing role APIs', () => {
           res.body.should.be.a('object');
           res.body.should.have.property('id');
           res.body.should.have.property('role');
-          res.body.should.have.property('id').eq(4);
           done();
         });
     });
@@ -55,7 +54,7 @@ describe('Testing role APIs', () => {
             .request(app)
             .post('/api/role')
             .set('authorization', token)
-            .send({ role: 'operator' })
+            .send({ role: 'driver' })
             .end((error, response) => {
               response.should.have.status(200);
               response.body.should.be.a('object');
@@ -70,7 +69,7 @@ describe('Testing role APIs', () => {
   // test PUT route
   describe('PUT /api/role/:id', () => {
     it('It should edit an existing role', (done) => {
-      const roleId = 4;
+      const roleId = 1;
       chai
         .request(app)
         .post('/users/login')

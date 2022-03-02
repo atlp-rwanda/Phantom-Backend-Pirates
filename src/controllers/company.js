@@ -45,13 +45,13 @@ class Companies {
 
   // list all Company
   static listAll (req, res) {
-    const norecord = req.t('company_message.no_record')
+    const Norecord = req.t('company_message.no_record')
     return Company
       .findAll()
       .then(companies => {
-        if (companies) {
+        if (companies.length === 0) {
           return res.status(400).send({
-            message: `${norecord}`
+            message: `${Norecord}`
           })
         } else {
           return res.status(200).send(companies)
@@ -61,7 +61,7 @@ class Companies {
       .catch(error => res.status(400).send(error))
   }
 
-  // list one uCompany
+  // list one Company
   static list (req, res) {
     const companyNotFoundResponse = req.t('company_message.id_not_found')
     const id = req.params.id

@@ -29,7 +29,6 @@ const route = express.Router()
  *       cid:
  *         type: integer
  */
-
 // create new company Doc
 /**
  * @swagger

@@ -14,6 +14,7 @@ import login from './routes/login'
 import roleRouter from './routes/role'
 import busRouter from './routes/bus'
 import companyRouter from './routes/company'
+import viewBus from './routes/viewbus'
 
 dotenv.config()
 // Initialize express app
@@ -70,12 +71,13 @@ if (app.get('env') === 'development') {
   const swaggerDocs = swaggerJsDoc(swaggerOptions)
   app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
-  // Use routes
+  // Custom Middleware
   app.use(welcomeRoute)
-  app.use(busRouter)
-  app.use(companyRouter)
   app.use(login)
-  app.use('/api/role', roleRouter)
+  app.use(roleRouter)
+  app.use(companyRouter)
+  app.use(busRouter)
+  app.use(viewBus)
 
   // port & hostname
   const port = process.env.APP_PORT || 3000

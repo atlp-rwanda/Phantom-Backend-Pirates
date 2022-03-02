@@ -54,13 +54,13 @@ class Buses {
 
   // list all buses
   static listAll (req, res) {
-    const norecord = req.t('bus_message.no_record')
+    const Norecord = req.t('bus_message.no_record')
     return Bus
       .findAll()
       .then(listbus => {
         if (listbus.length === 0) {
           res.status(400).send({
-            message: `${norecord}`
+            message: `${Norecord}`
           })
         } else {
           res.status(200).send(listbus)
