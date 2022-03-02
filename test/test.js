@@ -40,15 +40,5 @@ describe('server connection', () => {
           done()
         })
     })
-
-    it('404 Error', (done) => {
-      chai
-        .request(app)
-        .get('/random')
-        .end((err, res) => {
-          res.text.should.be.equal('<h1>Welcome to Phantom Web App!!!!!</h1>')
-          done()
-        })
-    })
   })
 })
