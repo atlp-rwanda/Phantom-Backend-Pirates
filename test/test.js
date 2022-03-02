@@ -39,5 +39,15 @@ describe('server connection', () => {
           done()
         })
     })
+
+    it('404 Error', (done) => {
+      chai
+        .request(app)
+        .get('/random')
+        .end((err, res) => {
+          res.should.have.status(404);
+          done();
+        });
+    });
   });
 });
