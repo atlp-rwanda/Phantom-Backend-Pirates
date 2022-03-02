@@ -13,8 +13,7 @@ const login = ('/login', (req, res) => {
     }
   }).then(user => {
     if (!user) {
-      res.status(404).json({
-        success: false,
+      res.status(400).json({
         error: 'The email is not registered! Please first register'
       })
     } else {
@@ -55,7 +54,6 @@ const login = ('/login', (req, res) => {
         })
       } else {
         res.status(401).json({
-          success: false,
           error: "The passwords entered don't match"
         })
       }
