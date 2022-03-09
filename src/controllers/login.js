@@ -31,8 +31,8 @@ const login =
           })
         } else {
           const userRole = {
-            isAdmin: true,
-            isOperator: false,
+            isAdmin: false,
+            isOperator: true,
             isDriver: false
           }
           if (bcrypt.compareSync(password, user.password) && userRole.isAdmin) {
