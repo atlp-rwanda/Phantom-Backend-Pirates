@@ -15,11 +15,11 @@
     "undoseed": "sequelize db:seed:undo",
     "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "eslint . --fix --ext .js && git add -A ."
+
+  "husky":{
+    "hooks":{
+      "pre-commit": "npm run lint && git add -A ."
     }
-    
   },
   "repository": {
     "type": "git",

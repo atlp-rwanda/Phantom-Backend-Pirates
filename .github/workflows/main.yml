@@ -32,3 +32,21 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_KEY}}
           heroku_app_name: HEROKU_APP_NAME
           heroku_email: HEROKU_EMAIL
+  code-quality:
+    name: Code Climate Standalone
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run Code Climate
+        uses: erzz/codeclimate-standalone@v0
+        with:
+          html_report: true
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Code Climate Report
+          path: codeclimate-report.html

@@ -60,11 +60,13 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 // Use routes
 app.use(welcomeRoute)
 app.use(login)
-app.use('/api/role', roleRouter)
-
 // port & hostname
 const port = process.env.APP_PORT || 3000
 const hostname = 'localhost'
+// Custom Middleware
+app.use(welcomeRoute)
+app.use(login)
+app.use('/api/role', roleRouter)
 
 // Listening to requests
 app.listen(port, async () => {
