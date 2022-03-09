@@ -45,5 +45,28 @@
       },
       "view_bus": {
         "view_message":"Itinéraire introuvable"
-      }
-  } 
+      },
+    "route_message":{
+        "fields_required":"Toutes les formations requises",
+        "created_successfully":"Route créé avec succès",
+        "validating_data":"Insérer des données valides",
+        "Routes_notFound":"Aucun enregistrement",
+        "getaRoute":"Récupération de route réussie",
+        "route_notFound":"Route introuvable",
+        "update_fails":"Toutes les formations requises",
+        "updated_successfully":"Route est mis à jour avec succès",
+        "AlreadyexistsRoute":"Route existe déjà",
+        "delete_successfully":"Route supprimé avec succès",
+        "delete_impossible":"Route introuvable",
+        "empty_source":"La source ne peut pas être vide",
+        "Invalid_source":"Source invalide",
+        "empty_destination":"la destination ne peut pas être vide",
+        "Invalid_destination":"Destination invalide",
+        "empty_distance":"La distance ne peut pas être vide",
+        "Invalid_distance":"Distance invalide",
+         "uniqueBusstop":"L'arrêt de bus doit être unique",
+         "emptybusstop":"L'arrêt de bus ne doit pas être vide",
+         "duplicateBusstop":"Il y a des arrêts de bus en double",
+         "missingBusstop":"Il manque un arrêt de bus"
+}
+}

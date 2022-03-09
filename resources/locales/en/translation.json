@@ -45,5 +45,31 @@
     "id_not_found": "Role with specified id not found",
     "role_updated": "Role successfully updated",
     "role_deleted": "Role successfully deleted"
+  },
+  "route_message":{
+    "fields_required":"All fields required",
+    "created_successfully":"Route successfully created",
+    "validating_data":"Insert valid data",
+    "Routes_notFound":"no record",
+    "getaRoute":"Route fetch Successfully",
+    "route_notFound":"Route not found",
+    "update_fails":"All field required",
+    "updated_successfully":"Route is successfully updated",
+    "AlreadyexistsRoute":"Route already exists",
+    "delete_successfully":"route successfully deleted",
+    "delete_impossible":"This route is not in database to be deleted",
+    "empty_source":"Source can not be empty",
+    "Invalid_source":"Invalid source",
+    "empty_destination":"destinatiion can not be empty",
+    "Invalid_destination":"Invalid destination",
+    "empty_distance":"Distance can not be empty",
+    "Invalid_distance":"Invalid distance",
+    "uniqueBusstop":"Busstop must be unique",
+    "emptybusstop":"Busstop must not be empty",
+    "missingBusstop":"There is a missing Bus stop",
+    "duplicateBusstop":"There are duplicates Bus stops"
+    
+}
   }
-  } 
+    
+    

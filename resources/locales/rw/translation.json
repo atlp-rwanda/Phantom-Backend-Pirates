@@ -45,5 +45,29 @@
   },
   "view_bus": {
     "view_message":"Umuhanda ntiwabonetse"
+  },
+  "route_message":{
+    "fields_required":"Reba neza ko hose wahujuje",
+    "created_successfully":"Umuhanda waremwe",
+    "validating_data":"Injizamo ibikenewe",
+    "Routes_notFound":"Nta mihanda irimo",
+    "getaRoute":"Umuhanda ushaka wabonetse",
+    "route_notFound":"Umuhanda ntubonetse",
+    "update_fails":"Reba ko hose wahujuje",
+    "updated_successfully":"Umuhanda wavuguruwe",
+    "AlreadyexistsRoute":"Uyu Muhanda usanzwe uhari",
+    "delete_successfully":"Murakoze umuhanda wasibwe",
+    "delete_impossible":"Umuhanda ntawuhari ngo usibwe",
+    "empty_source":"Ntabwo washyizemo aho umuhanda uhera",
+    "Invalid_source":"Ibyo mwujuje aho umuhanda uhera ntibibaho",
+    "empty_destination":"Ntabwo washyizemo aho umuhanda urangirira",
+    "Invalid_destination":"Ibyo mwujuje aho umuhanda usorezwa ntibibaho",
+    "empty_distance":"Intera hagati yaho umuhanda utangirira naho urangirira ntihaba ubusa",
+    "Invalid_distance":"Wahyizemo intera itemewe",
+    "uniqueBussto":"Reba neza ko ama arete washyizemo adahuye nundi muhanda",
+    "emptybusstop":"Nta kintu winjije muri za arete",
+    "missingBusstop":"Hari areti wasimbutse",
+    "duplicateBusstop":"Harimo areti nyinshi zisa"
+
   }
 } 
