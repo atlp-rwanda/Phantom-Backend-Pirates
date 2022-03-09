@@ -1,3 +1,22 @@
 {
-  "welcome_message": "Ikaze k'Urubuga rwa Phantom"
+  "welcome_message": "Ikaze k'Urubuga rwa Phantom",
+  "login_message": {
+    "onSuccess": {
+      "admin": "Winjiye neza nka Admin",
+      "operator": "Winjiye neza nka Operator",
+      "driver": "Winjiye neza nka Shoferi"
+    },
+    "onFailure": {
+      "nonregistered": "Imeri yanditswe ntabwo tuyifite! Nyamuneka banza wiyandikishe",
+      "wrongpassword": "Imeri cyangwa ijambo ryibanga ryinjiye sibyo"
+    }
+  },
+  "role_message": {
+    "created_success": "Inshingano y'umukozi yakozwe neza",
+    "Role_exist": "Inshingano y'umukozi isanzwemo",
+    "creation_failed": " winjije ibitaribyo, injizamo hagati ya: 'driver', 'admin' cg 'operator' ",
+    "id_not_found": "Inshingano ihuye numubare bwite mwatanze ntago ibashije kuboneka",
+    "role_updated": "Inshingano z'umukozi zahinduwe neza",
+    "role_deleted": "Inshingano z'umukozi zasibwe"
+  }
 }
