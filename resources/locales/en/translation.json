@@ -108,6 +108,35 @@
 "delete_employee_messages": {
     "success": "Employee deleted successfuly",
     "failure":"Employé introuvable"
-}
-  
-}
+}, 
+    "forgot_password":{
+      "success":"Check your email for the reset link",
+      "failure":"The user with the email does not exist"
+    },
+    "reset_password":{
+      "mismatchpasswords": "Passwords don't match",
+      "nouser": "User not found",
+      "token": {
+        "success":"Password reset successfully",
+        "failure":"The user with the email does not exist or the token has expired"
+      }
+    }, 
+  "last_name_message":{
+      "invalid_last_name":"Invalid lastname",
+      "empty_last_name": "Lastname cannot be empty"
+  },
+  "gender_message": {
+      "invalid_gender": "Gender must be Male or Female",
+      "empty_gemder":"Gender cannot be empty"
+  },
+  "email_message":{
+      "invalid_email":"Invalid email",
+      "empty_email":"Email cannot be empty"
+  },
+  "address_message":{
+      "invalid_address": "Invalid address",
+      "empty_address":"Address canot be empty"
+  },
+  "invalid_age":"Age must be between 18 and 65",
+  "all_fields_message": "All fields required"
+  }

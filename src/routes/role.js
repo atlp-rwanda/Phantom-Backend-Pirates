@@ -115,6 +115,6 @@ router.post('/', Roles.createRole)
 router.get('/', Roles.allRoles)
 router.put('/:roleId', verifyAdmin, Roles.update)
 router.get('/:roleId', Roles.getSingleRole)
-router.delete('/:roleId', verifyAdmin, Roles.delete)
+router.delete('/:roleId', Roles.delete)
 
 export default router

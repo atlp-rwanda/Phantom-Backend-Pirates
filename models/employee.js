@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       unique: true
     },
     password: DataTypes.STRING,
-    roleId: DataTypes.STRING
+    roleId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Employee'

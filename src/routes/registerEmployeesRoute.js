@@ -195,7 +195,6 @@ router.get('/employeesInRole/:id', Employees.listEmployeeInRole)
 router.get('/employees/list', Employees.list) // view all employees
 router.get('/employees/:id', Employees.listOneEmployee) // view a single employee
 router.get('/employees/roleInfo/:id', Employees.EmployeeroleInformation) // view employees role info
-
 router.post('/employees/:roleId', Employees.create) // add a new employee
 router.put('/employees/:id', Employees.updateEmployee) // update employee
 router.delete('/employees/:id', Employees.delete) // delete employee

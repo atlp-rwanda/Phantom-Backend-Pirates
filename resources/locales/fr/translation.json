@@ -108,5 +108,17 @@
 "delete_employee_messages": {
     "success": "Employé supprimé avec succès",
     "failure":"Échec de la suppression de l'employé"
-}
-}
+},
+      "forgot_password":{
+        "success":"Vérifiez votre e-mail pour le lien de réinitialisation",
+        "failure":"L'utilisateur avec l'email n'existe pas"
+      },
+      "reset_password":{
+        "mismatchpasswords": "Les mots de passe ne correspondent pas",
+        "nouser": "Utilisateur non trouvé",
+        "token": {
+          "success":"Mot de passe réinitialisé avec succès",
+          "failure":"L'utilisateur avec l'e-mail n'existe pas ou le jeton a expiré"
+        }
+      }
+  } 
