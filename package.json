@@ -12,7 +12,7 @@
     "migrate": "sequelize db:migrate",
     "undomigrate": "sequelize db:migrate:undo:all",
     "seed": "sequelize db:seed:all",
-    "undoseed": "sequelize db:seed:undo",
+    "undoseed": "sequelize db:seed:undo:all",
     "prepare": "husky install"
   },
 

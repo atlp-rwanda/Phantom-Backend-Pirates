@@ -54,16 +54,16 @@ class Buses {
 
   // list all buses
   static listAll (req, res) {
-    const busEmptyResponse = req.t('bus_message.bus_empty')
+    const norecord = req.t('bus_message.no_record')
     return Bus
       .findAll()
       .then(listbus => {
-        if (listbus) {
-          res.status(200).send(listbus)
-        } else {
+        if (listbus.length === 0) {
           res.status(400).send({
-            message: `${busEmptyResponse}`
+            message: `${norecord}`
           })
+        } else {
+          res.status(200).send(listbus)
         }
       })
       .catch(error => res.status(400).send(error))

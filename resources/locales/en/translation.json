@@ -26,6 +26,7 @@
       "id_not_found": "Company not found",
       "valid_email": "enter valid email",
       "valid_name": "enter valid name",
+      "no_record": "no record found",
       "company_updated": "Company successfully updated",
       "company_deleted": "Company successfully deleted"
     },
@@ -35,6 +36,7 @@
         "invalid_plate": "Enter Valid plate number..(RAA000A)",
         "empty_field": "All field required",
         "id_not_found": "Bus not found",
+        "no_record": "no record found",
         "category_valid": "enter valid bus category",
         "seat_valid": "seats must be number",
         "bus_updated": "Bus successfully updated",

@@ -26,6 +26,7 @@
     "id_not_found": "Sosiyeti mwahisemo ntibaho",
     "valid_email": "andika imeri yemewe",
     "valid_name": "andika izina ryemewe",
+    "no_record": "nta nyandiko yabonetse",
     "company_updated": "Guhindura Sosiyeti byagenze neza",
     "company_deleted": "Gukuramo Sosiyeti byagenze neza"
   },
@@ -35,6 +36,7 @@
     "invalid_plate": "Uzuza indaga modoka nyayo..(RAA000A)",
     "empty_field": "Uzuza Hose",
     "id_not_found": "Bisi mwahisemo ntibaho",
+    "no_record": "nta nyandiko yabonetse",
     "category_valid": "andika ubwoko bwa bisi yemewe",
     "seat_valid": "imyanya igomba kuba umubare",
     "bus_updated": "Guhindura Bisi byagenze neza",
