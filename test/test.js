@@ -24,31 +24,31 @@ describe('server connection', () => {
           res.should.have.status(200);
           res.body.message.should.be.equal('Bienvenue sur le Web fantôme');
           res.body.error.should.be.equal(false);
-
-          done();
-        });
-    });
+          done()
+        })
+    })
 
     it('welcomes user to the api in Kinyarwanda', (done) => {
       chai
         .request(app)
         .get('/?lng=rw')
         .end((err, res) => {
-          res.should.have.status(200);
-          res.body.message.should.be.equal("Ikaze k'Urubuga rwa Phantom");
-          res.body.error.should.be.equal(false);
-          done();
-        });
-    });
+          res.should.have.status(200)
+          res.body.message.should.be.equal("Ikaze k'Urubuga rwa Phantom")
+          res.body.error.should.be.equal(false)
+          done()
+        })
+    })
+    
 
     it('404 Error', (done) => {
       chai
         .request(app)
         .get('/random')
         .end((err, res) => {
-          res.should.have.status(404);
-          done();
-        });
-    });
-  });
-});
+          res.should.have.status(404)
+          done()
+        })
+    })
+  })
+})

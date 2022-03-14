@@ -7,12 +7,12 @@
     "build": "rm -rf dist && babel src --out-dir dist",
     "start": "node dist/app.js",
     "dev": "nodemon --exec ./node_modules/.bin/babel-node src/app.js",
-    "test": " nyc mocha --require @babel/register",
+    "test": "nyc mocha --require @babel/register",
     "lint": "eslint . --fix --ext .js",
     "migrate": "sequelize db:migrate",
-    "undomigrate": "sequelize db:migrate:undo",
+    "undomigrate": "sequelize db:migrate:undo:all",
     "seed": "sequelize db:seed:all",
-    "undoseed": "sequelize db:seed:undo",
+    "undoseed": "sequelize db:seed:undo:all",
     "prepare": "husky install"
   },
 
