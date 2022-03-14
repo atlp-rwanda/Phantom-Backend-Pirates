@@ -18,6 +18,29 @@
     "id_not_found": "Role with specified id not found",
     "role_updated": "Role successfully updated",
     "role_deleted": "Role successfully deleted"
-  }
-  
-}
+  },
+    "company_message": {
+      "created_success": "company successfully created",
+      "company_exist": "Company already exist",
+      "empty_field": "All field required",
+      "id_not_found": "Company not found",
+      "valid_email": "enter valid email",
+      "valid_name": "enter valid name",
+      "no_record": "no record found",
+      "company_updated": "Company successfully updated",
+      "company_deleted": "Company successfully deleted"
+    },
+    "bus_message": {
+        "created_success": "Bus successfully created",
+        "bus_exist": "Bus already exist",
+        "invalid_plate": "Enter Valid plate number..(RAA000A)",
+        "empty_field": "All field required",
+        "id_not_found": "Bus not found",
+        "no_record": "no record found",
+        "category_valid": "enter valid bus category",
+        "seat_valid": "seats must be number",
+        "bus_updated": "Bus successfully updated",
+        "bus_deleted": "Bus successfully deleted",
+        "bus_empty": "No record found"
+      }
+  } 

@@ -19,7 +19,7 @@ describe('Login API', () => {
         .send(user)
         .end((err, res) => {
           res.should.have.status(200)
-          res.body.message.should.be.equal('You have successfully logged in as an Operator')
+          res.body.message.should.be.equal('You have successfully logged in as an Admin')
           done()
         })
     })
@@ -34,7 +34,7 @@ describe('Login API', () => {
         .send(user)
         .end((err, res) => {
           res.should.have.status(200)
-          res.body.message.should.be.equal('Winjiye neza nka Operator')
+          res.body.message.should.be.equal('Winjiye neza nka Admin')
           done()
         })
     })
@@ -49,7 +49,7 @@ describe('Login API', () => {
         .send(user)
         .end((err, res) => {
           res.should.have.status(200)
-          res.body.message.should.be.equal("Vous vous êtes connecté avec succès en tant qu'opérateur")
+          res.body.message.should.be.equal("Vous vous êtes connecté avec succès en tant qu'administrateur")
           done()
         })
     })
