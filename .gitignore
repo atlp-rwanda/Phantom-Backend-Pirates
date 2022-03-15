@@ -105,3 +105,6 @@ dist
 
 # hiding private credentials
 .env
+
+# public folder
+public/

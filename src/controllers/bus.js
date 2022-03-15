@@ -1,6 +1,6 @@
 import model from '../../models'
 
-const { Bus } = model
+const { Bus, Route } = model
 
 class Buses {
   // create bus
@@ -70,23 +70,36 @@ class Buses {
   }
 
   // list Bus by Id
-  static list (req, res) {
-    const busNotFoundResponse = req.t('bus_message.id_not_found')
+  static findbus (req, res) {
+    const Badresponse = req.t('bus_message.id_not_found')
     const id = req.params.id
-    Bus.findByPk(id)
-      .then(createdata => {
-        if (createdata) {
-          res.json({
-            success: true,
-            data: createdata
+
+    return Bus
+      .findAll({
+        where: {
+          id: id
+        },
+        attributes: {
+          exclude: ['cid', 'rout_id', 'createdAt', 'updatedAt']
+        },
+        include: {
+          model: Route,
+          attributes: ['source', 'destination', 'busStop']
+        }
+      })
+      .then(busObject => {
+        if (busObject.length === 0) {
+          res.status(400).json({
+            message: `${Badresponse}`
           })
         } else {
-          res.status(400).send({
-            message: `${busNotFoundResponse}`
+          res.status(200).json({
+            busObject
           })
         }
       })
-      .catch(error => res.status(400).send(error))
+      .catch(error => res.status(400).json({ status: 400, error })
+      )
   }
 
   // update
