@@ -4,31 +4,41 @@ import Employees from '../controllers/employeeController'
 
 const router = express.Router()
 
-// role schema
+/**
+*  @swagger
+*  tags:
+*    name: Employee
+*    description: API to manage your Employees.
+*/
+
+// Employee Schema
 /**
  * @swagger
  * definitions:
- *   Role:
+ *   Employee:
  *     properties:
- *       id:
- *         type: integer
- *       name:
+ *       firstname:
+ *         type: string
+ *       lastname:
+ *         type: string
+ *       email:
  *         type: string
  */
 
+// EmployeeUpdate Schema
 /**
  * @swagger
- * /roles:
- *   get:
- *     tags:
- *       - Roles
- *     summary: Role API
- *     description: Returns all roles
- *     produces:
- *       - application/json
- *     responses:
- *       200:
- *         description: All roles returned
+ * definitions:
+ *   EmployeeUpdate:
+ *     properties:
+ *       firstname:
+ *         type: string
+ *       lastname:
+ *         type: string
+ *       email:
+ *         type: string
+ *       roleId:
+ *         type: integer
  */
 
 // View all employees by role id
@@ -37,7 +47,7 @@ const router = express.Router()
  * /roles/employees:
  *   get:
  *     tags:
- *       - Employees in a role
+ *       - Employee
  *     summary: Employees in role API
  *     description: Returns all employees in arole
  *     produces:
@@ -47,32 +57,138 @@ const router = express.Router()
  *         description: view all Employees in a role
  */
 
-// Create role
+// Add employee
+
 /**
  * @swagger
- * /createrole:
+ * /employees/{id}:
  *   post:
  *     tags:
- *       - Create Role API
- *     summary: Create Role API
- *     description: This API creates a new role
+ *       - Employee
+ *     summary: Add a new Employee
+ *     description: Add a new employee
  *     produces:
  *       - application/json
  *     parameters:
- *       - name: role
- *         description: Role
+ *       - name: id
+ *         description: RoleId
+ *         in: path
+ *         required: true
+ *         type: integer
+ *       - name: Add employee
+ *         description: Add Employee
  *         in: body
  *         required: true
  *         schema:
- *           $ref: '#/definitions/Role'
+ *           $ref: '#/definitions/Employee'
  *     responses:
  *       200:
- *         description: Role created successfully
+ *         description: Employee added successfully
  */
 
-// router.get('/roles', Roles.list) // view all roles
-// router.get('/roles/employees', Roles.listEmployeesInRole) // view all Employees in a role
-// router.post('/createrole', Roles.create) // add a new role
+// UPDATE EMPLOYEE
+
+/**
+ * @swagger
+ * /employees/{id}:
+ *  put:
+ *   tags:
+ *    - Employee
+ *   summary: update an Employee
+ *   description: update employee
+ *   consumes:
+ *    - application/json
+ *   produces:
+ *    - application/json
+ *   parameters:
+ *    - in: path
+ *      name: id
+ *      schema:
+ *       type: integer
+ *      required: true
+ *      description: employee ID
+ *      example: 1
+ *    - in: body
+ *      name: body
+ *      required: true
+ *      description: body object
+ *      schema:
+ *       $ref: '#/definitions/EmployeeUpdate'
+ *   requestBody:
+ *    content:
+ *     application/json:
+ *      schema:
+ *       $ref: '#/definitions/EmployeeUpdate'
+ *   responses:
+ *    200:
+ *     description: success
+ *     content:
+ *      application/json:
+ *       schema:
+ *        $ref: '#/definitions/EmployeeUpdate'
+ */
+
+/**
+ * @swagger
+ * /employees:
+ *   get:
+ *     tags:
+ *       - Employee
+ *     summary: get all employees
+ *     description: Returns all employees
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: An array of employees
+ */
+
+// Get Employee by ID
+
+/**
+ * @swagger
+ * /employees/{id}:
+ *   get:
+ *     tags:
+ *       - Employee
+ *     summary: Retrieve single Employee
+ *     description: Returns a single Employee
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: id
+ *         description: Employee's id
+ *         in: path
+ *         required: true
+ *         type: integer
+ *     responses:
+ *       200:
+ *         description: A single employee
+ *         schema:
+ *           $ref: '#/definitions/Employee'
+ */
+
+// DELETE Employee
+/**
+  * @swagger
+  * /employees/{id}:
+  *   delete:
+  *     tags:
+  *       - Employee
+  *     summary: Delete an Employee API
+  *     description: Deletes a single employee
+  *     produces:
+  *       - application/json
+  *     parameters:
+  *       - name: id
+  *         description: Employee's id
+  *         in: path
+  *         required: true
+  *         type: integer
+  *     responses:
+  *       200:
+  *         description: Employee deleted Successfully
+  */
 
 router.get('/roles/employees', Roles.listEmployeesInRole) // view all Employees in a role
 router.get('/employeesInRole/:id', Employees.listEmployeeInRole)

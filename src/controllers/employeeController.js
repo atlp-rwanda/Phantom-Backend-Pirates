@@ -76,7 +76,12 @@ class Employees {
         res.status(201).send({
           success: true,
           message: `${registrationSuccess}`,
-          employeeData
+          employeeData: {
+            firstname: employeeData.firstname,
+            lastname: employeeData.lastname,
+            email: employeeData.email.Employee,
+            roleId: employeeData.roleId
+          }
         })
       })
       .catch(error => res.status(400).send(error))
@@ -124,7 +129,12 @@ class Employees {
           .then(() =>
             res.status(200).json({
               message: `${employeeDeletedResponse}`,
-              Employee
+              Employee: {
+                firstname: Employee.firstname,
+                lastname: Employee.lastname,
+                email: Employee.email,
+                roleId: Employee.roleId
+              }
             })
           )
           .catch((error) => res.status(400).json(error))
@@ -134,19 +144,19 @@ class Employees {
 
   static list (req, res) {
     return Employee
-      .findAll()
+      .findAll({ attributes: { exclude: ['password'] } })
       .then(employees => res.status(200).send(employees))
   }
 
   static listOneEmployee (req, res) {
     return Employee
-      .findOne({ where: { id: req.params.id } })
+      .findOne({ where: { id: req.params.id }, attributes: { exclude: ['password'] } })
       .then(employee => res.status(200).send(employee))
   }
 
   static listEmployeeInRole (req, res) {
     return Employee
-      .findAll({ where: { roleId: req.params.id } })
+      .findAll({ where: { roleId: req.params.id }, attributes: { exclude: ['password'] } })
       .then(employees => res.status(200).send(employees))
   }
 

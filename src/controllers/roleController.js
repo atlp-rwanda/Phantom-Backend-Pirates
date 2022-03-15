@@ -96,7 +96,7 @@ class Roles {
   static listEmployeesInRole (req, res) {
     return Role
       .findAll({
-        include: Employee
+        include: [{ model: Employee, attributes: { exclude: ['password'] } }]
       })
       .then(roles => res.status(200).send(roles))
   }

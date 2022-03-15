@@ -37,7 +37,7 @@ describe("GET /roles/employees", () => {
         .end((err, response) => {
           response.should.have.status(200);
           response.body.should.be.a('array');
-          response.body.length.should.be.eq(4);
+          response.body.length.should.be.eq(2);
         done()
       })
   })
@@ -51,7 +51,7 @@ describe("GET /roles/employees", () => {
         .end((err, response) => {
           response.should.have.status(200);
           response.body.should.be.a('array');
-          response.body.length.should.be.eq(1);
+          response.body.length.should.be.eq(2);
         done()
       })
   })
@@ -84,8 +84,7 @@ describe("GET /roles/employees", () => {
           response.body.should.have.property('id'); 
           response.body.should.have.property('firstname');  
           response.body.should.have.property('lastname');
-          response.body.should.have.property('email');
-          response.body.should.have.property('password');     
+          response.body.should.have.property('email'); 
         done()
       })
   })

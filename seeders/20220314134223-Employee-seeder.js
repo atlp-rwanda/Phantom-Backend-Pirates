@@ -9,7 +9,7 @@ module.exports = {
           id: 1,
           firstname: 'David',
           lastname: 'Neza',
-          email: 'nezadavid7@gmail.com',
+          email: 'uid2710@gmail.com',
           password: bcrypt.hashSync('123456', Number.parseInt(process.env.AUTH_ROUNDS)),
           roleId: 1,
           createdAt: '2022-03-14T09:01:38.932Z',
