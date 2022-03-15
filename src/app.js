@@ -102,6 +102,6 @@ const hostname = 'localhost'
 app.listen(port, async () => {
   console.log(`Server running at http://${hostname}:${port}/..`)
   await sequelize.authenticate()
-  console.log('Databse connected successfully')
+  console.log('Database connected successfully')
 })
 export { app }
