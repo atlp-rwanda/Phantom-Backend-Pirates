@@ -12,11 +12,19 @@ describe('registeringAPI', () => {
     //Add a new employee test
     describe("POST /employees/:id", () => {     
       it("it should add an employee", (done) => {
+<<<<<<< HEAD
         const id = 3
         const employee = {
               firstname:"Frank",
               lastname:"Irankunda",
               email:"irank456@gmail.com",  
+=======
+        const id = 1
+        const employee = {
+              firstname:"Frank",
+              lastname:"Irankunda",
+              email:"irankundapq1213@gmail.com",  
+>>>>>>> Added save image functionality
           };
        chai.request(app)
        .post("/employees/"+id)

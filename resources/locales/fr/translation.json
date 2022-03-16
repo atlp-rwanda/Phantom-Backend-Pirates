@@ -69,7 +69,36 @@
     "duplicateBusstop": "Il y a des arrêts de bus en double",
     "missingBusstop": "Il manque un arrêt de bus"
   },
-
+  "profileAuth":{
+    "failure":{
+      "tokenRequired":  "Vous devez être connecté pour créer un profil",
+      "invalidToken":"Jeton invalide"
+    }
+  },
+  "profile-update":{
+    "profileNotFound":"Profil non trouvé",
+    "telephone":{
+      "invalid":"entrez un numéro de téléphone valide",
+      "empty":"le téléphone ne peut pas être vide"
+    },
+    "address":{
+      "invalid":"entrer une adresse valide",
+      "empty":"l'adresse ne peut pas être vide"
+    },
+    "dateOfBirth":{
+      "invalid":"format de date incorrect pour la date de naissance",
+      "empty":"La date de naissance ne peut pas être vide"
+    },
+    "create":{
+      "success":"Profil créé avec succès",
+      "failure":"impossible de créer un profil"
+    },
+    "deleted":{
+      "success":"Profil supprimé avec succès"
+    },
+    "profilesNotFound":"Profils introuvables",
+    "notFound":"Profil non trouvé"
+  },
   "field_error_message": {
     "first_name_message": {
       "invalid_first_name": "Prénom invalide",
@@ -96,7 +125,18 @@
 
     "all_fields_message": "Tous les champs sont requis"
   },
- 
+  "registration_message": {
+    "success": "Employé ajouté avec succès",
+    "failure": "L'enregistrement des employés a échoué"
+  },
+  "update_messages": {
+    "success": "Employé mis à jour avec succès",
+    "failure": "La mise à jour des employés a échoué"
+  },
+  "delete_employee_messages": {
+    "success": "Employé supprimé avec succès",
+    "failure":"Échec de la suppression de l'employé"
+},
       "forgot_password":{
         "success":"Vérifiez votre e-mail pour le lien de réinitialisation",
         "failure":"L'utilisateur avec l'email n'existe pas"
@@ -136,18 +176,6 @@
       "wrongPsw": "Le mot de passe ou l'e-mail sont incorrects"
 
     }
-  },
-  
-"registration_message":{
-    "success":"Employé ajouté avec succès",
-    "failure":"L'enregistrement des employés a échoué"
-  },
-"update_messages" :{
-    "success": "Employé mis à jour avec succès",
-    "failure":"La mise à jour des employés a échoué"
-},
-"delete_employee_messages": {
-    "success": "Employé supprimé avec succès",
-    "failure":"Échec de la suppression de l'employé"
-}
+  }
+
 }

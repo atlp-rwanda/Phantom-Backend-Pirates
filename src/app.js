@@ -26,6 +26,8 @@ import logout from './routes/logout'
 import assignBusRoute from './routes/assignBusToRoute'
 import changePassword from './routes/changePassword'
 
+import profileRouter from './routes/profile'
+import imageRouter from './routes/image'
 
 dotenv.config()
 // Initialize express app
@@ -86,6 +88,9 @@ app.use(cookieParser())
   app.use(login)
   app.use('/api/role', roleRouter)
   app.use(registerEmployeesRoute)
+  app.use(profileRouter)
+  app.use(imageRouter)
+  app.use('/uploads', express.static('uploads'))
 
 // Use routes
 app.use(welcomeRoute)

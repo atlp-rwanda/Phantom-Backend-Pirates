@@ -81,6 +81,37 @@
       "failure":"Umukoresha ufite iyo imeri ntabaho cyangwa Token ye yarangije igihe"
     }
   },
+  "profileAuth":{
+    "failure":{
+      "tokenRequired":  "Ugomba kuba winjiye muri konti kugirango wemererwa gukora porofile",
+      "invalidToken":"Token"
+    }
+  },
+  "profile-update":{
+    "profileNotFound":"Porofile ntibonetse",
+    "telephone":{
+      "invalid":"Nimero ya telefone mushizemo ntibaho",
+      "empty":"Ugomba kwandikaho nimero ya telephone"
+    },
+    "address":{
+      "invalid":"Aka gace ntikabaho mu Rwanda",
+      "empty":"Ugomba gushiraho aho utuye"
+    },
+    "dateOfBirth":{
+      "invalid":"Shiramo itariki yamavuko yanyayo",
+      "empty":"Ugomba kugira icyo wandika kw' itariki y' amavuko"
+    },
+    "create":{
+      "success":"Kwandikisha porofile bigenze neza",
+      "failure":"Kwandikisha porofile ntibikunze"
+    },
+    "deleted":{
+      "success":"Gusiba porofile bigenze neza",
+      "failure":"Gusiba porofile ntibikunze"
+    },
+    "profilesNotFound":"Porofile ntizibonetse",
+    "notFound":"Porofile ntibonetse"
+  },
   "field_error_message": {
     "first_name_message": {
       "invalid_first_name":"Izina ryambere mushizeho ntiribaho",
