@@ -29,7 +29,6 @@ const route = express.Router()
  *       cid:
  *         type: integer
  */
-
 // create new company Doc
 /**
  * @swagger
@@ -44,6 +43,9 @@ const route = express.Router()
  *   produces:
  *    - application/json
  *   parameters:
+ *    - name: authorization
+ *      in: header
+ *      required: true
  *    - in: path
  *      name: cid
  *      schema:
@@ -124,6 +126,9 @@ const route = express.Router()
  *   produces:
  *    - application/json
  *   parameters:
+ *    - name: authorization
+ *      in: header
+ *      required: true
  *    - in: path
  *      name: id
  *      schema:
@@ -162,6 +167,9 @@ const route = express.Router()
   *     produces:
   *       - application/json
   *     parameters:
+  *       - name: authorization
+  *         in: header
+  *         required: true
   *       - name: id
   *         description: Bus's id
   *         in: path

@@ -1,5 +1,4 @@
 'use strict'
-
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.createTable('Buses', {
@@ -36,7 +35,13 @@ module.exports = {
         }
       },
       rout_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Routes',
+          key: 'id',
+          as: 'rout_id'
+        }
       },
       createdAt: {
         allowNull: false,

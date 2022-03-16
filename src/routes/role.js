@@ -34,7 +34,7 @@ const router = express.Router()
  * /api/role/{id}:
  *   get:
  *     tags:
- *       - role
+ *       - Role
  *     summary: get role by id
  *     description: Returns a single role
  *     produces:
@@ -54,6 +54,8 @@ const router = express.Router()
  * @swagger
  * /api/role/{id}:
  *  put:
+ *   tags:
+ *    - Role
  *   summary: update role
  *   description: update role
  *   consumes:
@@ -93,7 +95,7 @@ const router = express.Router()
  * /api/role/{id}:
  *   delete:
  *     tags:
- *       - role
+ *       - Role
  *     summary: delete a role
  *     description: Deletes a single role
  *     produces:
