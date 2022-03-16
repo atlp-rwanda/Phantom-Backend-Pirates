@@ -35,12 +35,15 @@
     "bus_exist": "Bisi izazwe irimo",
     "invalid_plate": "Uzuza indaga modoka nyayo..(RAA000A)",
     "empty_field": "Uzuza Hose",
-    "id_not_found": "Bisi mwahisemo ntibaho",
     "no_record": "nta nyandiko yabonetse",
+    "id_not_found": "Bisi mwahisemo ntibaho",
     "category_valid": "andika ubwoko bwa bisi yemewe",
     "seat_valid": "imyanya igomba kuba umubare",
     "bus_updated": "Guhindura Bisi byagenze neza",
     "bus_deleted": "Gukuramo Bisi byagenze neza",
     "bus_empty": "harimo ubusa"
+  },
+  "view_bus": {
+    "view_message":"Umuhanda ntiwabonetse"
   }
 } 

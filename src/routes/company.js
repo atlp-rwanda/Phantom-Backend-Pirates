@@ -35,6 +35,9 @@ const route = express.Router()
  *     produces:
  *       - application/json
  *     parameters:
+ *       - name: authorization
+ *         in: header
+ *         required: true
  *       - in: body
  *         name: body
  *         required: true
@@ -109,6 +112,9 @@ const route = express.Router()
  *   produces:
  *    - application/json
  *   parameters:
+ *    - name: authorization
+ *      in: header
+ *      required: true
  *    - in: path
  *      name: id
  *      schema:
@@ -147,6 +153,9 @@ const route = express.Router()
   *     produces:
   *       - application/json
   *     parameters:
+  *       - name: authorization
+  *         in: header
+  *         required: true
   *       - name: id
   *         description: Company's id
   *         in: path
