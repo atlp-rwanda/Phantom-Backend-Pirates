@@ -15,6 +15,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'roleId',
         onDelete: 'CASCADE'
       })
+      Employee.hasOne(models.Profile, {
+        foreignKey: 'employeeId'
+      })
     }
   }
   Employee.init({

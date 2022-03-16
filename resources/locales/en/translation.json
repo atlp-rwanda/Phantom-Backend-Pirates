@@ -91,39 +91,66 @@
     "no_bus_assigned": "no bus assigned to this route",
     "no_route": "route not found"
   },
-   
-    "field_error_message": {
+  "profileAuth":{
+    "failure":{
+      "tokenRequired":  "You have to be logged in to create a profile",
+      "invalidToken":"Invalid token"
+    }
+  },
+  "profile-update":{
+      "profileNotFound":"Profile not found",
+      "telephone":{
+          "invalid":"enter a valid phone number",
+          "empty":"telephone cannot be empty"
+      },
+      "address":{
+          "invalid":"enter a valid address",
+          "empty":"address cannot be empty"
+      },
+      "dateOfBirth":{
+          "invalid":"improper date format for date of birth",
+          "empty":"Date of Birth can not be empty"
+      },
+      "create":{
+          "success":"Profile created successfully",
+          "failure":"cannot create profile"
+      },
+      "deleted":{
+          "success":"Profile deleted successfully"
+      },
+      "profilesNotFound":"Profiles not found",
+      "update":"Profile updated successfully"
+  },
+  "field_error_message": {
         "first_name_message":{
             "invalid_first_name":"Invalid Firstname",
             "empty_first_name": "Firstname cannot be empty"
-    }, 
-    "last_name_message":{
-        "invalid_last_name":"Invalid lastname",
-        "empty_last_name": "Lastname cannot be empty"
-    },
-    "gender_message": {
-        "invalid_gender": "Gender must be Male or Female",
-        "empty_gemder":"Gender cannot be empty"
-    },
-    "email_message":{
-        "invalid_email":"Invalid email",
-        "empty_email":"Email cannot be empty"
-    },
-    "address_message":{
-        "invalid_address": "Invalid address",
-        "empty_address":"Address canot be empty"
-    },
+          }, 
+         "last_name_message":{
+            "invalid_last_name":"Invalid lastname",
+            "empty_last_name": "Lastname cannot be empty"
+          },
+          "gender_message": {
+              "invalid_gender": "Gender must be Male or Female",
+              "empty_gemder":"Gender cannot be empty"
+          },
+          "email_message":{
+              "invalid_email":"Invalid email",
+              "empty_email":"Email cannot be empty"
+          },
+         "address_message":{
+             "invalid_address": "Invalid address",
+             "empty_address":"Address canot be empty"
+          },
 
-    "invalid_age":"Age must be between 18 and 65",
-
-
-    "all_fields_message": "All fields required"
+          "invalid_age":"Age must be between 18 and 65",
+          "all_fields_message": "All fields required"
 },
 "registration_message":{
     "success":"Employee added successfully",
     "failure":"Employee registration failed"
 },
- "update_messages" :{
+"update_messages" :{
     "success": "Employee updated successfully",
     "failure":"Employee update failed"
 },
@@ -131,5 +158,7 @@
     "success": "Employee deleted successfuly",
     "failure":"Employé introuvable"
 }
-  
+
 }
+
+
