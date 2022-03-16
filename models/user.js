@@ -13,18 +13,18 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init(
     {
-      name: {
+      firstname: {
         type: DataTypes.STRING,
         allowNull: {
           args: false,
-          msg: 'Please enter your name'
+          msg: 'Please enter your first name'
         }
       },
-      telNumber: {
+      lastname: {
         type: DataTypes.STRING,
         allowNull: {
           args: false,
-          msg: 'Please enter your telephone number'
+          msg: 'Please enter your last name'
         }
       },
       email: {
