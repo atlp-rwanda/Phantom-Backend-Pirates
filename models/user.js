@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate (models) {
       // define association here
+      User.belongsTo(models.Role, {
+        foreignKey: 'roleId',
+        onDelete: 'CASCADE'
+      })
     }
   }
   User.init(
@@ -40,7 +44,8 @@ module.exports = (sequelize, DataTypes) => {
           args: false,
           msg: 'Please enter your name'
         }
-      }
+      },
+      roleId: DataTypes.STRING
     },
     {
       sequelize,
