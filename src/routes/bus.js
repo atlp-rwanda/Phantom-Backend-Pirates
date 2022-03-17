@@ -182,7 +182,7 @@ const route = express.Router()
 
 route.post('/api/buses/:cid/bus', verifyAdminOperator, Buses.create) // create bus
 route.get('/api/buses', Buses.listAll) // list all bus
-route.get('/api/buses/:id', Buses.findbus) // list 1 bus
+route.get('/api/buses/:id', Buses.list) // list 1 bus
 route.put('/api/buses/:id', verifyAdminOperator, Buses.modify) // update bus
 route.delete('/api/buses/:id', verifyAdminOperator, Buses.delete) // delete bus
 

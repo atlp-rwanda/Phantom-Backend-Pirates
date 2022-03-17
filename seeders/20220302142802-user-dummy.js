@@ -15,27 +15,24 @@ module.exports = {
     //  const password = bcrypt.hashSync(req.body.password, Number.parseInt(process.env.AUTH_ROUNDS))
 
     await queryInterface.bulkInsert('Users', [{
-      firstname: 'John',
-      lastname: 'Doe',
+      name: 'John Doe',
+      telNumber: '0781161254',
       email: 'doe@gmail.com',
       password: bcrypt.hashSync('holdon0006', Number.parseInt(process.env.AUTH_ROUNDS)),
-      roleId: 1,
       updatedAt: '2022-02-25T17:37:19.029Z',
       createdAt: '2022-02-25T17:37:19.029Z'
     }, {
-      firstname: 'Jane',
-      lastname: 'Doe',
+      name: 'Jane Doe',
+      telNumber: '0781161254',
       email: 'jane@gmail.com',
       password: bcrypt.hashSync('123456', Number.parseInt(process.env.AUTH_ROUNDS)),
-      roleId: 2,
       updatedAt: '2022-02-25T17:37:19.029Z',
       createdAt: '2022-02-25T17:37:19.029Z'
     }, {
-      firstname: 'Amber',
-      lastname: 'Doe',
+      name: 'Amber Doe',
+      telNumber: '0781161254',
       email: 'amber@gmail.com',
       password: bcrypt.hashSync('root', Number.parseInt(process.env.AUTH_ROUNDS)),
-      roleId: 3,
       updatedAt: '2022-02-25T17:37:19.029Z',
       createdAt: '2022-02-25T17:37:19.029Z'
     }], {})
