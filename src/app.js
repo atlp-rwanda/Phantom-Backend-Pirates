@@ -81,7 +81,7 @@ app.use(viewBus)
 
 // port & hostname
 const port = process.env.APP_PORT || 3000
-const hostname = 'localhost'
+const hostname = process.env.HOST_MACHINE
 
 // Listening to requests
 app.listen(port, async () => {
