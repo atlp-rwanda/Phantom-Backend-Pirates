@@ -15,6 +15,7 @@ import roleRouter from './routes/role'
 import busRouter from './routes/bus'
 import companyRouter from './routes/company'
 import viewBus from './routes/viewbus'
+import userRoute from './routes/route'
 
 dotenv.config()
 // Initialize express app
@@ -73,11 +74,12 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
 // Custom Middleware
 app.use(welcomeRoute)
+app.use(busRouter)
+app.use(companyRouter)
 app.use(login)
 app.use(roleRouter)
-app.use(companyRouter)
-app.use(busRouter)
 app.use(viewBus)
+app.use(userRoute)
 
 // port & hostname
 const port = process.env.APP_PORT || 3000
