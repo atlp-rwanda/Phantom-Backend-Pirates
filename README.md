@@ -1,13 +1,4 @@
 # Phantom-Backend-Pirates
-<<<<<<< HEAD
-=======
-
-
-# node-sequelize-postgres-crud
-
-<<<<<<< HEAD
-=======
-Basic CRUD operation by using node.js and typeORM.
 
 ## Installation
 
@@ -34,6 +25,3 @@ DB_URL = postgres://<username>:<your_password>@localhost:5432/<your_database>?ss
 ## Todo
 get welcome page
 `http://localhost:your post/`
-
->>>>>>> setup project postgres
->>>>>>> setup project postgres
