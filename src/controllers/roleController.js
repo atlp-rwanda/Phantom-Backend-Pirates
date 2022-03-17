@@ -1,6 +1,7 @@
 import model from '../../models'
 
 const { Role } = model
+const { Employee } = model
 
 class Roles {
   static createRole (req, res, next) {
@@ -90,6 +91,14 @@ class Roles {
           .catch((error) => res.status(400).json(error))
       })
       .catch((error) => res.status(400).json(error))
+  }
+
+  static listEmployeesInRole (req, res) {
+    return Role
+      .findAll({
+        include: [{ model: Employee, attributes: { exclude: ['password'] } }]
+      })
+      .then(roles => res.status(200).send(roles))
   }
 }
 

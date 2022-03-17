@@ -1,15 +1,15 @@
 import jwt from 'jsonwebtoken'
 
 export default (req, res, next) => {
-  const token = req.header('authorization')
-  if (!token) {
+  const adminToken = req.header('authorization')
+  if (!adminToken) {
     return res.status(400).json({
       message: 'Access Denied!, Only Admin can perform this task'
     })
   }
 
   try {
-    const verified = jwt.verify(token, `${process.env.ADMIN_SECRET}`)
+    const verified = jwt.verify(adminToken, `${process.env.ADMIN_SECRET}`)
     req.user = verified
     next()
   } catch (error) {
