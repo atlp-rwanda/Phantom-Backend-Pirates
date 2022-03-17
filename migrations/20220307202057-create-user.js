@@ -8,11 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      firstname: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      telNumber: {
+      lastname: {
         allowNull: false,
         type: Sequelize.STRING
       },
@@ -24,6 +24,10 @@ module.exports = {
       password: {
         allowNull: false,
         type: Sequelize.STRING
+      },
+      roleId: {
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

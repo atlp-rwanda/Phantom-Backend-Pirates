@@ -40,55 +40,56 @@ if (app.get('env') === 'development') {
   app.use(bodyParser.json({ limit: '100mb' }))
   app.use(bodyParser.urlencoded({ limit: '50mb', extended: 'true' }))
   app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
-}
-// Swagger Info Object
-const swaggerOptions = {
-  swaggerDefinition: {
-    info: {
-      title: 'Phantom API Documentation',
-      description: 'Phantom API Documentation',
-      contact: {
-        name: 'Callback-Pirates'
-      },
-      server: 'http://localhost:3000'
-    }
-  },
-  components: {
-    securitySchemes: {
-      jwt: {
-        type: 'http',
-        scheme: 'bearer',
-        in: 'header',
-        bearerFormat: 'JWT'
+
+  // Swagger Info Object
+  const swaggerOptions = {
+    swaggerDefinition: {
+      info: {
+        title: 'Phantom API Documentation',
+        description: 'Phantom API Documentation',
+        contact: {
+          name: 'Callback-Pirates'
+        },
+        server: 'http://localhost:3000'
       }
-    }
-  },
-  security: [{
-    jwt: []
-  }],
-  apis: ['./src/routes/*.js']
+    },
+    components: {
+      securitySchemes: {
+        jwt: {
+          type: 'http',
+          scheme: 'bearer',
+          in: 'header',
+          bearerFormat: 'JWT'
+        }
+      }
+    },
+    security: [{
+      jwt: []
+    }],
+    apis: ['./src/routes/*.js']
+  }
+
+  const swaggerDocs = swaggerJsDoc(swaggerOptions)
+  app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
+
+  // Use routes
+  app.use(welcomeRoute)
+  app.use(busRouter)
+  app.use(companyRouter)
+  app.use(login)
+  app.use(roleRouter)
+  app.use(viewBus)
+  app.use(userRoute)
+
+  // port & hostname
+  const port = process.env.APP_PORT || 3000
+  const hostname = 'localhost'
+
+  // Listening to requests
+  app.listen(port, async () => {
+    console.log(`Server running at http://${hostname}:${port}/..`)
+    await sequelize.authenticate()
+    console.log('Databse connected successfully')
+  })
 }
-
-const swaggerDocs = swaggerJsDoc(swaggerOptions)
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
-
-// Custom Middleware
-app.use(welcomeRoute)
-app.use(busRouter)
-app.use(companyRouter)
-app.use(login)
-app.use(roleRouter)
-app.use(viewBus)
-app.use(userRoute)
-
-// port & hostname
-const port = process.env.APP_PORT || 3000
-const hostname = 'localhost'
-
-// Listening to requests
-app.listen(port, async () => {
-  console.log(`Server running at http://${hostname}:${port}/..`)
-  await sequelize.authenticate()
-  console.log('Databse connected successfully')
-})
 export { app }
