@@ -9,11 +9,9 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       firstname: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       lastname: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       email: {
@@ -25,8 +23,14 @@ module.exports = {
         type: Sequelize.STRING
       },
       roleId: {
-        allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Roles',
+          key: 'id',
+          as: 'roleId'
+        },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       },
       createdAt: {
         allowNull: false,
