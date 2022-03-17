@@ -68,9 +68,19 @@
     "emptybusstop":"Nta kintu winjije muri za arete",
     "missingBusstop":"Hari areti wasimbutse",
     "duplicateBusstop":"Harimo areti nyinshi zisa"
-
-  }
- , 
+  },
+  "forgot_password":{
+    "success":"Reba muri imeri yawe kugirango uhindure ijambobanga ryawe",
+    "failure":"Umukoresha ufite iyo imeri ntabwo abaho"
+  },
+  "reset_password":{
+    "mismatchpasswords": "Ijambobanga ntirihuye",
+    "nouser": "Umukoresha winjijwe ntabwo abonetse",
+    "token": {
+      "success":"Guhindurirwa ijambo ryibanga byagenze neza",
+      "failure":"Umukoresha ufite iyo imeri ntabaho cyangwa Token ye yarangije igihe"
+    }
+  },
   "field_error_message": {
     "first_name_message": {
       "invalid_first_name":"Izina ryambere mushizeho ntiribaho",
@@ -93,7 +103,6 @@
     "empty_address":"Ugomba kwandikaho aho utuye"
 },
   "invalid_age":"Imyaka igomba kuba iri hagati ya cumi numi numunani na mirongo itandatu nitanu",
-
   "all_fields_message": "Ugomba kuzuza imyanya yose yabugenewe"
 },
 "registration_message":{

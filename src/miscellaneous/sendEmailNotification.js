@@ -1,11 +1,13 @@
 import nodemailer from 'nodemailer'
-import 'dotenv/config'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
 function sendNotification (message, email) {
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.TRANSPORTER_HOST,
-      port: process.env.TRANSPORTER_PORT, // 587 //465
-      secure: false, // milky8175@gmail.com
+      port: process.env.TRANSPORTER_PORT,
       auth: {
         user: process.env.EMAIL,
         pass: process.env.PASSWORD
