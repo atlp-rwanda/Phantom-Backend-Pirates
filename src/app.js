@@ -7,7 +7,7 @@ import i18next from 'i18next'
 import i18nextMiddleware from 'i18next-express-middleware'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
-// import cookieParser from 'cookie-parser'
+import cookieParser from 'cookie-parser'
 
 // Required Routes
 import welcomeRoute from './routes/welcomeRoute'
@@ -20,13 +20,13 @@ import userRoute from './routes/route'
 import registerEmployeesRoute from './routes/registerEmployeesRoute'
 import forgotpassword from './routes/forgotpassword'
 import resetPassword from './routes/resetpassword'
+import logout from './routes/logout'
 
 dotenv.config()
 // Initialize express app
 const app = express()
 
 app.use(i18nextMiddleware.handle(i18next))
-
 app.use(i18nextMiddleware.handle(i18next))
 // Morgan for the logger in the console
 if (app.get('env') === 'development') {
@@ -47,6 +47,7 @@ app.all('*', function (req, res, next) {
 app.use(bodyParser.json({ limit: '100mb' }))
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: 'true' }))
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
+app.use(cookieParser())
 
 // Port
 const port = process.env.APP_PORT || 3000
@@ -94,6 +95,7 @@ app.use(registerEmployeesRoute)
 app.use(forgotpassword)
 app.use(resetPassword)
 app.use(viewBus)
+app.use(logout)
 
 // hostname
 const hostname = 'localhost'

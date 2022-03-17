@@ -116,5 +116,6 @@
 "delete_employee_messages": {
     "success": "Gusiba umukozi bigenze neza",
     "failure":"Umukozi ntabashije kuboneka"
-}
+},
+"logout_success": "Ubashize gusohoka muri Konti yawe neza"
 }

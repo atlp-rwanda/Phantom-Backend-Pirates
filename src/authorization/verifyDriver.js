@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 
 export default (req, res, next) => {
-  const token = req.header('authorization')
+  const token = req.cookies.jwt
   if (!token) {
     return res
       .status(400)
