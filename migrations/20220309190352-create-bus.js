@@ -21,9 +21,9 @@ module.exports = {
         type: Sequelize.INTEGER,
         notEmpty: true
       },
-      bus_status: {
-        type: Sequelize.ENUM('rest', 'moving', 'stuck'),
-        defaultValue: 'rest'
+      status: {
+        type: Sequelize.ENUM('available', 'unvaliable'),
+        defaultValue: 'available'
       },
       cid: {
         type: Sequelize.INTEGER,

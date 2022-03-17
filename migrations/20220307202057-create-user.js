@@ -1,29 +1,29 @@
 'use strict'
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Routes', {
+    await queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      source: {
-        type: Sequelize.STRING
-      },
-      destination: {
-        type: Sequelize.STRING
-      },
-      distance: {
-        type: Sequelize.FLOAT
-      },
-      busStop: {
-        type: Sequelize.ARRAY(Sequelize.STRING),
-        unique: true
-      },
-      roleId: {
+      name: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
+      },
+      telNumber: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      email: {
+        allowNull: false,
+        unique: true,
+        type: Sequelize.STRING
+      },
+      password: {
+        allowNull: false,
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -36,6 +36,6 @@ module.exports = {
     })
   },
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Routes')
+    await queryInterface.dropTable('Users')
   }
 }
