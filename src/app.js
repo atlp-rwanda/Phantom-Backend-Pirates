@@ -59,7 +59,7 @@ const swaggerOptions = {
       contact: {
         name: 'Callback-Pirates'
       },
-      server: `http://${process.env.HOST_NAME}:${port}`
+      server: `http://localhost:${port}`
     }
   },
   components: {
@@ -95,9 +95,12 @@ app.use(forgotpassword)
 app.use(resetPassword)
 app.use(viewBus)
 
+// hostname
+const hostname = 'localhost'
+
 // Listening to requests
 app.listen(port, async () => {
-  console.log(`Server running at http://${process.env.HOST_NAME}:${port}/..`)
+  console.log(`Server running at http://${hostname}:${port}/..`)
   await sequelize.authenticate()
   console.log('Databse connected successfully')
 })

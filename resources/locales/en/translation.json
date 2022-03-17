@@ -67,8 +67,7 @@
     "uniqueBusstop":"Busstop must be unique",
     "emptybusstop":"Busstop must not be empty",
     "missingBusstop":"There is a missing Bus stop",
-    "duplicateBusstop":"There are duplicates Bus stops"
-    
+    "duplicateBusstop":"There are duplicates Bus stops" 
 }  ,
     "field_error_message": {
         "first_name_message":{
@@ -91,10 +90,7 @@
         "invalid_address": "Invalid address",
         "empty_address":"Address canot be empty"
     },
-
     "invalid_age":"Age must be between 18 and 65",
-
-
     "all_fields_message": "All fields required"
 },
 "registration_message":{
@@ -120,23 +116,5 @@
         "success":"Password reset successfully",
         "failure":"The user with the email does not exist or the token has expired"
       }
-    }, 
-  "last_name_message":{
-      "invalid_last_name":"Invalid lastname",
-      "empty_last_name": "Lastname cannot be empty"
-  },
-  "gender_message": {
-      "invalid_gender": "Gender must be Male or Female",
-      "empty_gemder":"Gender cannot be empty"
-  },
-  "email_message":{
-      "invalid_email":"Invalid email",
-      "empty_email":"Email cannot be empty"
-  },
-  "address_message":{
-      "invalid_address": "Invalid address",
-      "empty_address":"Address canot be empty"
-  },
-  "invalid_age":"Age must be between 18 and 65",
-  "all_fields_message": "All fields required"
+    }
   }

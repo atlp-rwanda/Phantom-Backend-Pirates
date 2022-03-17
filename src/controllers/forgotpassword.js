@@ -5,7 +5,7 @@ import nodemailer from 'nodemailer'
 // Setting a transporter
 const transporter = nodemailer.createTransport({
   // host and port for MailHog
-  host: process.env.TRANSPORTER_HOS,
+  host: process.env.TRANSPORTER_HOST,
   port: process.env.TRANSPORTER_PORT
 })
 
@@ -31,7 +31,7 @@ const forgotpassword = (req, res) => {
       res.cookie('jwt', resetToken, { httpOnly: true, expiresIn: process.env.RESET_TOKEN_EXPIRES })
 
       // Reset password url
-      const url = `http://${process.env.HOST_NAME}:${process.env.APP_PORT}/reset/${resetToken}`
+      const url = `${process.env.BASE_URL}/reset/${resetToken}`
 
       // Email
       transporter.sendMail({

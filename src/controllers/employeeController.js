@@ -1,11 +1,8 @@
-import model from '../../models'
+import { Employee, Role } from '../../models'
 import generatePassword from '../miscellaneous/generatepassword'
 import sendNotification from '../miscellaneous/sendEmailNotification'
 
 const bcrypt = require('bcrypt')
-
-const { Employee } = model
-const { Role } = model
 
 class Employees {
   static create (req, res) {

@@ -69,7 +69,6 @@
          "duplicateBusstop":"Il y a des arrêts de bus en double",
          "missingBusstop":"Il manque un arrêt de bus"
         },
-   
   "field_error_message": {
       "first_name_message": {
           "invalid_first_name": "Prénom invalide",
@@ -91,10 +90,7 @@
         "invalid_address": "Adresse invalide",
         "empty_address":"L'adresse ne peut pas être vide"
     },
-
     "invalid_age":"L'âge doit être compris entre 18 et 65 ans",
-
-
     "all_fields_message": "Tous les champs sont requis"
 },
 "registration_message":{
