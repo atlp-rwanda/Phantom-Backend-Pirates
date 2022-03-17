@@ -9,22 +9,26 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate (models) {
       // define association here
+      User.belongsTo(models.Role, {
+        foreignKey: 'roleId',
+        onDelete: 'CASCADE'
+      })
     }
   }
   User.init(
     {
-      name: {
+      firstname: {
         type: DataTypes.STRING,
         allowNull: {
           args: false,
-          msg: 'Please enter your name'
+          msg: 'Please enter your first name'
         }
       },
-      telNumber: {
+      lastname: {
         type: DataTypes.STRING,
         allowNull: {
           args: false,
-          msg: 'Please enter your telephone number'
+          msg: 'Please enter your last name'
         }
       },
       email: {
@@ -40,7 +44,8 @@ module.exports = (sequelize, DataTypes) => {
           args: false,
           msg: 'Please enter your name'
         }
-      }
+      },
+      roleId: DataTypes.STRING
     },
     {
       sequelize,

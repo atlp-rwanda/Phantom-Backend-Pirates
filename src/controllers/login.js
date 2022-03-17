@@ -1,4 +1,4 @@
-import { User } from '../../models'
+import { User, Role } from '../../models'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
@@ -6,7 +6,6 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const login =
-  ('/',
   (req, res) => {
     const { email, password } = req.body
     // Responses for translations
@@ -21,7 +20,10 @@ const login =
     )
     User.findOne({
       where: {
-        email
+        email: email
+      },
+      include: {
+        model: Role
       }
     })
       .then((user) => {
@@ -30,12 +32,7 @@ const login =
             error: `${responseUnsuccessNonregistered}`
           })
         } else {
-          const userRole = {
-            isAdmin: true,
-            isOperator: false,
-            isDriver: false
-          }
-          if (bcrypt.compareSync(password, user.password) && userRole.isAdmin) {
+          if (bcrypt.compareSync(password, user.password) && user.Role.role === 'admin') {
             const adminToken = jwt.sign(
               { user: user },
               process.env.ADMIN_SECRET,
@@ -49,13 +46,11 @@ const login =
             })
             res.status(200).json({
               message: `${responseAdmin}`,
-              admin: [user.name, user.email],
+              admin: [user.firstname, user.email],
               adminToken
             })
           } else if (
-            bcrypt.compareSync(password, user.password) &&
-            userRole.isOperator
-          ) {
+            bcrypt.compareSync(password, user.password) && user.Role.role === 'operator') {
             const operatorToken = jwt.sign(
               { user: user },
               process.env.OPERATOR_SECRET,
@@ -69,13 +64,11 @@ const login =
             })
             res.status(200).json({
               message: `${responseOperator}`,
-              operator: [user.name, user.email],
+              operator: [user.firstname, user.email],
               operatorToken
             })
           } else if (
-            bcrypt.compareSync(password, user.password) &&
-            userRole.isDriver
-          ) {
+            bcrypt.compareSync(password, user.password) && user.Role.role === 'driver') {
             const driverToken = jwt.sign(
               { user: user },
               process.env.DRIVER_SECRET,
@@ -89,7 +82,7 @@ const login =
             })
             res.status(200).json({
               message: `${responseDriver}`,
-              driver: [user.name, user.email],
+              driver: [user.firstname, user.email],
               driverToken
             })
           } else {
@@ -102,5 +95,5 @@ const login =
       .catch((err) => {
         res.status(500).json(err)
       })
-  })
+  }
 export default login

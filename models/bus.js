@@ -53,11 +53,11 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    status: {
-      type: DataTypes.ENUM('available', 'unvailable'),
+    bus_status: {
+      type: DataTypes.ENUM('rest', 'moving', 'stuck'),
       allowNull: {
         args: false,
-        error: 'Status should be either available or unvailable'
+        error: 'Status should be rest, moving or stuck'
       }
     },
     cid: DataTypes.INTEGER,

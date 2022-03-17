@@ -1,16 +1,26 @@
 'use strict'
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Motions', {
+    await queryInterface.createTable('Routes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.ENUM('move', 'rest', 'stuck'),
-        defaultValue: 'rest'
+      source: {
+        type: Sequelize.STRING
+      },
+      destination: {
+        type: Sequelize.STRING
+
+      },
+      distance: {
+        type: Sequelize.FLOAT
+      },
+      busStop: {
+        type: Sequelize.ARRAY(Sequelize.STRING),
+        unique: true
       },
       createdAt: {
         allowNull: false,
@@ -20,9 +30,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
+
     })
   },
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('Motions')
+    await queryInterface.dropTable('Routes')
   }
 }
