@@ -116,5 +116,6 @@
           "success":"Mot de passe réinitialisé avec succès",
           "failure":"L'utilisateur avec l'e-mail n'existe pas ou le jeton a expiré"
         }
-      }
+      },
+      "logout_success": "Déconnexion réussie de votre compte"
   } 

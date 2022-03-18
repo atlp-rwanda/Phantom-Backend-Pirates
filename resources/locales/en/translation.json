@@ -116,5 +116,6 @@
         "success":"Password reset successfully",
         "failure":"The user with the email does not exist or the token has expired"
       }
-    }
+    },
+    "logout_success": "Successfully logged out of your Account"
   }

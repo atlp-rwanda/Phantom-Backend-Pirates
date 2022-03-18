@@ -111,8 +111,8 @@ const router = express.Router()
  *         description: Successfully deleted
  */
 
-router.post('/', Roles.createRole)
-router.get('/', Roles.allRoles)
+router.post('/', verifyAdmin, Roles.createRole)
+router.get('/', verifyAdmin, Roles.allRoles)
 router.put('/:roleId', verifyAdmin, Roles.update)
 router.get('/:roleId', Roles.getSingleRole)
 router.delete('/:roleId', Roles.delete)

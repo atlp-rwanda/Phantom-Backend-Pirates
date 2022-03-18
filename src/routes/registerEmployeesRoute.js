@@ -130,7 +130,7 @@ const router = express.Router()
 
 /**
  * @swagger
- * /employees:
+ * /employees/list:
  *   get:
  *     tags:
  *       - Employee
