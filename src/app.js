@@ -19,7 +19,7 @@ import viewBus from './routes/viewbus'
 import userRoute from './routes/route'
 import registerEmployeesRoute from './routes/registerEmployeesRoute'
 import forgotpassword from './routes/forgotpassword'
-import resetPassword from './routes/resetpassword'
+import resetPassword from './routes/resetPassword'
 import logout from './routes/logout'
 
 dotenv.config()
@@ -98,7 +98,7 @@ app.use(viewBus)
 app.use(logout)
 
 // hostname
-const hostname = 'localhost'
+const hostname = process.env.HOST_NAME
 
 // Listening to requests
 app.listen(port, async () => {
