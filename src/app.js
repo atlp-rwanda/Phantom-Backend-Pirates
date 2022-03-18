@@ -96,7 +96,7 @@ app.use(resetPassword)
 app.use(viewBus)
 
 // hostname
-const hostname = process.env.HOST_MACHINE
+const hostname = process.env.HOST_NAME
 
 // Listening to requests
 app.listen(port, async () => {
