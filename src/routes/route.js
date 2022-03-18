@@ -6,11 +6,11 @@ const route = express.Router()
 
 // Welcome endpoint
 /**
-* @swagger
-* tags:
-*    name: Routes
-*    description: API to manage Bus Routes.
-*/
+ * @swagger
+ * tags:
+ *    name: Routes
+ *    description: API to manage Bus Routes.
+ */
 
 /**
  * @swagger

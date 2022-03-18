@@ -10,21 +10,25 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-    await queryInterface.bulkInsert('Companies', [
-      {
-        name: 'volcano',
-        email: 'volcano@gmail.com',
-        createdAt: '2022-02-28',
-        updatedAt: '2022-02-28'
-      },
-      {
-        name: 'horizon',
-        email: 'horizon@gmail.com',
-        createdAt: '2022-02-28',
-        updatedAt: '2022-02-28'
-      }
-    ], {})
+     */
+    await queryInterface.bulkInsert(
+      'Companies',
+      [
+        {
+          name: 'volcano',
+          email: 'volcano@gmail.com',
+          createdAt: '2022-02-28',
+          updatedAt: '2022-02-28'
+        },
+        {
+          name: 'horizon',
+          email: 'horizon@gmail.com',
+          createdAt: '2022-02-28',
+          updatedAt: '2022-02-28'
+        }
+      ],
+      {}
+    )
   },
 
   async down (queryInterface, Sequelize) {

@@ -21,18 +21,19 @@ import registerEmployeesRoute from './routes/registerEmployeesRoute'
 import forgotpassword from './routes/forgotpassword'
 import resetPassword from './routes/resetPassword'
 import logout from './routes/logout'
+import assignBusRoute from './routes/assignBusToRoute'
 
 dotenv.config()
 // Initialize express app
 const app = express()
 
 app.use(i18nextMiddleware.handle(i18next))
-app.use(i18nextMiddleware.handle(i18next))
 // Morgan for the logger in the console
 if (app.get('env') === 'development') {
   app.use(logger('dev'))
   console.log('Morgan logger is enabled...')
 }
+
 app.all('*', function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Methods', 'POST, PUT, OPTIONS, DELETE, GET')
@@ -49,8 +50,6 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: 'true' }))
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(cookieParser())
 
-// Port
-const port = process.env.APP_PORT || 3000
 // Swagger Info Object
 const swaggerOptions = {
   swaggerDefinition: {
@@ -60,27 +59,18 @@ const swaggerOptions = {
       contact: {
         name: 'Callback-Pirates'
       },
-      server: `http://localhost:${port}`
-    }
+      server: 'http://localhost:3000'
+    },
+    server: 'http://localhost:3000'
   },
-  components: {
-    securitySchemes: {
-      jwt: {
-        type: 'http',
-        scheme: 'bearer',
-        in: 'header',
-        bearerFormat: 'JWT'
-      }
-    }
-  },
-  security: [{
-    jwt: []
-  }],
+
   apis: ['./src/routes/*.js']
 }
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
+
+app.use(cookieParser())
 
 // Use routes
 app.use(welcomeRoute)
@@ -90,20 +80,22 @@ app.use(login)
 app.use(roleRouter)
 app.use(viewBus)
 app.use(userRoute)
-app.use('/api/role', roleRouter)
+app.use(roleRouter)
 app.use(registerEmployeesRoute)
 app.use(forgotpassword)
 app.use(resetPassword)
-app.use(viewBus)
+app.use(assignBusRoute)
 app.use(logout)
 
-// hostname
+// port & hostname
+const port = process.env.APP_PORT || 3000
 const hostname = process.env.HOST_NAME
 
 // Listening to requests
 app.listen(port, async () => {
   console.log(`Server running at http://${hostname}:${port}/..`)
   await sequelize.authenticate()
-  console.log('Database connected successfully')
+  console.log('Databse connected successfully')
 })
+
 export { app }
