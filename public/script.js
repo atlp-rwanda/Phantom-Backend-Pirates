@@ -1,4 +1,4 @@
-const busUrl = 'http://localhost:5000/api/buses/1'
+const busUrl = 'http://phantom-api-pirates.herokuapp.com/api/buses/1'
 
 let speed = 0
 let passengerNum = 0
