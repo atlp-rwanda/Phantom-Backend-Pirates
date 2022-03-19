@@ -22,7 +22,7 @@ module.exports = {
         notEmpty: true
       },
       bus_status: {
-        type: Sequelize.ENUM('rest', 'moving', 'stuck'),
+        type: Sequelize.ENUM('rest', 'move', 'stuck'),
         defaultValue: 'rest'
       },
       cid: {

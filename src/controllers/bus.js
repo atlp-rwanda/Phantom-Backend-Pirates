@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import model from '../../models'
 
 const { Bus, Route } = model
@@ -110,8 +111,8 @@ class Buses {
     const busNotFoundResponse = req.t('bus_message.id_not_found')
     const busCategoryResponse = req.t('bus_message.category_valid')
     const busSeatResponse = req.t('bus_message.seat_valid')
-    const { plate, category, seat } = req.body
-    if (plate === '' || category === '' || seat === '') {
+    const { plate, category, seat, bus_status } = req.body
+    if (plate === '' || category === '' || seat === '' || bus_status === '') {
       return res.status(400).send({
         message: `${busFieldResponse}`
       })
@@ -137,7 +138,8 @@ class Buses {
           .update({
             plate: plate || bus.plate,
             category: category || bus.category,
-            seat: seat || bus.seat
+            seat: seat || bus.seat,
+            bus_status: bus_status || bus.bus_status
           })
           .then((updatedBus) => {
             res.status(200).send({
@@ -145,7 +147,8 @@ class Buses {
               data: {
                 plate: plate || updatedBus.plate,
                 category: category || updatedBus.category,
-                seat: seat || updatedBus.seat
+                seat: seat || updatedBus.seat,
+                bus_status: bus_status || bus.bus_status
               }
             })
           })
