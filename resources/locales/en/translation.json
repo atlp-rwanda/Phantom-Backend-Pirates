@@ -1,5 +1,5 @@
 {
-  "welcome_message": "Welcome to Phantom Web",
+  "welcome_message": "Welcome to Phantom",
   "login_message": {
     "onSuccess": {
       "admin": "You have successfully logged in as an Admin",

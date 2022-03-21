@@ -16,13 +16,13 @@ describe('Change Password', () => {
       
         const changePassword = {
           email: 'jane@gmail.com',
-          oldPassword: 'holdon',
-          newPassword: 'holdon',
-          passwordConfirm: 'holdon'
+          oldPassword: '123456',
+          newPassword: '123456',
+          passwordConfirm: '123456'
         };
         const user = {
           email:"jane@gmail.com",
-          password:"holdon"
+          password:"123456"
         }
         chai
           .request(app)
@@ -32,7 +32,7 @@ describe('Change Password', () => {
             var adminToken = res.body.adminToken
         chai.request(app)
           .post('/changepassword')
-          .set('Cookie', `jwt=${adminToken}`)
+          .set('Cookie', `jwt = ${adminToken}`)
           .send(changePassword)
           .end((err, res) => {
             res.should.have.status(200);

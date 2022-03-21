@@ -10,8 +10,14 @@ module.exports = {
         updatedAt: '2022-03-14T09:01:38.932Z'
       },
       {
-        role: 'driver',
+        role: 'operator',
         id: 2,
+        createdAt: '2022-03-14T09:01:38.932Z',
+        updatedAt: '2022-03-14T09:01:38.932Z'
+      },
+      {
+        role: 'driver',
+        id: 3,
         createdAt: '2022-03-14T09:01:38.932Z',
         updatedAt: '2022-03-14T09:01:38.932Z'
       }
