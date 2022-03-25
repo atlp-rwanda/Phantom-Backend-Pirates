@@ -1,1 +1,1 @@
-web: npm install && npm run migrate && npm run seed && npm run start 
+web: npm install && npm run seed && npm run start 
