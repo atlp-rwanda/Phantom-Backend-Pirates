@@ -127,5 +127,14 @@
     "assign_exist": "Bus déjà attribué à une route",
     "no_bus_assigned": "aucun bus n'est attribué à ces route",
     "no_route": "la route pas trouve"
-  }
-}
+  },
+      "assigning_bus_driver_messages":{
+
+      "missingEmployee":"employé introuvable",
+      "employeeNotBeingADriver":"L'employé n'est pas chauffeur",
+      "driverExists":"Un conducteur ne peut conduire qu'un seul bus",
+      "busNotFound":"Autobus introuvable",
+      "busHasADriver":"le bus est déjà affecté à un conducteur",
+      "success":"Bus attribué à un chauffeur"
+    }
+  } 

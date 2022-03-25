@@ -112,5 +112,14 @@
     "assign_exist": "Imodoka isanzwe ifite umuhanda igenderamo",
     "no_bus_assigned": "nta modoka igendera muruyu muhanda",
     "no_route": "umuhanda ntago ubonetse"
-  }
+  },
+"assigning_bus_driver_messages":{
+
+  "missingEmployee":"umukozi ntabonetse",
+  "employeeNotBeingADriver":"Uyu mukozi ntabwo ari umushoferi",
+  "driverExists":"Umushoferi yemerewe gutwara imodoka imwe",
+  "busNotFound":"Bisi ntibonetse",
+  "busHasADriver":"Bisi yamaze guhabwa umushoferi",
+  "success":"Igikorwa cyo guha bisi umushoferi cyagenze neza"
+}
 }

@@ -21,6 +21,16 @@ module.exports = {
         type: Sequelize.ARRAY(Sequelize.STRING),
         unique: true
       },
+      roleId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Roles',
+          key: 'id',
+          as: 'roleId'
+        },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

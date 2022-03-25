@@ -119,13 +119,22 @@
         "failure":"The user with the email does not exist or the token has expired"
       }
     },
-    "logout_success": "Successfully logged out of your Account"
-  
-  ,
+    "logout_success": "Successfully logged out of your Account",
   "assign_bus": {
     "assign_success": "bus assigned to route successfully",
     "assign_exist": "Bus already assigned to a route",
     "no_bus_assigned": "no bus assigned to this route",
     "no_route": "route not found"
+  },
+
+    "assigning_bus_driver_messages":{
+
+      "missingEmployee":"employee not found",
+      "employeeNotBeingADriver":"Employee is not a driver",
+      "driverExists":"A driver can only drive one bus",
+      "busNotFound":"Bus not found",
+      "busHasADriver":"Bus already assigned driver",
+      "success":"Bus assigned to a driver"
+    }
   }
-}
+
