@@ -69,7 +69,7 @@ const swaggerOptions = {
       contact: {
         name: 'Callback-Pirates',
       },
-      server: BASE_URL,
+      server: process.env.BASE_URL,
     },
   },
 
