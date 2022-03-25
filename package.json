@@ -8,10 +8,10 @@
     "dev": "nodemon --exec ./node_modules/.bin/babel-node src/app.js",
     "test": "cross-env NODE_ENV=test npm run undomigrate && cross-env NODE_ENV=test npm run migrate && cross-env NODE_ENV=test npm run seed && cross-env NODE_ENV=test nyc mocha --require @babel/register ",
     "lint": "eslint . --fix --ext .js",
-    "migrate": "sequelize db:migrate",
-    "undomigrate": "sequelize db:migrate:undo:all",
-    "seed": "sequelize db:seed:all",
-    "undoseed": "sequelize db:seed:undo:all"
+    "migrate": "npx sequelize db:migrate",
+    "undomigrate": "npx sequelize db:migrate:undo:all",
+    "seed": "npx sequelize db:seed:all",
+    "undoseed": "npx sequelize db:seed:undo:all"
   },
   "repository": {
     "type": "git",
