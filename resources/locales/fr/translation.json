@@ -165,5 +165,16 @@
       "busNotFound":"Autobus introuvable",
       "busHasADriver":"le bus est déjà affecté à un conducteur",
       "success":"Bus attribué à un chauffeur"
+    },
+  "changePassword": {
+    "success": "Mot de passe changé avec succès",
+    "failure": {
+      "invalidToken":"jeton invalide",
+      "tokenRequired": "Un jeton valide est requis",
+      "noUser": "L'utilisateur avec l'e-mail n'existe pas",
+      "pwdMissmatch": "Les mots de passe saisis ne correspondent pas",
+      "wrongPsw": "Le mot de passe ou l'e-mail sont incorrects"
+
     }
-  } 
+  }
+}

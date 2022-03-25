@@ -26,6 +26,7 @@ import logout from './routes/logout'
 import assignBusRoute from './routes/assignBusToRoute'
 import profileRouter from './routes/profile'
 import imageRouter from './routes/image'
+import changePassword from './routes/changePassword'
 
 dotenv.config()
 // Initialize express app
@@ -56,6 +57,9 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: 'true' }))
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(cookieParser())
 
+// Port & hostname
+const port = process.env.APP_PORT || 3000
+const hostname = process.env.HOST_NAME
 // Swagger Info Object
 const swaggerOptions = {
   swaggerDefinition: {
@@ -65,9 +69,8 @@ const swaggerOptions = {
       contact: {
         name: 'Callback-Pirates'
       },
-      server: 'http://localhost:3000'
-    },
-    server: 'http://localhost:3000'
+      server: `http://${hostname}:${port}`
+    }
   },
 
   apis: ['./src/routes/*.js']
@@ -95,13 +98,9 @@ app.use(forgotpassword)
 app.use(resetPassword)
 app.use(assignBusRoute)
 app.use(logout)
+app.use(changePassword)
 app.use(unassignDriver)
 app.use(assignDriver)
-// Use routes
-
-// port & hostname
-const port = process.env.APP_PORT || 3000
-const hostname = process.env.HOST_NAME
 
 // Listening to requests
 app.listen(port, async () => {

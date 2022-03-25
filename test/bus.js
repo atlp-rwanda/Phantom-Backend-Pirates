@@ -74,7 +74,7 @@ describe('Bus API', () => {
             var token = res.body.adminToken;
         chai.request(app)
           .put(`/api/buses/${busId}`)
-          .set('authorization', token)
+          .set('Cookie', `jwt = ${token}`)
           .send(updatedBus)
           .end((err, res) => {
             res.should.have.status(200);
@@ -102,7 +102,7 @@ describe('Bus API', () => {
             var token = res.body.adminToken;
         chai.request(app)
           .put(`/api/buses/${id}`)
-          .set('authorization', token)
+          .set('Cookie', `jwt = ${token}`)
           .send(updatedbus)
           .end((err, res) => {
             res.should.have.status(400);
@@ -136,7 +136,7 @@ describe('Bus API', () => {
       chai
         .request(app)
         .post(`/api/buses/${cid}/bus`)
-        .set('authorization', token)
+        .set('Cookie', `jwt = ${token}`)
         .send(bus)
         .end((err, res) => {
           res.should.have.status(201);
@@ -164,7 +164,7 @@ describe('Bus API', () => {
             var token = res.body.adminToken;
         chai.request(app)
           .post(`/api/buses/${cid}/bus`)
-          .set('authorization', token)
+          .set('Cookie', `jwt = ${token}`)
           .send(bus)
           .end((err, res) => {
             res.should.have.status(400);
@@ -193,7 +193,7 @@ describe('Bus API', () => {
             var token = res.body.adminToken;
         chai.request(app)
           .post(`/api/buses/${cid}/bus`)
-          .set('authorization', token)
+          .set('Cookie', `jwt = ${token}`)
           .send(bus)
           .end((err, res) => {
             res.should.have.status(400);
@@ -219,7 +219,7 @@ describe('Bus API', () => {
             var token = res.body.adminToken;
         chai.request(app)
           .delete(`/api/buses/${busId}`)
-          .set('authorization', token)
+          .set('Cookie', `jwt = ${token}`)
           .end((err, res) => {
             res.should.have.status(200);
             done();
@@ -242,7 +242,7 @@ describe('Bus API', () => {
             var token = res.body.adminToken;
         chai.request(app)
           .delete(`/api/buses/${busId}`)
-          .set('authorization', token)
+          .set('Cookie', `jwt = ${token}`)
           .end((err, res) => {
             res.should.have.status(400);
             done();

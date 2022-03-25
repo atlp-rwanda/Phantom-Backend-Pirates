@@ -26,7 +26,7 @@ describe('Company API', () => {
             var token = res.body.adminToken;
         chai.request(app)
           .post('/api/company')
-          .set('authorization', token)
+          .set('Cookie', `jwt = ${token}`)
           .send(company)
           .end((err, res) => {
             res.should.have.status(201);
@@ -114,7 +114,7 @@ describe('Company API', () => {
             var token = res.body.adminToken;
         chai.request(app)
           .put(`/api/company/${companyId}`)
-          .set('authorization', token)
+          .set('Cookie', `jwt = ${token}`)
           .send(updatedCompany)
           .end((err, res) => {
             res.should.have.status(200);
@@ -143,7 +143,7 @@ describe('Company API', () => {
             var token = res.body.adminToken;
         chai.request(app)
           .put(`/api/company/${id}`)
-          .set('authorization', token)
+          .set('Cookie', `jwt = ${token}`)
           .send(updatedcompany)
           .end((err, res) => {
             res.should.have.status(400);
@@ -168,7 +168,7 @@ describe('Company API', () => {
             var token = res.body.adminToken;
         chai.request(app)
           .delete(`/api/company/${id}`)
-          .set('Authorization', token)
+          .set('Cookie', `jwt = ${token}`)
           .end((err, res) => {
             res.should.have.status(200);
             done();
