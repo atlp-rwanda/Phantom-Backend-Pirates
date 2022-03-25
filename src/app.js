@@ -59,7 +59,6 @@ app.use(cookieParser());
 
 // Port & hostname
 const port = process.env.PORT || 3000;
-const hostname = process.env.HOST_NAME;
 // Swagger Info Object
 const swaggerOptions = {
   swaggerDefinition: {
