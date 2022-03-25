@@ -19,6 +19,7 @@ module.exports = {
         bus_status: 'rest',
         cid: 1,
         rout_id: 1,
+        employeeId: null,
         createdAt: '2022-02-28',
         updatedAt: '2022-02-28'
       },
@@ -29,6 +30,7 @@ module.exports = {
         bus_status: 'rest',
         cid: 1,
         rout_id: 1,
+        employeeId: null,
         createdAt: '2022-02-28',
         updatedAt: '2022-02-28'
       }

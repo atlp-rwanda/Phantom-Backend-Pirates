@@ -18,11 +18,13 @@ describe('Login API', () => {
         .post('/users/login')
         .send(user)
         .end((err, res) => {
-          res.should.have.status(200)
-          res.body.message.should.be.equal('You have successfully logged in as an Operator')
-          done()
-        })
-    })
+          res.should.have.status(200);
+          res.body.message.should.be.equal(
+            'You have successfully logged in as an Admin'
+          );
+          done();
+        });
+    });
     it('A registered user should be able to login/Kinyarwanda Language', (done) => {
       const user = {
         email: 'jane@gmail.com',
@@ -33,11 +35,11 @@ describe('Login API', () => {
         .post('/users/login/?lng=rw')
         .send(user)
         .end((err, res) => {
-          res.should.have.status(200)
-          res.body.message.should.be.equal('Winjiye neza nka Operator')
-          done()
-        })
-    })
+          res.should.have.status(200);
+          res.body.message.should.be.equal('Winjiye neza nka Admin');
+          done();
+        });
+    });
     it('A registered user should be able to login/French Language', (done) => {
       const user = {
         email: 'jane@gmail.com',
@@ -48,11 +50,13 @@ describe('Login API', () => {
         .post('/users/login/?lng=fr')
         .send(user)
         .end((err, res) => {
-          res.should.have.status(200)
-          res.body.message.should.be.equal("Vous vous êtes connecté avec succès en tant qu'opérateur")
-          done()
-        })
-    })
+          res.should.have.status(200);
+          res.body.message.should.be.equal(
+            "Vous vous êtes connecté avec succès en tant qu'administrateur"
+          );
+          done();
+        });
+    });
     it('A non-registered user shouldnot be able to login/eDfault Language', (done) => {
       const user = {
         email: 'nijohn@gmail.com',
@@ -148,10 +152,12 @@ describe('Login API', () => {
         .post('/users/login/?lng=fr')
         .send(user)
         .end((err, res) => {
-          res.should.have.status(401)
-          res.body.error.should.be.equal("L'e-mail ou les mots de passe saisis sont incorrects")
-          done()
-        })
-    })
-  })
-})
+          res.should.have.status(401);
+          res.body.error.should.be.equal(
+            "L'e-mail ou les mots de passe saisis sont incorrects"
+          );
+          done();
+        });
+    });
+  });
+});

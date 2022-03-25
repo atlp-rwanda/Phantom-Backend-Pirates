@@ -19,34 +19,35 @@ class Buses {
         message: `${busFieldResponse}`
       })
     }
-    if (!(/^[R]*[A-Z]{2}[0-9]{3}[A-Z]{1}$/).test(plate)) {
+    if (!/^[R]*[A-Z]{2}[0-9]{3}[A-Z]{1}$/.test(plate)) {
       return res.status(400).send({
         message: `${busPlateResponse}`
       })
     }
-    if (!(/^[A-Za-z]+$/).test(category)) {
+    if (!/^[A-Za-z]+$/.test(category)) {
       return res.status(400).send({
         message: `${busCategoryResponse}`
       })
     }
-    if (!(/^[0-9]*$/).test(seat)) {
+    if (!/^[0-9]*$/.test(seat)) {
       return res.status(400).send({
         message: `${busSeatResponse}`
       })
     }
-    return Bus
-      .create({
-        plate,
-        category,
-        seat,
-        status,
-        cid
-      })
-      .then(bus => res.status(201).send({
-        message: `${busSuccessResponse}`,
-        bus
-      }))
-      .catch(error => {
+    return Bus.create({
+      plate,
+      category,
+      seat,
+      status,
+      cid
+    })
+      .then((bus) =>
+        res.status(201).send({
+          message: `${busSuccessResponse}`,
+          bus
+        })
+      )
+      .catch((error) => {
         res.status(400).send({ message: `${busExistResponse}` })
         console.log(error)
       })
@@ -55,9 +56,8 @@ class Buses {
   // list all buses
   static listAll (req, res) {
     const Norecord = req.t('bus_message.no_record')
-    return Bus
-      .findAll()
-      .then(listbus => {
+    return Bus.findAll()
+      .then((listbus) => {
         if (listbus.length === 0) {
           res.status(400).send({
             message: `${Norecord}`
@@ -66,7 +66,7 @@ class Buses {
           res.status(200).send(listbus)
         }
       })
-      .catch(error => res.status(400).send(error))
+      .catch((error) => res.status(400).send(error))
   }
 
   // list Bus by Id
@@ -74,20 +74,19 @@ class Buses {
     const Badresponse = req.t('bus_message.id_not_found')
     const id = req.params.id
 
-    return Bus
-      .findAll({
-        where: {
-          id: id
-        },
-        attributes: {
-          exclude: ['cid', 'rout_id', 'createdAt', 'updatedAt']
-        },
-        include: {
-          model: Route,
-          attributes: ['source', 'destination', 'busStop']
-        }
-      })
-      .then(busObject => {
+    return Bus.findAll({
+      where: {
+        id: id
+      },
+      attributes: {
+        exclude: ['cid', 'rout_id', 'createdAt', 'updatedAt']
+      },
+      include: {
+        model: Route,
+        attributes: ['source', 'destination', 'busStop']
+      }
+    })
+      .then((busObject) => {
         if (busObject.length === 0) {
           res.status(400).json({
             message: `${Badresponse}`
@@ -98,8 +97,7 @@ class Buses {
           })
         }
       })
-      .catch(error => res.status(400).json({ status: 400, error })
-      )
+      .catch((error) => res.status(400).json({ status: 400, error }))
   }
 
   // update
@@ -118,29 +116,29 @@ class Buses {
         message: `${busFieldResponse}`
       })
     }
-    if (!(/^[R]*[A-Z]{2}[0-9]{3}[A-Z]{1}$/).test(plate)) {
+    if (!/^[R]*[A-Z]{2}[0-9]{3}[A-Z]{1}$/.test(plate)) {
       return res.status(400).send({
         message: `${busPlateResponse}`
       })
     }
-    if (!(/^[A-Za-z]+$/).test(category)) {
+    if (!/^[A-Za-z]+$/.test(category)) {
       return res.status(400).send({
         message: `${busCategoryResponse}`
       })
     }
-    if (!(/^[0-9]*$/).test(seat)) {
+    if (!/^[0-9]*$/.test(seat)) {
       return res.status(400).send({
         message: `${busSeatResponse}`
       })
     }
-    return Bus
-      .findByPk(req.params.id)
+    return Bus.findByPk(req.params.id)
       .then((bus) => {
-        bus.update({
-          plate: plate || bus.plate,
-          category: category || bus.category,
-          seat: seat || bus.seat
-        })
+        bus
+          .update({
+            plate: plate || bus.plate,
+            category: category || bus.category,
+            seat: seat || bus.seat
+          })
           .then((updatedBus) => {
             res.status(200).send({
               message: `${busUpdatedResponse}`,
@@ -151,14 +149,14 @@ class Buses {
               }
             })
           })
-          .catch(error => {
+          .catch((error) => {
             res.status(400).send({
               message: `${busExistResponse}`
             })
             console.log(error)
           })
       })
-      .catch(error => {
+      .catch((error) => {
         res.status(400).send({
           message: `${busNotFoundResponse}`
         })
@@ -170,21 +168,20 @@ class Buses {
   static delete (req, res) {
     const busNotFoundResponse = req.t('bus_message.id_not_found')
     const busDeleteResponse = req.t('bus_message.bus_deleted')
-    return Bus
-      .findByPk(req.params.id)
-      .then(bus => {
+    return Bus.findByPk(req.params.id)
+      .then((bus) => {
         if (!bus) {
           return res.status(400).send({
             message: `${busNotFoundResponse}`
           })
         }
-        return bus
-          .destroy()
-          .then(() => res.status(200).send({
+        return bus.destroy().then(() =>
+          res.status(200).send({
             message: `${busDeleteResponse}`
-          }))
+          })
+        )
       })
-      .catch(error => res.status(400).send(error))
+      .catch((error) => res.status(400).send(error))
   }
 }
 

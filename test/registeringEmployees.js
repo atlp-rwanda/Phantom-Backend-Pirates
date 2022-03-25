@@ -44,7 +44,7 @@ describe("GET /roles/employees", () => {
   })
 
    //Get all employees with the same role test
-  describe("GET /employeesInRole/2", () => {          
+  describe("GET /employeesInRole/1", () => {          
     it("it should GET all Employees with the same roleId", (done) => {
         chai.request(app)
         .get("/employeesInRole/1")

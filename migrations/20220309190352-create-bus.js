@@ -43,6 +43,15 @@ module.exports = {
           as: 'rout_id'
         }
       },
+      employeeId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Employees',
+          key: 'id',
+          as: 'employeeId'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
