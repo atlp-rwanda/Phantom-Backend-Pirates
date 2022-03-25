@@ -110,7 +110,6 @@
 
     }
   },
-    "field_error_message": {
   "profileAuth":{
     "failure":{
       "tokenRequired":  "You have to be logged in to create a profile",
@@ -180,4 +179,4 @@
 }
 
     }
-  }
+  

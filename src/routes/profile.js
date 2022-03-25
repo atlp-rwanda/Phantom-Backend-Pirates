@@ -2,8 +2,36 @@ import express from 'express'
 import Profiles from '../controllers/profileController'
 import profileAuth from '../middleware/profileAuth'
 import verifyAdmin from '../authorization/verifyAdmin'
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 
 const router = express.Router()
+
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, new Date().getTime() + path.extname(file.originalname))
+  }
+})
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    cb(null, true)
+  } else {
+    cb(new Error('Unsupported files'), false)
+  }
+}
+
+  
+  const uploadImg = multer({storage: storage}).single('profilePic');
+  
+
+
+
 
 /**
 *  @swagger
@@ -26,6 +54,7 @@ const router = express.Router()
  *         type: string
  *       profilePic:
  *         type: string
+ *         format: binary     
  *       address:
  *         type: object
  *       dateOfBirth:
@@ -60,6 +89,8 @@ const router = express.Router()
  *     description: Add a new profile
  *     produces:
  *       - application/json
+ *     consumes:
+ *       - multipart/form-data
  *     parameters:
  *       - name: id
  *         description: employeeId
@@ -205,11 +236,11 @@ const router = express.Router()
   *         description: Profile deleted Successfully
   */
 
-router.post('/profiles/:employeeId', profileAuth, Profiles.create) // Create a new profile
+router.post('/profiles/:employeeId', profileAuth, uploadImg , Profiles.create) // Create a new profile
 router.get('/profiles', Profiles.list) // Get all Profiles
 router.get('/profiles/:id', Profiles.listOne) // Get a single profile
 router.get('/profiles/employeeProfiles/:id', Profiles.EmployeeProfile) // Get all an employee's
-router.put('/profiles/:id', profileAuth, Profiles.update) // Update an Employee's profile
+router.put('/profiles/:id', profileAuth, uploadImg , Profiles.update) // Update an Employee's profile
 router.delete('/profiles/:id',verifyAdmin, Profiles.delete) // Delete an Employee's profile
 
 export default router

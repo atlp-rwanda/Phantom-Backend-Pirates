@@ -3,9 +3,13 @@ import model from '../../models'
 const { Profile } = model
 const { Employee } = model
 const { Role } = model
+
+ 
+
 class Profiles {
   static create (req, res) {
-    const { telephone, firstname, lastname, profilePic, address, dateOfBirth, gender } = req.body
+    const { telephone, firstname, lastname, address, dateOfBirth, gender } = req.body
+    const  profilePic = req.file.path
     const { employeeId } = req.params
     const invalidFirstName = req.t('field_error_message.first_name_message.invalid_first_name')
     const empytFirstName = req.t('field_error_message.first_name_message.empty_first_name')
@@ -60,13 +64,12 @@ class Profiles {
     if (!(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(telephone))) {
       return res.status(400).json({
         message: `${invalidTelephone}`
-      })  .catch((error) => console.log(error))
+      })  
     }
     if(dateOfBirth.length === 0){
       return res.status(400).json({
         message: `${emptyDateOfBirth}`
       }) 
-       .catch((error) => console.log(error))
       }
       if (!(/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/).test(dateOfBirth)) {
         return res.status(400).json({
@@ -77,7 +80,6 @@ class Profiles {
         return res.status(400).json({
           message: "Your not of legal working age"
         }) 
-         .catch((error) => console.log(error))
         }
   
     return Profile
@@ -160,7 +162,8 @@ class Profiles {
   }
 
   static update (req, res) {
-    const { telephone, profilePic, address } = req.body
+    const { telephone, address } = req.body
+    const  profilePic = req.file.path
     const emptyTelephone = req.t('profile-update.telephone.empty')
     const invalidTelephone = req.t('profile-update.telephone.invalid')
     const profileNotFound = req.t('profile-update.profileNotFound')
@@ -235,4 +238,3 @@ export default Profiles
 
 
 
-// where there is pick add squash
