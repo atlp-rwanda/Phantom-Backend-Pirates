@@ -1,8 +1,8 @@
-import Roles from '../controllers/roleController'
-import express from 'express'
-import verifyAdmin from '../authorization/verifyAdmin'
+import Roles from '../controllers/roleController';
+import express from 'express';
+import verifyAdmin from '../authorization/verifyAdmin';
 
-const router = express.Router()
+const router = express.Router();
 
 // setting up swagger definition
 /**
@@ -111,10 +111,10 @@ const router = express.Router()
  *         description: Successfully deleted
  */
 
-router.post('/', verifyAdmin, Roles.createRole)
-router.get('/', verifyAdmin, Roles.allRoles)
-router.put('/:roleId', verifyAdmin, Roles.update)
-router.get('/:roleId', Roles.getSingleRole)
-router.delete('/:roleId', Roles.delete)
+router.post('/', verifyAdmin, Roles.createRole);
+router.get('/', verifyAdmin, Roles.allRoles);
+router.put('/:roleId', verifyAdmin, Roles.update);
+router.get('/:roleId', Roles.getSingleRole);
+router.delete('/:roleId', Roles.delete);
 
-export default router
+export default router;
