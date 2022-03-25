@@ -12,5 +12,9 @@ module.exports = {
   production: {
     url: process.env.DATABASE_URL,
     dialect: 'postgres',
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
   },
 };
