@@ -1,4 +1,4 @@
-const busUrl = 'http://localhost:4000/api/buses/4'
+const busUrl = 'http://localhost:4000/api/buses/1'
 
 let speed = 0
 let passengerNum = 0
