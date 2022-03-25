@@ -1,1 +1,1 @@
-web: npm install && npm run seed && npm run start 
+web: node dist/app.js
