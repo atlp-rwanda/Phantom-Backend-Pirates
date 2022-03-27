@@ -22,9 +22,9 @@ describe('Reset password API', () => {
       })
       const token = jwt.sign({ email: email }, process.env.RESET_SECRET, { expiresIn: process.env.RESET_TOKEN_EXPIRES })
       const user = {
-        email:"nijohn0006@gmail.com",
-        password: "holdon",
-        passwordConfirm: "holdon"
+        email:"jane@gmail.com",
+        password: "123456",
+        passwordConfirm: "123456"
       }
       chai
         .request(app)
@@ -44,9 +44,9 @@ describe('Reset password API', () => {
       })
       const token = jwt.sign({ email: email }, process.env.RESET_SECRET, { expiresIn: process.env.RESET_TOKEN_EXPIRES })
       const user = {
-        email:"nijohn0006@gmail.com",
-        password: "holdon",
-        passwordConfirm: "holdon"
+        email:"jane@gmail.com",
+        password: "123456",
+        passwordConfirm: "123456"
       }
         chai
           .request(app)
@@ -66,9 +66,9 @@ describe('Reset password API', () => {
         })
         const token = jwt.sign({ email: email }, process.env.RESET_SECRET, { expiresIn: process.env.RESET_TOKEN_EXPIRES })
         const user = {
-          email:"nijohn0006@gmail.com",
-          password: "holdon",
-          passwordConfirm: "holdon"
+          email:"jane@gmail.com",
+          password: "123456",
+          passwordConfirm: "123456"
         }
         chai
           .request(app)

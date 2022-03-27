@@ -13,8 +13,8 @@ describe('Role APIs', () => {
         .request(app)
         .post('/users/login')
         .send({
-          email: 'doe@gmail.com',
-          password: 'holdon0006',
+          email: 'jane@gmail.com',
+          password: '123456',
         })
         .end((err, res) => {
           const token = res.body.adminToken;
@@ -23,7 +23,7 @@ describe('Role APIs', () => {
             .request(app)
             .post('/api/role')
             .set('Accept', 'application/json')
-            .set('authorization', token)
+            .set('Cookie', `jwt = ${token}`)
             .send({ role: 'operator' })
             .end((error, response) => {
               response.should.have.status(200);
@@ -39,8 +39,8 @@ describe('Role APIs', () => {
         .request(app)
         .post('/users/login')
         .send({
-          email: 'doe@gmail.com',
-          password: 'holdon0006',
+          email: 'jane@gmail.com',
+          password: '123456',
         })
         .end((err, res) => {
           const token = res.body.adminToken;
@@ -49,7 +49,7 @@ describe('Role APIs', () => {
             .request(app)
             .post('/api/role')
             .set('Accept', 'application/json')
-            .set('authorization', token)
+            .set('Cookie', `jwt = ${token}`)
             .send({ role: 'driverse' })
             .end((error, response) => {
               response.should.have.status(400);
@@ -126,8 +126,8 @@ describe('Role APIs', () => {
         .request(app)
         .post('/users/login')
         .send({
-          email: 'doe@gmail.com',
-          password: 'holdon0006',
+          email: 'jane@gmail.com',
+          password: '123456',
         })
         .end((err, res) => {
           const token = res.body.adminToken;
@@ -135,7 +135,7 @@ describe('Role APIs', () => {
           chai
             .request(app)
             .put('/api/role/' + roleId)
-            .set('authorization', token)
+            .set('Cookie', `jwt = ${token}`)
             .send({ role: 'admin' })
             .end((error, response) => {
               response.should.have.status(200);
@@ -152,8 +152,8 @@ describe('Role APIs', () => {
         .request(app)
         .post('/users/login')
         .send({
-          email: 'doe@gmail.com',
-          password: 'holdon0006',
+          email: 'jane@gmail.com',
+          password: '123456',
         })
         .end((err, res) => {
           const token = res.body.adminToken;
@@ -161,7 +161,7 @@ describe('Role APIs', () => {
           chai
             .request(app)
             .put('/api/role/' + roleId)
-            .set('authorization', token)
+            .set('Cookie', `jwt = ${token}`)
             .send({ role: 'admin' })
             .end((error, response) => {
               response.should.have.status(400);
@@ -178,8 +178,8 @@ describe('Role APIs', () => {
         .request(app)
         .post('/users/login')
         .send({
-          email: 'doe@gmail.com',
-          password: 'holdon0006',
+          email: 'jane@gmail.com',
+          password: '123456',
         })
         .end((err, res) => {
           const token = res.body.adminToken;
@@ -187,7 +187,7 @@ describe('Role APIs', () => {
           chai
             .request(app)
             .put('/api/role/' + roleId)
-            .set('authorization', token)
+            .set('Cookie', `jwt = ${token}`)
             .send({ role: 'admin' })
             .end((error, response) => {
               response.should.have.status(400);
@@ -207,8 +207,8 @@ describe('Role APIs', () => {
         .request(app)
         .post('/users/login')
         .send({
-          email: 'doe@gmail.com',
-          password: 'holdon0006',
+          email: 'jane@gmail.com',
+          password: '123456',
         })
         .end((err, res) => {
           const token = res.body.adminToken;
@@ -216,7 +216,7 @@ describe('Role APIs', () => {
           chai
             .request(app)
             .delete('/api/role/' + roleId)
-            .set('authorization', token)
+            .set('Cookie', `jwt = ${token}`)
             .end((error, response) => {
               response.should.have.status(200);
               response.body.should.be.a('object');
@@ -232,8 +232,8 @@ describe('Role APIs', () => {
         .request(app)
         .post('/users/login')
         .send({
-          email: 'doe@gmail.com',
-          password: 'holdon0006',
+          email: 'jane@gmail.com',
+          password: '123456',
         })
         .end((err, res) => {
           const token = res.body.adminToken;
@@ -241,7 +241,7 @@ describe('Role APIs', () => {
           chai
             .request(app)
             .delete('/api/role/' + roleId)
-            .set('authorization', token)
+            .set('Cookie', `jwt = ${token}`)
             .end((error, response) => {
               response.should.have.status(400);
               response.body.should.be.a('object');
@@ -257,8 +257,8 @@ describe('Role APIs', () => {
         .request(app)
         .post('/users/login')
         .send({
-          email: 'doe@gmail.com',
-          password: 'holdon0006',
+          email: 'jane@gmail.com',
+          password: '123456',
         })
         .end((err, res) => {
           const token = res.body.adminToken;
@@ -266,7 +266,7 @@ describe('Role APIs', () => {
           chai
             .request(app)
             .delete('/api/role/' + roleId)
-            .set('authorization', token)
+            .set('Cookie', `jwt = ${token}`)
             .end((error, response) => {
               response.should.have.status(400);
               response.body.should.be.a('object');

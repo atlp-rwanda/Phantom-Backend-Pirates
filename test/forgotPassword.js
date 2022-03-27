@@ -11,7 +11,7 @@ describe('Forgot password API', () => {
     // tests for a registered email
     it('A registered email should be able to reset password/default language', (done) => {
       const user = {
-        email:"nijohn0006@gmail.com",
+        email:"jane@gmail.com",
       }
       chai
         .request(app)
@@ -25,7 +25,7 @@ describe('Forgot password API', () => {
     })
     it('A registered email should be able to reset password/French language', (done) => {
         const user = {
-          email:"nijohn0006@gmail.com",
+          email:"jane@gmail.com",
         }
         chai
           .request(app)
@@ -39,7 +39,7 @@ describe('Forgot password API', () => {
       })
       it('A registered email should be able to reset password/Kinyarwanda language', (done) => {
         const user = {
-          email:"nijohn0006@gmail.com",
+          email:"jane@gmail.com",
         }
         chai
           .request(app)

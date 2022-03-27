@@ -10,15 +10,16 @@ chai.use(chaiHTTP)
 describe('registeringAPI', () => {
    
     //Add a new employee test
-    describe("POST /employees/1", () => {     
+    describe("POST /employees/:id", () => {     
       it("it should add an employee", (done) => {
-          const employee = {
-              firstname:"Jules",
-              lastname:"Himbaza",
-              email:"hijules1011P@gmail.com",  
+        const id = 3
+        const employee = {
+              firstname:"Frank",
+              lastname:"Irankunda",
+              email:"irank456@gmail.com",  
           };
        chai.request(app)
-       .post("/employees/1")
+       .post("/employees/"+id)
        .send(employee)
        .end((err, response) => {
           response.should.have.status(201),
@@ -36,8 +37,7 @@ describe("GET /roles/employees", () => {
         .get("/roles/employees")
         .end((err, response) => {
           response.should.have.status(200);
-          response.body.should.be.a('array');
-          response.body.length.should.be.eq(2);
+          response.body.should.be.a('array')
         done()
       })
   })
@@ -51,7 +51,6 @@ describe("GET /roles/employees", () => {
         .end((err, response) => {
           response.should.have.status(200);
           response.body.should.be.a('array');
-          response.body.length.should.be.eq(2);
         done()
       })
   })
@@ -61,11 +60,10 @@ describe("GET /roles/employees", () => {
   describe("GET /employees", () => {           
     it("it should GET all Employees", (done) => {
         chai.request(app)
-        .get("/employees")
+        .get("/employees/list")
         .end((err, response) => {
           response.should.have.status(200);
           response.body.should.be.a('array');
-          response.body.length.should.be.eq(4);
         done()
       })
   })
@@ -94,16 +92,12 @@ describe("GET /roles/employees", () => {
        //Update employee test
       describe("PUT /employees/:id", () => {    
         it("it should update an employee's information", (done) => {
-            const id=3;
+            const id=1;
             const employee = {
-                id: id,
-                firstname:"Julesxxx",
+                firstname:"Julesxx",
                 lastname:"Himbaza",
-                email:"hijules10@gmail.com",
-                password:"jdijc",
+                email:"jules10@gmail.com",
                 roleId:2,
-                updatedAt:'2019-08-29T17:39:41.835Z',
-                createdAt:'2019-08-29T17:39:41.835Z'
             };
          chai.request(app)
          .put("/employees/"+id)
