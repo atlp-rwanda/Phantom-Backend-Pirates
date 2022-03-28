@@ -28,6 +28,7 @@ class Employees {
     const registrationSuccess = req.t('registration_message.success');
 
     let password = generatePassword();
+    console.log(password);
     const unhashedPassword = password;
     password = bcrypt.hashSync(
       password,
@@ -72,7 +73,7 @@ class Employees {
       email.length === '' ||
       password.length === ''
     ) {
-      return res.status(400).send({
+      return res.status(400).json({
         message: `${allFieldsMessage}`,
       });
     }
