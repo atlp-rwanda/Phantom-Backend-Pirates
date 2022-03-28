@@ -91,7 +91,7 @@ class Employees {
                   <button style="background-color: turquoise; border: none; border-radius: 5px; color: #333; /* Dark grey */ padding: 15px 32px">Click here</button> to change it</h1>
               </div>
         `;
-        sendNotification(message, employeeData.email);
+        // sendNotification(message, employeeData.email);
         res
           .status(201)
           .send({
