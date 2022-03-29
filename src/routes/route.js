@@ -1,8 +1,8 @@
-import express from 'express'
-import Routes from '../controllers/route'
-import verifyAdmnOperator from '../authorization/verifyAdmnOperator'
+import express from 'express';
+import Routes from '../controllers/route';
+import verifyUser from '../authorization/verifyUser';
 
-const route = express.Router()
+const route = express.Router();
 
 // Welcome endpoint
 /**
@@ -152,10 +152,10 @@ const route = express.Router()
  *
  */
 
-route.post('/api/routes', verifyAdmnOperator, Routes.create)
-route.get('/api/routes', Routes.listAll)
-route.get('/api/routes/:id', Routes.list)
-route.put('/api/routes/:id', verifyAdmnOperator, Routes.modify)
-route.delete('/api/routes/:id', verifyAdmnOperator, Routes.delete)
+route.post('/api/routes', verifyUser, Routes.create);
+route.get('/api/routes', Routes.listAll);
+route.get('/api/routes/:id', Routes.list);
+route.put('/api/routes/:id', verifyUser, Routes.modify);
+route.delete('/api/routes/:id', verifyUser, Routes.delete);
 
-export default route
+export default route;

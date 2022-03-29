@@ -1,8 +1,8 @@
-import express from 'express'
-import verifyAdmnOperator from '../authorization/verifyAdmnOperator'
-import Buses from '../controllers/assignBusToRoute'
+import express from 'express';
+import verifyUser from '../authorization/verifyUser';
+import Buses from '../controllers/assignBusToRoute';
 
-const router = express.Router()
+const router = express.Router();
 
 /**
  * @swagger
@@ -72,11 +72,7 @@ const router = express.Router()
  *      application/json
  */
 
-router.patch(
-  '/api/routes/:routeId/bus/:busId',
-  verifyAdmnOperator,
-  Buses.assignBus
-)
-router.get('/api/routes/buses/:routeId', Buses.busAssociatedToRoute)
+router.patch('/api/routes/:routeId/bus/:busId', verifyUser, Buses.assignBus);
+router.get('/api/routes/buses/:routeId', Buses.busAssociatedToRoute);
 
-export default router
+export default router;

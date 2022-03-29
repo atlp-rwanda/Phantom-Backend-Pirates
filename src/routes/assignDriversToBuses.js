@@ -1,7 +1,7 @@
-import express from 'express'
-import Buses from '../controllers/assignBusToDrivers'
-import verifyAdminOperator from '../authorization/verifyAdmnOperator'
-const router = express.Router()
+import express from 'express';
+import Buses from '../controllers/assignBusToDrivers';
+import verifyUser from '../authorization/verifyUser';
+const router = express.Router();
 
 // Welcome endpoint
 
@@ -56,7 +56,7 @@ const router = express.Router()
  *      application/json
  */
 
-router.patch('/api/buses/:busId/:employeeId', verifyAdminOperator, Buses.assign)
-router.get('/api/drivers/buses', verifyAdminOperator, Buses.findBusestoDrivers)
+router.patch('/api/buses/:busId/:employeeId', Buses.assign);
+router.get('/api/drivers/buses', Buses.findBusestoDrivers);
 
-export default router
+export default router;
