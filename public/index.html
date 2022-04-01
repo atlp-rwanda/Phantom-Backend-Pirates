@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus simulation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+  <center>
+    <div id="timer">
+      <h2>Plate Number: <span id="plate">------</span></h2>
+      <h2>Speed: <span id="speed">000</span> KM/H</h2>
+      <p>Bus status: <span id="status">----</span></p>
+    </div>
+
+    <div id="controls">
+
+    <button id="start">Start 🔑</button>
+    <button id="speedUp">Speed Up ⏫</button>
+    <button id="slowDown"> Slow Down ⏬</button>
+    <button id="stop">Stop 🛑</button>
+    <!-- <button id="reset">Reset 🔁</button> -->
+    <button id="addP">Passenger ➕ </button>
+    <button id="removeP">Passenger ➖</button>
+    
+    </div>
+
+    <div id="logs">
+        <h1>Logs</h1>
+        <p id="log"></p>
+    </div>
+
+    <div id="passanger_section">
+      <h1>Total Passenger: <span id="passenger"> 00 </span> 👨‍👩‍👧‍👧</h1>
+      <h2>Available Seats: <span id="seats"> 00 </span>💺</h2>
+      <h3>============================================================</h3>
+      <h2>ROUTES</h2>
+      <h3> Source: <span id="source">----</span></h3>
+      <h3> Destination: <span id="dest">----</span></h3>
+      
+    </div>
+  </center>
+
+  <script src="script.js"></script>
+</body>
+</html>
