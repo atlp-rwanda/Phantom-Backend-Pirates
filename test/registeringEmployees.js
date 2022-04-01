@@ -12,12 +12,13 @@ describe('registeringAPI', () => {
     //Add a new employee test
     describe("POST /employees/:id", () => {     
       it("it should add an employee", (done) => {
+
         const id = 3
         const employee = {
               firstname:"Frank",
               lastname:"Irankunda",
               email:"irank456@gmail.com",  
-          };
+        }
        chai.request(app)
        .post("/employees/"+id)
        .send(employee)
