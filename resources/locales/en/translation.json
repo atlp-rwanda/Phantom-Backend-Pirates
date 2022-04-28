@@ -1,5 +1,5 @@
 {
-  "welcome_message": "Welcome to Phantom Web",
+  "welcome_message": "Welcome to Phantom",
   "login_message": {
     "onSuccess": {
       "admin": "You have successfully logged in as an Admin",
@@ -135,6 +135,17 @@
       "busNotFound":"Bus not found",
       "busHasADriver":"Bus already assigned driver",
       "success":"Bus assigned to a driver"
+    },
+  "changePassword": {
+    "success": "Password Successfully changed",
+    "failure": {
+      "invalidToken":"Invalid Token",
+      "tokenRequired": "A valid token is required",
+      "noUser": "User with the email does not exist",
+      "pwdMissmatch": "Passwords entered do not match",
+      "wrongPsw": "The password or email are incorrect"
+
     }
   }
+}
 

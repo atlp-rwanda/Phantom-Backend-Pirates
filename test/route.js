@@ -1,6 +1,6 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const API = 'http://localhost:4000';
+const {app} = require('../src/app');
 
 // Assertion style
 
@@ -12,7 +12,7 @@ describe('Routes API', () => {
   describe('GET /api/routes', () => {
     it('It should GET all routes', (done) => {
       chai
-        .request(API)
+        .request(app)
         .get('/api/routes')
         .end((err, response) => {
           response.should.have.status(200);
@@ -23,7 +23,7 @@ describe('Routes API', () => {
   });
   it('It should NOT GET the route with wrong API', (done) => {
     chai
-      .request(API)
+      .request(app)
       .get('/api/route')
       .end((err, response) => {
         response.should.have.status(404);
@@ -34,10 +34,10 @@ describe('Routes API', () => {
 
   /* Test the GET by ID route */
   describe('GET /api/routes/:id', () => {
-    it('It should GET a task by ID', (done) => {
-      const routeId = 28;
+    it('It should GET a route by ID', (done) => {
+      const routeId = 1;
       chai
-        .request(API)
+        .request(app)
         .get('/api/routes/' + routeId)
         .end((err, response) => {
           response.should.have.status(200);
@@ -53,7 +53,7 @@ describe('Routes API', () => {
     it('It should NOT GET the route with wrong id', (done) => {
       const routeId = 17;
       chai
-        .request(API)
+        .request(app)
         .get('/api/route/' + routeId)
         .end((err, response) => {
           response.should.have.status(404);
@@ -66,70 +66,92 @@ describe('Routes API', () => {
   /* Test the POST route */
   describe('POST /api/routes', () => {
     it('It should POST a new route', (done) => {
-      const route = {
-        source: 'Gasogi',
-        destination: 'Gishushu',
-        distance: 1233,
-        busStop: [
-          'Gasogis',
-          'Nyamirambo',
-          'Kicukiro',
-          'Remera',
-          'Nyamirambo',
-          'Onatracom',
-        ],
-      };
       chai
-        .request(API)
+      .request(app)
+      .post('/users/login')
+      .send({
+        email:"uid2710@gmail.com",
+        password:"123456"
+       })
+       .end((err,res)=>{
+         const token = res.body.adminToken;
+       chai
+        .request(app)
         .post('/api/routes')
-        .send(route)
-        .end((err, response) => {
-          response.should.have.status(201),
-            response.body.message.should.be.equal('Route successfully created');
-
-          done();
-        });
-    });
-  });
-
-  /* Test the PUT route */
-  describe('PUT /api/routes/:id', () => {
-    it('It should update route', (done) => {
-      const routeId = 28;
-      const route = {
+        .set('Cookie', `jwt = ${token}`)
+        .send({
         source: 'gatsata',
         destination: 'Kimicanga',
         distance: 6080,
-        busStop: ['Nyamirambo', 'Campkigali', 'Kicukiro', 'Remera', 'Kabuga'],
-      };
+        busStop: ['15', '43', 'Kicukiro','onatracom', 'KCT','Remera', 'Kabuga','Nyarugenge']
+        })
+        .end((err, response) => {
+          console.log(err)
+          response.should.have.status(201),
+          response.body.message.should.be.equal('Route successfully created')
+
+          done()
+        })
+    })
+  })
+})
+  /* Test the PUT route */
+   describe('PUT /api/routes/:id', () => {
+    it('It should update route', (done) => {
+      const routeId = 2
       chai
-        .request(API)
+      .request(app)
+      .post('/users/login')
+      .send({
+        email:"uid2710@gmail.com",
+        password:'123456'
+      })
+      .end((err,res)=>{
+        const token= res.body.adminToken;
+        chai
+        .request(app)
         .put('/api/routes/' + routeId)
-        .send(route)
+        .set('Cookie', `jwt = ${token}`)
+        .send(
+          {
+            source: 'gatsata',
+            destination: 'Kimicanga',
+            distance: 6080,
+            busStop: ['Nyamirambo', 'Masoro', 'Chuk','Makuza', 'onatracom','Rubangura','Remera', 'Kabuga','38']
+    
+          }
+        )
         .end((err, response) => {
           response.should.have.status(200),
-            response.body.message.should.be.equal(
-              'Route is successfully updated'
-            );
-
-          done();
-        });
-    });
-  });
-
-  /* Test the DELETE route */
+          response.body.message.should.be.equal('Route is successfully updated')})
+          done()
+        })
+    })
+  }) 
+  /* Delete route */
   describe('DELETE /api/routes/:id', () => {
-    it('It should DELETE a route', (done) => {
-      const routeId = 28;
-      chai
-        .request(API)
-        .delete('/api/routes/' + routeId)
-        .end((err, response) => {
-          response.should.have.status(200),
-            response.body.message.should.be.equal('route successfully deleted');
-
-          done();
-        });
-    });
+  it('It should delete a route', (done) => {
+    const id = 2;
+    const user = {
+      email:"uid2710@gmail.com",
+      password:"123456"
+    }
+    chai
+      .request(app)
+      .post('/users/login')
+      .send(user)
+      .end((err, res) => {
+        res.should.have.status(200)
+        res.body.message.should.be.equal('You have successfully logged in as an Admin')
+        var token = res.body.adminToken;
+    chai.request(app)
+      .delete(`/api/routes/${id}`)
+      .set('Cookie', `jwt = ${token}`)
+      .end((err, res) => {
+        res.should.have.status(200);
+        done();
+      });
   });
+});
+});
 });
