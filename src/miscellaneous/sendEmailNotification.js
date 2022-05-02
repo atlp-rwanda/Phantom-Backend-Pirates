@@ -6,8 +6,10 @@ dotenv.config()
 function sendNotification (message, email) {
   try {
     const transporter = nodemailer.createTransport({
+      service: 'gmail',
       host: process.env.TRANSPORTER_HOST,
       port: process.env.TRANSPORTER_PORT,
+      secure: true,
       auth: {
         user: process.env.EMAIL,
         pass: process.env.PASSWORD
