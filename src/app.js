@@ -74,7 +74,6 @@ const swaggerOptions = {
 
   apis: ['./src/routes/*.js']
 }
-
 const swaggerDocs = swaggerJsDoc(swaggerOptions)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
