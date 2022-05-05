@@ -1,16 +1,17 @@
-import express from 'express'
-import Companies from '../controllers/company'
-import verifyAdminOperator from '../authorization/verifyAdmnOperator'
-const route = express.Router()
+import express from 'express';
+import Companies from '../controllers/company';
+import verifyAdminOperator from '../authorization/verifyAdmnOperator';
+import verifyUser from '../authorization/verifyUser';
+const route = express.Router();
 
 // Company API
 
 /**
-*  @swagger
-*  tags:
-*    name: Company
-*    description: API to manage your Companies.
-*/
+ *  @swagger
+ *  tags:
+ *    name: Company
+ *    description: API to manage your Companies.
+ */
 
 /**
  * @swagger
@@ -143,33 +144,33 @@ const route = express.Router()
  */
 
 /**
-  * @swagger
-  * /api/company/{id}:
-  *   delete:
-  *     tags:
-  *       - Company
-  *     summary: Delete company API
-  *     description: Deletes a single company
-  *     produces:
-  *       - application/json
-  *     parameters:
-  *       - name: authorization
-  *         in: header
-  *         required: true
-  *       - name: id
-  *         description: Company's id
-  *         in: path
-  *         required: true
-  *         type: integer
-  *     responses:
-  *       200:
-  *         description: Successfully deleted
-  */
+ * @swagger
+ * /api/company/{id}:
+ *   delete:
+ *     tags:
+ *       - Company
+ *     summary: Delete company API
+ *     description: Deletes a single company
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: authorization
+ *         in: header
+ *         required: true
+ *       - name: id
+ *         description: Company's id
+ *         in: path
+ *         required: true
+ *         type: integer
+ *     responses:
+ *       200:
+ *         description: Successfully deleted
+ */
 
-route.post('/api/company', verifyAdminOperator, Companies.create) // create company route
-route.get('/api/company', Companies.listAll) // list all company
-route.get('/api/company/:id', Companies.list) // List 1 company
-route.put('/api/company/:id', verifyAdminOperator, Companies.modify) // update company
-route.delete('/api/company/:id', verifyAdminOperator, Companies.delete) // delete company
+route.post('/api/company', verifyUser, Companies.create); // create company route
+route.get('/api/company', Companies.listAll); // list all company
+route.get('/api/company/:id', Companies.list); // List 1 company
+route.put('/api/company/:id', verifyUser, Companies.modify); // update company
+route.delete('/api/company/:id', verifyUser, Companies.delete); // delete company
 
-export default route
+export default route;

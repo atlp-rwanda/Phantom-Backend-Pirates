@@ -9,12 +9,12 @@ export default (req, res, next) => {
   }
 
   try {
-    const verified = jwt.verify(token, `${process.env.ADMIN_SECRET}`)
+    const verified = jwt.verify(token, process.env.ADMIN_SECRET)
     req.user = verified
     next()
   } catch (error) {
     try {
-      const verified = jwt.verify(token, `${process.env.OPERATOR_SECRET}`)
+      const verified = jwt.verify(token, process.env.OPERATOR_SECRET)
       req.user = verified
       next()
     } catch (error) {

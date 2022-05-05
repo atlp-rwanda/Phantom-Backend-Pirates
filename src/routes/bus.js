@@ -1,7 +1,8 @@
-import express from 'express'
-import Buses from '../controllers/bus'
-import verifyAdminOperator from '../authorization/verifyAdmnOperator'
-const router = express.Router()
+import express from 'express';
+import Buses from '../controllers/bus';
+import verifyAdminOperator from '../authorization/verifyAdmnOperator';
+import verifyUser from '../authorization/verifyUser';
+const router = express.Router();
 
 // Buses API
 
@@ -180,10 +181,10 @@ const router = express.Router()
  *         description: Successfully deleted
  */
 
-router.post('/api/buses/:cid/bus', verifyAdminOperator, Buses.create) // create bus
-router.get('/api/buses', Buses.listAll) // list all bus
-router.get('/api/buses/:id', Buses.findbus) // list 1 bus
-router.put('/api/buses/:id', verifyAdminOperator, Buses.modify) // update bus
-router.delete('/api/buses/:id', verifyAdminOperator, Buses.delete) // delete bus
+router.post('/api/buses/:cid/bus', verifyUser, Buses.create); // create bus
+router.get('/api/buses', Buses.listAll); // list all bus
+router.get('/api/buses/:id', Buses.findbus); // list 1 bus
+router.put('/api/buses/:id', verifyUser, Buses.modify); // update bus
+router.delete('/api/buses/:id', verifyUser, Buses.delete); // delete bus
 
-export default router
+export default router;

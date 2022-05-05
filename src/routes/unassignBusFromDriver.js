@@ -1,8 +1,9 @@
-import express from 'express'
-import Buses from '../controllers/unassigningBustoDriver'
-import verifyAdminOperator from '../authorization/verifyAdmnOperator'
+import express from 'express';
+import Buses from '../controllers/unassigningBustoDriver';
+import verifyAdminOperator from '../authorization/verifyAdmnOperator';
+import verifyUser from '../authorization/verifyUser';
 
-const router = express.Router()
+const router = express.Router();
 
 /**
  * @swagger
@@ -34,6 +35,6 @@ const router = express.Router()
  *      application/json
  */
 
-router.patch('/api/buses/unassign/:busId', verifyAdminOperator, Buses.unassign)
+router.patch('/api/buses/unassign/:busId', verifyUser, Buses.unassign);
 
-export default router
+export default router;
