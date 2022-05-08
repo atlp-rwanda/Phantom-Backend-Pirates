@@ -14,7 +14,7 @@ class Buses {
     const routeId = req.params.routeId;
 
     return helper
-      .checkPermission(req.user.user.roleId, 'assign drive to bus')
+      .checkPermission(req.user.user.roleId, 'assign bus to route')
       .then((rolePerm) => {
         if (rolePerm) {
           Bus.findByPk(req.params.busId)

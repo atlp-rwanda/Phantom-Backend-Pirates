@@ -45,16 +45,16 @@ if (app.get('env') === 'development') {
 }
 var origin;
 
-//const allowedOrigins = ['http://localhost:4000', `${process.env.FRONTEND_URL}`];
 app.use(function (req, res, next) {
   origin = req.headers.origin;
-  //if (allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', `${origin}`);
- // }
- res.header('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', `${origin}`);
+  res.header('Access-Control-Allow-Credentials', true);
   res.header('Access-Control-Allow-Methods', 'POST, PUT, OPTIONS, DELETE, GET');
   res.header('Access-Control-Max-Age', '3600');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Access-Control-Allow-Headers, X-PINGOTHER, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
+  );
   return next();
 });
 
@@ -62,20 +62,16 @@ const corsOption = {
   origin,
   credentials: true,
   withCredentials: true,
-  optionSuccessStatus: 200
+  optionSuccessStatus: 200,
 };
 
-
-app.use(cors(corsOption));
-app.options('*',cors(corsOption));
-
-
-  
+// app.use(cors(corsOption));
+app.options('*', cors(corsOption));
 
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: 'true' }));
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
-app.use(cookieParser());
+// app.use(cookieParser());
 
 // Port & hostname
 const port = process.env.PORT || 5000;
@@ -92,10 +88,10 @@ const swaggerOptions = {
     },
   },
 
-  apis: ['./src/routes/*.js']
-}
-const swaggerDocs = swaggerJsDoc(swaggerOptions)
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
+  apis: ['./src/routes/*.js'],
+};
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 app.use(cookieParser());
 // Use routes
