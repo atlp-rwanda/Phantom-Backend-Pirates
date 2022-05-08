@@ -1,9 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 export default (req, res, next) => {
-  console.log(req.cookies);
-  const token = req.headers.Authorization.split(' ')[1];
-
+  const token = req.cookies.jwt;
   if (!token) {
     return res.status(400).json({
       message: 'Access Denied!, you can not perform this task',

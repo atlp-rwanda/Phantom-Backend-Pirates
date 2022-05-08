@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 export default (req, res, next) => {
-  const adminToken = req.headers.Authorization.split(' ')[1];
+  const adminToken = req.cookies.jwt;
   if (!adminToken) {
     return res.status(400).json({
       message: 'Access Denied!, Only Admin can perform this task',
