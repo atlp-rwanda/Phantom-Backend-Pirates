@@ -63,7 +63,7 @@ const login = (req, res) => {
               expiresIn: process.env.AUTH_EXPIRES,
             }
           );
-          console.log(process.env.OPERATOR_SECRET)
+          console.log(process.env.OPERATOR_SECRET);
           res.cookie('jwt', operatorToken, {
             httpOnly: true,
             expiresIn: process.env.AUTH_EXPIRES,

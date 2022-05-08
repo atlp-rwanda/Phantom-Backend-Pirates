@@ -34,7 +34,6 @@ import assignPermToRoelRouter from './routes/assignPermissionToRole';
 dotenv.config();
 // Initialize express app
 const app = express();
-
 app.use(cookieParser());
 
 app.use(i18nextMiddleware.handle(i18next));
@@ -55,7 +54,7 @@ app.use(function (req, res, next) {
   res.header('Access-Control-Max-Age', '3600');
   res.setHeader(
     'Access-Control-Allow-Headers',
-    'Access-Control-Allow-Origin, X-PINGOTHER, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
+    'Access-Control-Allow-Origin, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
   );
   return next();
 });
@@ -73,7 +72,6 @@ app.options('*', cors(corsOption));
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: 'true' }));
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
-
 
 // Port & hostname
 const port = process.env.PORT || 5000;
