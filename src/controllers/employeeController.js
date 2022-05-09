@@ -74,6 +74,7 @@ class Employees {
           success: true,
           message: `${registrationSuccess}`,
           employeeData: {
+            id: employeeData.id,
             firstname: employeeData.firstname,
             lastname: employeeData.lastname,
             email: employeeData.email.Employee,
