@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import model from '../../models'
 
-const { Bus, Route } = model
+const { Bus, Route, Company } = model
 
 class Buses {
   // create bus
@@ -60,7 +60,8 @@ class Buses {
     return Bus.findAll()
       .then((listbus) => {
         if (listbus.length === 0) {
-          res.status(400).send({
+          res.status(200).send({
+            data: listbus,
             message: `${Norecord}`
           })
         } else {
@@ -75,17 +76,19 @@ class Buses {
     const Badresponse = req.t('bus_message.id_not_found')
     const id = req.params.id
 
-    return Bus.findAll({
+    return Bus.findOne({
       where: {
         id: id
       },
       attributes: {
-        exclude: ['cid', 'rout_id', 'createdAt', 'updatedAt']
+        exclude: ['rout_id','cid', 'createdAt', 'updatedAt']
       },
-      include: {
+      include:[ {
         model: Route,
         attributes: ['source', 'destination', 'busStop']
-      }
+      },{
+      model: Company,
+      }]
     })
       .then((busObject) => {
         if (busObject.length === 0) {
