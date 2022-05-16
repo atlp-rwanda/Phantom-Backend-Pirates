@@ -23,7 +23,7 @@ class Routes {
         message: `${emptySource}`
       })
     }
-    if (!/^[A-Za-z]+$/.test(source)) {
+    if (!/^[A-Za-z0-9!@#$&()`.+,\\\/"-]+$/.test(source)) {
       return res.status(400).json({
         message: `${InvalidSource}`
       })
@@ -33,7 +33,7 @@ class Routes {
         message: `${emptyDestination}`
       })
     }
-    if (!/^[A-Za-z]+$/.test(destination)) {
+    if (!/^[A-Za-z0-9!@#$&()`.+,\\\/"-]+$/.test(destination)) {
       return res.status(400).json({
         message: `${InvalidDestination}`
       })

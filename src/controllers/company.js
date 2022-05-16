@@ -15,7 +15,7 @@ class Companies {
         message: `${companyFieldResponse}`
       })
     }
-    if (!/^[A-Za-z]+$/.test(name)) {
+    if (!/^[A-Za-z0-9!@#$&()`.+,\\\/"-]+$/.test(name)) {
       return res.status(400).send({
         message: `${companyValidName}`
       })
@@ -50,9 +50,12 @@ class Companies {
     return Company.findAll()
       .then((companies) => {
         if (companies.length === 0) {
-          return res.status(400).send({
+          return res.status(200).send({
+            data: companies,
             message: `${Norecord}`
           })
+        }else {
+          res.status(200).send(companies)
         }
       })
 
@@ -93,7 +96,7 @@ class Companies {
         message: `${companyFieldResponse}`
       })
     }
-    if (!/^[A-Za-z]+$/.test(name)) {
+    if (!/^[A-Za-z0-9!@#$&()`.+,\\\/"-]+$/.test(name)) {
       return res.status(400).send({
         message: `${companyValidName}`
       })

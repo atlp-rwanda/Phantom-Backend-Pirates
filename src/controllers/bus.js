@@ -60,7 +60,8 @@ class Buses {
     return Bus.findAll()
       .then((listbus) => {
         if (listbus.length === 0) {
-          res.status(400).send({
+          res.status(200).send({
+            data: listbus,
             message: `${Norecord}`
           })
         } else {
