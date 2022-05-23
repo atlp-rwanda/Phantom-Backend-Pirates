@@ -1,15 +1,16 @@
-import express from 'express'
-import Roles from '../controllers/roleController'
-import Employees from '../controllers/employeeController'
+import express from 'express';
+import Roles from '../controllers/roleController';
+import Employees from '../controllers/employeeController';
+import verifyAdmin from '../authorization/verifyAdmin';
 
-const router = express.Router()
+const router = express.Router();
 
 /**
-*  @swagger
-*  tags:
-*    name: Employee
-*    description: API to manage your Employees.
-*/
+ *  @swagger
+ *  tags:
+ *    name: Employee
+ *    description: API to manage your Employees.
+ */
 
 // Employee Schema
 /**
@@ -170,33 +171,33 @@ const router = express.Router()
 
 // DELETE Employee
 /**
-  * @swagger
-  * /employees/{id}:
-  *   delete:
-  *     tags:
-  *       - Employee
-  *     summary: Delete an Employee API
-  *     description: Deletes a single employee
-  *     produces:
-  *       - application/json
-  *     parameters:
-  *       - name: id
-  *         description: Employee's id
-  *         in: path
-  *         required: true
-  *         type: integer
-  *     responses:
-  *       200:
-  *         description: Employee deleted Successfully
-  */
+ * @swagger
+ * /employees/{id}:
+ *   delete:
+ *     tags:
+ *       - Employee
+ *     summary: Delete an Employee API
+ *     description: Deletes a single employee
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: id
+ *         description: Employee's id
+ *         in: path
+ *         required: true
+ *         type: integer
+ *     responses:
+ *       200:
+ *         description: Employee deleted Successfully
+ */
 
-router.get('/roles/employees', Roles.listEmployeesInRole) // view all Employees in a role
-router.get('/employeesInRole/:id', Employees.listEmployeeInRole)
-router.get('/employees/list', Employees.list) // view all employees
-router.get('/employees/:id', Employees.listOneEmployee) // view a single employee
-router.get('/employees/roleInfo/:id', Employees.EmployeeroleInformation) // view employees role info
-router.post('/employees/:roleId', Employees.create) // add a new employee
-router.put('/employees/:id', Employees.updateEmployee) // update employee
-router.delete('/employees/:id', Employees.delete) // delete employee
+router.get('/roles/employees', Roles.listEmployeesInRole); // view all Employees in a role
+router.get('/employeesInRole/:id', Employees.listEmployeeInRole);
+router.get('/employees/list', Employees.list); // view all employees
+router.get('/employees/:id', Employees.listOneEmployee); // view a single employee
+router.get('/employees/roleInfo/:id', Employees.EmployeeroleInformation); // view employees role info
+router.post('/employees/:roleId', verifyAdmin, Employees.create); // add a new employee
+router.put('/employees/:id', verifyAdmin, Employees.updateEmployee); // update employee
+router.delete('/employees/:id', verifyAdmin, Employees.delete); // delete employee
 
-export default router
+export default router;
