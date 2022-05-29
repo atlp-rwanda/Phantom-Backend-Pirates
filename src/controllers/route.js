@@ -159,7 +159,6 @@ class Routes {
       )
   }
 
-  // update route
   static modify (req, res) {
     const response = req.t('route_message.updated_successfully')
     const Routeexists = req.t('route_message.AlreadyexistsRoute')
