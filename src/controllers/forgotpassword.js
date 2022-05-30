@@ -28,7 +28,9 @@ const forgotpassword = (req, res) => {
     } else {
       // Generating Token for resetting password
       const resetToken = jwt.sign({ email: email }, process.env.RESET_SECRET, { expiresIn: process.env.RESET_TOKEN_EXPIRES })
-      res.cookie('jwt', resetToken, { httpOnly: true, expiresIn: process.env.RESET_TOKEN_EXPIRES })
+      res.status(200).json({
+        message: `${responseUserAvailable}`
+      })
 
       // Reset password url
       const url = `${process.env.BASE_URL}/reset/${resetToken}`
@@ -47,7 +49,6 @@ const forgotpassword = (req, res) => {
       })
     }
   }).catch((err) => {
-    console.log(err)
   })
 }
 

@@ -50,7 +50,6 @@ class Buses {
       )
       .catch((error) => {
         res.status(400).send({ message: `${busExistResponse}` })
-        console.log(error)
       })
   }
 
@@ -80,6 +79,7 @@ class Buses {
       where: {
         id: id
       },
+      raw: true,
       attributes: {
         exclude: ['rout_id','cid', 'createdAt', 'updatedAt']
       },
@@ -91,7 +91,7 @@ class Buses {
       }]
     })
       .then((busObject) => {
-        if (busObject.length === 0) {
+        if (!busObject) {
           res.status(400).json({
             message: `${Badresponse}`
           })
@@ -101,7 +101,10 @@ class Buses {
           })
         }
       })
-      .catch((error) => res.status(400).json({ status: 400, error }))
+      .catch((error) =>{
+         res.status(400).json({ status: 400, error })
+        })
+      
   }
 
   // update
@@ -137,7 +140,7 @@ class Buses {
     }
     return Bus.findByPk(req.params.id)
       .then((bus) => {
-        bus
+        Bus
           .update({
             plate: plate || bus.plate,
             category: category || bus.category,
@@ -159,14 +162,12 @@ class Buses {
             res.status(400).send({
               message: `${busExistResponse}`
             })
-            console.log(error)
           })
       })
       .catch((error) => {
         res.status(400).send({
           message: `${busNotFoundResponse}`
         })
-        console.log(error)
       })
   }
   // delete

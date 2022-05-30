@@ -23,7 +23,7 @@ describe('Role APIs', () => {
             .request(app)
             .post('/api/role')
             .set('Accept', 'application/json')
-            .set('Cookie', `jwt = ${token}`)
+            .set('authorization', `Bearer ${token}`)
             .send({ role: 'operator' })
             .end((error, response) => {
               response.should.have.status(200);
@@ -49,7 +49,7 @@ describe('Role APIs', () => {
             .request(app)
             .post('/api/role')
             .set('Accept', 'application/json')
-            .set('Cookie', `jwt = ${token}`)
+            .set('authorization', `Bearer ${token}`)
             .send({ role: 'driverse' })
             .end((error, response) => {
               response.should.have.status(400);
@@ -135,7 +135,7 @@ describe('Role APIs', () => {
           chai
             .request(app)
             .put('/api/role/' + roleId)
-            .set('Cookie', `jwt = ${token}`)
+            .set('authorization', `Bearer ${token}`)
             .send({ role: 'admin' })
             .end((error, response) => {
               response.should.have.status(200);
@@ -161,7 +161,7 @@ describe('Role APIs', () => {
           chai
             .request(app)
             .put('/api/role/' + roleId)
-            .set('Cookie', `jwt = ${token}`)
+            .set('authorization', `Bearer ${token}`)
             .send({ role: 'admin' })
             .end((error, response) => {
               response.should.have.status(400);
@@ -187,7 +187,7 @@ describe('Role APIs', () => {
           chai
             .request(app)
             .put('/api/role/' + roleId)
-            .set('Cookie', `jwt = ${token}`)
+            .set('authorization', `Bearer ${token}`)
             .send({ role: 'admin' })
             .end((error, response) => {
               response.should.have.status(400);
@@ -216,7 +216,7 @@ describe('Role APIs', () => {
           chai
             .request(app)
             .delete('/api/role/' + roleId)
-            .set('Cookie', `jwt = ${token}`)
+            .set('authorization', `Bearer ${token}`)
             .end((error, response) => {
               response.should.have.status(200);
               response.body.should.be.a('object');
@@ -241,7 +241,7 @@ describe('Role APIs', () => {
           chai
             .request(app)
             .delete('/api/role/' + roleId)
-            .set('Cookie', `jwt = ${token}`)
+            .set('authorization', `Bearer ${token}`)
             .end((error, response) => {
               response.should.have.status(400);
               response.body.should.be.a('object');
@@ -266,7 +266,7 @@ describe('Role APIs', () => {
           chai
             .request(app)
             .delete('/api/role/' + roleId)
-            .set('Cookie', `jwt = ${token}`)
+            .set('authorization', `Bearer ${token}`)
             .end((error, response) => {
               response.should.have.status(400);
               response.body.should.be.a('object');

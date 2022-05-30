@@ -15,7 +15,6 @@ const resetAuth = (req, res, next) => {
   } else {
     jwt.verify(resetToken, process.env.RESET_SECRET, (err, decodedToken) => {
       if (err) {
-        console.log(err.message)
         res.status(404).json({
           message: 'Invalid Token'
         })

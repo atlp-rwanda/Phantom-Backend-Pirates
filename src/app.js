@@ -7,7 +7,6 @@ import i18next from 'i18next'
 import i18nextMiddleware from 'i18next-express-middleware'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
-import cookieParser from 'cookie-parser'
 
 // Required Routes
 import welcomeRoute from './routes/welcomeRoute'
@@ -34,7 +33,6 @@ app.use(i18nextMiddleware.handle(i18next))
 // Morgan for the logger in the console
 if (app.get('env') === 'development') {
   app.use(logger('dev'))
-  console.log('Morgan logger is enabled...')
 }
 
 app.all('*', function (req, res, next) {
@@ -51,7 +49,6 @@ app.all('*', function (req, res, next) {
 app.use(bodyParser.json({ limit: '100mb' }))
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: 'true' }))
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
-app.use(cookieParser())
 
 // Port & hostname
 const port = process.env.APP_PORT || 3000
@@ -75,7 +72,6 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJsDoc(swaggerOptions)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
-app.use(cookieParser())
 
 // Use routes
 app.use(welcomeRoute)
@@ -97,9 +93,7 @@ app.use(assignDriver)
 
 // Listening to requests
 app.listen(port, async () => {
-  console.log(`Server running at http://${hostname}:${port}/..`)
   await sequelize.authenticate()
-  console.log('Databse connected successfully')
 })
 
 export { app }

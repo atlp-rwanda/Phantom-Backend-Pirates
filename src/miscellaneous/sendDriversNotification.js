@@ -20,13 +20,10 @@ function sendNotification (message, email) {
       html: message // html body
     }, (err, info) => {
       if (err) {
-        console.log(err)
         throw new Error('Unable to send Message')
       }
-      console.log(info)
     })
   } catch (error) {
-    console.log(error)
   }
 }
 

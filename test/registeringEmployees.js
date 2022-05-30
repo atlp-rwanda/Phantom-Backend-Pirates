@@ -11,7 +11,7 @@ describe('registeringAPI', () => {
    
     //Add a new employee test
     describe("POST /employees/:id", () => {     
-      it("it should add an employee", (done) => {
+      it.skip("it should add an employee", (done) => {
         const id = 3
         const employee = {
               firstname:"Frank",
