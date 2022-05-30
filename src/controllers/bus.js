@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import model from '../../models'
 
-const { Bus, Route } = model
+const { Bus, Route, Company } = model
 
 class Buses {
   // create bus
@@ -50,7 +50,6 @@ class Buses {
       )
       .catch((error) => {
         res.status(400).send({ message: `${busExistResponse}` })
-        console.log(error)
       })
   }
 
@@ -60,7 +59,8 @@ class Buses {
     return Bus.findAll()
       .then((listbus) => {
         if (listbus.length === 0) {
-          res.status(400).send({
+          res.status(200).send({
+            data: listbus,
             message: `${Norecord}`
           })
         } else {
@@ -75,20 +75,23 @@ class Buses {
     const Badresponse = req.t('bus_message.id_not_found')
     const id = req.params.id
 
-    return Bus.findAll({
+    return Bus.findOne({
       where: {
         id: id
       },
+      raw: true,
       attributes: {
-        exclude: ['cid', 'rout_id', 'createdAt', 'updatedAt']
+        exclude: ['rout_id','cid', 'createdAt', 'updatedAt']
       },
-      include: {
+      include:[ {
         model: Route,
         attributes: ['source', 'destination', 'busStop']
-      }
+      },{
+      model: Company,
+      }]
     })
       .then((busObject) => {
-        if (busObject.length === 0) {
+        if (!busObject) {
           res.status(400).json({
             message: `${Badresponse}`
           })
@@ -98,7 +101,10 @@ class Buses {
           })
         }
       })
-      .catch((error) => res.status(400).json({ status: 400, error }))
+      .catch((error) =>{
+         res.status(400).json({ status: 400, error })
+        })
+      
   }
 
   // update
@@ -134,7 +140,7 @@ class Buses {
     }
     return Bus.findByPk(req.params.id)
       .then((bus) => {
-        bus
+        Bus
           .update({
             plate: plate || bus.plate,
             category: category || bus.category,
@@ -156,14 +162,12 @@ class Buses {
             res.status(400).send({
               message: `${busExistResponse}`
             })
-            console.log(error)
           })
       })
       .catch((error) => {
         res.status(400).send({
           message: `${busNotFoundResponse}`
         })
-        console.log(error)
       })
   }
   // delete

@@ -11,16 +11,19 @@ class Buses {
     const routeId = req.params.routeId
 
     return Bus.findByPk(busId)
-      .then((bus) => {
-        bus.rout_id
+      .then((found) => {
+        found.rout_id
           ? res.status(400).json({
             message: `${assignExist}`
           })
-          : bus
+          : Bus
             .update({
               rout_id: routeId
-            })
-            .then((updatedBus) => {
+            },{
+              return: true
+            }
+            )
+            .then((bus) => {
               res.status(200).json({
                 message: `${assignSucces}`,
                 bus

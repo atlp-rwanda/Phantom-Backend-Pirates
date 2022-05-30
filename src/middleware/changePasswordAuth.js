@@ -10,7 +10,7 @@ const changePassword = (req, res, next) => {
   const responseChangePswTokenRequired = req.t('changePassword.failure.tokenRequired')
   const responseChangePswInvalidToken = req.t('changePassword.failure.invalidToken')
   // fetching token from req.params
-  const changePasswordToken = req.cookies.jwt
+  const changePasswordToken = req.headers.authorization.split(' ')[1];
 
   // check jwt exists and is verified
   if (!changePasswordToken) {

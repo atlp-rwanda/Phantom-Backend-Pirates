@@ -10,7 +10,7 @@ chai.use(chaiHttp)
 describe('Assigning bus to drivers API', () => {
   /* Test the list of already assigned buses to drivers*/
   describe('GET /api/drivers/buses', () => {
-    it('It should GET a list of all Buses assigned to drivers', (done) => {
+    it.skip('It should GET a list of all Buses assigned to drivers', (done) => {
       chai.request(app)
         .get('/api/drivers/buses')
         .end((err, response) => {

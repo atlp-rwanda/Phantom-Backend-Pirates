@@ -32,7 +32,7 @@ window.fetch(busUrl, otherParam)
     $('#dest').html(destination)
 
 
-  }).catch(err => console.log(err))
+  }).catch(err => {})
 
 const logSection = $('#log')
 
@@ -154,6 +154,5 @@ const updateBus = (plateNumber, seats, busStatus) => {
   })
     .then(response => response.json())
     .then(res => {
-      console.log(res);
     })
 }
