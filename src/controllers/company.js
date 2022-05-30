@@ -11,36 +11,39 @@ class Companies {
     const companyValidEmail = req.t('company_message.valid_email')
     const { name, email } = req.body
     if (name === '' || email === '') {
-      return res.status(400).send({
+      return res.status(400).json({
         message: `${companyFieldResponse}`
       })
     }
     if (!/^[A-Za-z0-9!@#$&()`.+,\\\/"-]+$/.test(name)) {
-      return res.status(400).send({
+      return res.status(400).json({
         message: `${companyValidName}`
       })
     }
     if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) {
-      return res.status(400).send({
+      return res.status(400).json({
         message: `${companyValidEmail}`
       })
     }
-    return Company.create({
+    return Company.create(
+      {
       name,
       email
-    })
+    }
+    )
       .then((userData) =>
-        res.status(201).send({
+      {
+        res.status(201).json({
           success: true,
           message: `${companySuccessResponse}`,
           userData
         })
+      }
       )
       .catch((error) => {
-        res.status(400).send({
+        res.status(400).json({
           message: `${companyExistResponse}`
         })
-        console.log(error)
       })
   }
 
@@ -50,16 +53,16 @@ class Companies {
     return Company.findAll()
       .then((companies) => {
         if (companies.length === 0) {
-          return res.status(200).send({
+          return res.status(200).json({
             data: companies,
             message: `${Norecord}`
           })
         }else {
-          res.status(200).send(companies)
+          res.status(200).json(companies)
         }
       })
 
-      .catch((error) => res.status(400).send(error))
+      .catch((error) => res.status(400).json(error))
   }
 
   // list one Company
@@ -74,12 +77,12 @@ class Companies {
             data: createdata
           })
         } else {
-          res.status(400).send({
+          res.status(400).json({
             message: `${companyNotFoundResponse}`
           })
         }
       })
-      .catch((error) => res.status(400).send(error))
+      .catch((error) => res.status(400).json(error))
   }
 
   // update  Company
@@ -92,17 +95,17 @@ class Companies {
     const companyValidEmail = req.t('company_message.valid_email')
     const { name, email } = req.body
     if (name === '' || email === '') {
-      return res.status(400).send({
+      return res.status(400).json({
         message: `${companyFieldResponse}`
       })
     }
     if (!/^[A-Za-z0-9!@#$&()`.+,\\\/"-]+$/.test(name)) {
-      return res.status(400).send({
+      return res.status(400).json({
         message: `${companyValidName}`
       })
     }
     if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(email)) {
-      return res.status(400).send({
+      return res.status(400).json({
         message: `${companyValidEmail}`
       })
     }
@@ -114,7 +117,7 @@ class Companies {
             email: email || company.email
           })
           .then((updatedCompany) => {
-            res.status(200).send({
+            res.status(200).json({
               message: `${companySuccessResponse}`,
               data: {
                 name: name || updatedCompany.name,
@@ -123,17 +126,15 @@ class Companies {
             })
           })
           .catch((error) => {
-            res.status(400).send({
+            res.status(400).json({
               message: `${companyExistResponse}`
             })
-            console.log(error)
           })
       })
       .catch((error) => {
-        res.status(400).send({
+        res.status(400).json({
           message: `${companyNotFoundResponse}`
         })
-        console.log(error)
       })
   }
 
@@ -144,17 +145,17 @@ class Companies {
     return Company.findByPk(req.params.id)
       .then((company) => {
         if (!company) {
-          return res.status(400).send({
+          return res.status(400).json({
             message: `${companyNotFoundResponse}`
           })
         }
         return company.destroy().then(() =>
-          res.status(200).send({
+          res.status(200).json({
             message: `${companyDeleteResponse}`
           })
         )
       })
-      .catch((error) => res.status(400).send(error))
+      .catch((error) => res.status(400).json(error))
   }
 }
 
