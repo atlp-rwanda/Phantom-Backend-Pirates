@@ -106,13 +106,7 @@ const io = Server(serverApp, {
   }
 })
 
-const clients = []
-
 io.on('connection', (client) => {
-  // logging clients
-  client.push(client.id)
-  console.log(`==> User with ${client.id} connected || Total Clients: ${clients.length}`)
-
   client.on('START', (data) => {
     client.broadcast.emit('START', data)
   })
