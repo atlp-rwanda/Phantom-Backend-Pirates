@@ -8,6 +8,7 @@ import i18nextMiddleware from 'i18next-express-middleware'
 import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
+import { Server } from 'socket.io'
 
 // Required Routes
 import welcomeRoute from './routes/welcomeRoute'
@@ -96,10 +97,33 @@ app.use(unassignDriver)
 app.use(assignDriver)
 
 // Listening to requests
-app.listen(port, async () => {
+const serverApp = app.listen(port, async () => {
   console.log(`Server running at http://${hostname}:${port}/..`)
   await sequelize.authenticate()
   console.log('Databse connected successfully')
 })
 
+const frontedUrl = process.env.REACT_APP_URL
+
+const io = Server(serverApp, {
+  cors: {
+    origin: frontedUrl,
+    methods: ['GET', 'POST']
+  }
+})
+
+const clients = []
+
+io.on('connection', (client) => {
+  // logging clients
+  client.push(client.id)
+  console.log(`==> User with ${client.id} connected || Total Clients: ${clients.length}`)
+
+  client.on('START', (data) => {
+    client.broadcast.emit('START', data)
+  })
+  client.on('PAUSE', (data) => {
+    client.broadcast.emit('PAUSE', data)
+  })
+})
 export { app }
