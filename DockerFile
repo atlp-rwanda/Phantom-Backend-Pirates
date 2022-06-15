@@ -1,0 +1,19 @@
+FROM node:14-alpine3.12
+
+ARG APP_PORT
+
+WORKDIR /src/app
+
+COPY package*.json ./
+
+RUN npm install
+
+RUN npm install nodemailer
+
+COPY . .
+
+COPY .env.example .env
+
+EXPOSE ${APP_PORT}
+
+CMD ["npm","run","dev"]

@@ -1,0 +1,9 @@
+dist
+node_modules
+.dockerignore
+Dockerfile
+Dockerfile.prod
+.github
+pgconfig
+.nyc_output/
+.husky/
